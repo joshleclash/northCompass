@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Indicador 3</title>
+<link rel="stylesheet" href="./Char/Contents/Style.css" type="text/css" />
+<script language="JavaScript" src="./Char/JSClass/FusionCharts.js"></script>
+<style type="text/css">
+body,td,th {
+	font-family: "Segoe UI Light", "Segoe UI";
+	font-size: 14px;
+	color: #000;
+}
+body {
+	background-color: #FFF;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style>
+</head>
+
+<body>
+<table width="98%" border="0" cellspacing="0" cellpadding="3" align="center">
+  <tr>
+    <td valign="top" align="center"><strong> N&uacute;mero de estudios aprobados y rechazados terceros</strong> <strong>Vs. Meses</strong></td>
+  </tr>
+  <tr> 
+    <td valign="top" align="center"> <div id="chartdiv" align="center"> 
+        FusionCharts. </div>
+      <script type="text/javascript">
+		   var chart = new FusionCharts("./Char/Charts/FCF_MSColumn3D.swf", "ChartId", "700", "450");
+		   chart.setDataURL("MSColumn3D.xml");		   
+		   chart.render("chartdiv");
+		</script> </td>
+  </tr>
+   </tr>
+     <td valign="top" align="center">
+     <a href="Indicadores.html">Volver </a></td>
+  </tr>
+</table>
+</body>
+</html>

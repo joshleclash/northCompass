@@ -1,0 +1,111 @@
+<?php
+include("Conexion.php");
+session_start();
+$Csc=$_SESSION['Csc'];
+	$sql="Select * from login where csc_login='".$Csc."'";
+	db('northcompas',$link);
+	$Query=mysql_query($sql);
+	$Data=mysql_fetch_array($Query);
+	$PassWord=$Data['PassWord'];
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- css styles-->
+<link rel="stylesheet" type="text/css" href="../../Extjs/resources/css/ext-all.css"/>
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/reset-min.css" />    
+
+    <script type="text/javascript" src="../../Extjs/adapter/ext/ext-base.js"></script> 
+    <script type="text/javascript" src="./Ext.ux.PasswordMeter.js"></script> 
+    <!-- ENDLIBS --> 
+ 	
+    <script type="text/javascript" src="../../Extjs/ext-all.js"></script>
+<!-- Libs forms  -->    
+<title>North Compass</title>
+<style type="text/css">
+body,td,th {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	color: #000;
+}
+</style>
+</head>
+<script language="javascript">
+
+Ext.onReady(function(){
+
+    Ext.QuickTips.init();
+    Ext.form.Field.prototype.msgTarget = 'side';
+
+    /*
+     * ================  Simple form  =======================*/
+	 
+    var simple = new Ext.FormPanel({
+        labelWidth: 75, // label settings here cascade unless overridden
+        url:'Form_Contacto_SQL.php',
+        frame:true,
+        title: 'Datos de contacto',
+        bodyStyle:'padding:5px 5px 0',
+        width: 400,
+        defaults: {width: 230},
+        defaultType: 'textfield',
+		labelAlign: 'top',
+        items: [{
+                fieldLabel: 'Nombre y Apellido',
+                name: 'first',
+                allowBlank:false,
+				anchor:'98%'
+            },{
+                fieldLabel: 'Número teléfonico',
+                name: 'last'
+            },{
+                fieldLabel: 'Correo',
+                name: 'email',
+                vtype:'email'
+            },{
+				xtype:'htmleditor',
+				id:'coment',
+				fieldLabel:'Comentarios',
+				height:100,
+				anchor:'98%'
+       		}	
+		],
+        buttons: [{
+            text: 'Enviar'
+        },{
+            text: 'Cancelar'
+        }]
+    });
+
+    simple.render('form');
+
+
+    var DemoPanel = Ext.Panel({
+        title: 'Area Comercial',
+        frame: true,
+        width: 200,
+        height: 150,
+        //html: 'Teléfono: 4109880<br>Correo: alejandra.vega@northcompass.com.co',
+        bodyStyle: 'padding:10px 15px;'
+    });
+	
+	DemoPanel.render('informacion');
+
+
+});
+</script>
+<body>
+<table width="98%" border="0" cellspacing="3" cellpadding="2">
+  <tr>
+    <td width="56%"><div id="form"></div></td>
+    <td width="44%">
+    <p><b>Área Comercial</b><br>Teléfono: 4109880<br>Correo: <a href="mailto:alejandra.vega@northcompass.com.co">alejandra.vega@northcompass.com.co</a></p><br>
+    <p><b>Área Operaciones</b><br />Teléfono: 4109880<br />Correo: <a href="mailto:carlos.alfonso@northcompass.com.co">carlos.alfonso@northcompass.com.co</a></p><br>
+    <p><b>Área Administrativa</b><br>Teléfono: 4109880<br>Correo: <a href="mailto:alejandra.vega@northcompass.com.co">alejandra.vega@northcompass.com.co</a></p>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

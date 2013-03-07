@@ -1,0 +1,7 @@
+<graph numberPrefix='$' decimalPrecision='0' formatNumberScale='0' showNames='1' font='Arial' fontSize='12' fontColor='000000'>
+   <set name='ACTIVOS' value='9000000' color='8BBA00' />
+	<set name='CARVAJAL' value='5760000' color='FF8E46'  />
+    <set name='LOAPSI' value='16020000' color='008E8E' />
+    <set name='COINDATOS' value='8100000' color='D64646' />
+	<set name='SERVISEGUR' value='2160000' color='8E468E' />
+</graph>

@@ -1,0 +1,42 @@
+<graph xaxisname='Cliente' yaxisname='Solicitudes' hovercapbg='DEDEBE' hovercapborder='889E6D' rotateNames='0' yAxisMaxValue='100' numdivlines='9' divLineColor='CCCCCC' divLineAlpha='80' decimalPrecision='0' showAlternateHGridColor='1' AlternateHGridAlpha='30' AlternateHGridColor='CCCCCC' caption='Solicitudes por empresa' subcaption='North Compass' >
+   <categories font='Arial' fontSize='11' fontColor='000000'>
+      <category name='Ene' hoverText='Enero'/>
+      <category name='Feb' />
+      <category name='Mar' />
+      <category name='Abr' />
+      <category name='May' />
+      <category name='Jun' />
+      <category name='Jul' />
+      <category name='Ago' />	  	  	  
+   </categories>
+   <dataset seriesname='Coca Cola' color='FDC12E'>
+      <set value='30' />
+      <set value='26' />
+      <set value='29' />
+      <set value='31' />
+      <set value='34' />
+      <set value='59' />
+      <set value='3' />
+      <set value='54' />	  
+   </dataset>
+    <dataset seriesname='BHM' color='56B9F9'>
+      <set value='67' />
+      <set value='98' />
+      <set value='79' />
+      <set value='73' />
+      <set value='80' />
+      <set value='29' />
+      <set value='43' />
+      <set value='8' />	  
+   </dataset>
+    <dataset seriesname='Ecopetrol' color='C9198D'>
+      <set value='27' />
+      <set value='25' />
+      <set value='28' />
+      <set value='26' />
+      <set value='10' />
+      <set value='78' />
+      <set value='46' />
+      <set value='100' />	  
+   </dataset>
+</graph>

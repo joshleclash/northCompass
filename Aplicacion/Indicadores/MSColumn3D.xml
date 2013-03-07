@@ -1,0 +1,23 @@
+<graph xaxisname='TERCERO' yaxisname='SOLICITUDES' hovercapbg='DEDEBE' hovercapborder='889E6D' rotateNames='0' yAxisMaxValue='100' numdivlines='9' divLineColor='CCCCCC' divLineAlpha='80' decimalPrecision='0' showAlternateHGridColor='1' AlternateHGridAlpha='30' AlternateHGridColor='CCCCCC' font='Arial' fontSize='12' fontColor='000000'>
+   <categories font='Arial' fontSize='12' fontColor='000000'>
+      <category name='ACTIVOS' hoverText='ACTIVOS'/>
+      <category name='CARVAJAL' />
+      <category name='LOAPSI' />
+      <category name='COINDATOS' />
+      <category name='SERVISEGUR' />
+   </categories>
+    <dataset seriesname='APROBADOS' color='56B9F9'>
+      <set value='67' />
+      <set value='98' />
+      <set value='79' />
+      <set value='73' />
+      <set value='80' />
+   </dataset>
+    <dataset seriesname='RECHAZADOS' color='C9198D' >
+      <set value='27' />
+      <set value='25' />
+      <set value='28' />
+      <set value='26' />
+      <set value='10' />
+   </dataset>
+</graph>

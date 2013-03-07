@@ -1,0 +1,15 @@
+<graph PYAxisName='COSTO' SYAxisName='SOLICITUDES' numberPrefix='' showvalues='0'  numDivLines='4' formatNumberScale='0' decimalPrecision='0' anchorSides='10' anchorRadius='3' anchorBorderColor='009900' font='Arial' fontSize='12' fontColor='000000'>
+<categories font='Arial' fontSize='12' fontColor='000000'>
+<category name='CARVAJAL' />
+</categories>
+<dataset seriesName='APROBADOS' color='56B9F9' showValues='0'>
+<set value='25601.34'/>
+</dataset>
+<dataset seriesName='RECHAZADOS' color='C9198D' showValues='0' >
+<set value='7401.85' /> 
+</dataset>
+<dataset seriesName='TOTAL SOLICITUDES' color='8BBA00' showValues='0' parentYAxis='S' >
+<set value='26' />
+<set value='14' />
+</dataset>
+</graph>
