@@ -1,0 +1,81 @@
+<graph PYAxisName='COSTO' SYAxisName='SOLICITUDES'
+ numberPrefix='' showvalues='0'  numDivLines='4' formatNumberScale='0' decimalPrecision='0'
+anchorSides='10' anchorRadius='3' anchorBorderColor='009900' font='Arial' fontSize='12' fontColor='000000'>
+<categories font='Arial' fontSize='12' fontColor='000000'>
+<category name='Enero' />
+<category name='Febrero' />
+<category name='Marzo' />
+<category name='Abril' />
+<category name='Mayo' />
+<category name='Junio' />
+<category name='Julio' />
+<category name='Agosto' />
+<category name='Septiembre' />
+</categories>
+<dataset seriesName='ACTIVOS' color='8BBA00' showValues='0'>
+<set value='25601.34' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+</dataset>
+<dataset seriesName='CARVAJAL' color='FF8E46' showValues='0' >
+<set value='57401.85' link='./indicador21.html' /> 
+<set value='41941.19' link='./indicador21.html' />
+<set value='45263.37' link='./indicador21.html' />
+<set value='117320.16' link='./indicador21.html' />
+<set value='114845.27' link='./indicador21.html' />
+<set value='41941.19' link='./indicador21.html' />
+<set value='45263.37' link='./indicador21.html' />
+<set value='117320.16' link='./indicador21.html' />
+<set value='114845.27' link='./indicador21.html' />
+</dataset>
+<dataset seriesName='LOAPSI' color='008E8E' showValues='0'>
+<set value='25601.34' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+</dataset>
+<dataset seriesName='COINDATOS' color='D64646' showValues='0'>
+<set value='25601.34' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+</dataset>
+<dataset seriesName='SERVISEGUR' color='8E468E' showValues='0'>
+<set value='25601.34' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+<set value='20148.82' link='./indicador21.html' />
+<set value='17372.76' link='./indicador21.html' />
+<set value='35407.15' link='./indicador21.html' />
+<set value='38105.68' link='./indicador21.html' />
+</dataset>
+<dataset seriesName='TOTAL SOLICITUDES' color='9D080D' showValues='0' parentYAxis='S' >
+<set value='50' />
+<set value='44' />
+<set value='42' />
+<set value='77' />
+<set value='92' />
+<set value='44' />
+<set value='42' />
+<set value='77' />
+<set value='92' />
+</dataset>
+</graph>

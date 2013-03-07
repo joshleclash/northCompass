@@ -1,0 +1,37 @@
+<graph caption='Numero de estudios Vs. costo por Mes' subcaption='2011' hovercapbg='FFECAA' hovercapborder='F47E00' formatNumberScale='0' decimalPrecision='0' showvalues='0' numdivlines='3' numVdivlines='0' yaxisminvalue='1000' yaxismaxvalue='1800'  rotateNames='1'>
+<categories >
+	<category name='31/01/2011' />
+	<category name='29/02/2011' />
+	<category name='31/03/2011' />
+	<category name='30/04/2011' />
+	<category name='31/05/2006' />
+	<category name='30/06/2011' />
+	<category name='31/07/2011' />
+	<category name='31/08/2011' />
+	<category name='30/09/2011' />
+</categories>
+<dataset seriesName='COLPATRIA (COSTO)' color='1D8BD1' anchorBorderColor='1D8BD1' anchorBgColor='1D8BD1'>
+	<set value='9000000' />
+	<set value='8640000' />
+	<set value='8640000' />
+	<set value='8640000' />
+	<set value='4500000' />
+	<set value='8100000' />
+	<set value='6480000' />
+	<set value='9000000' />
+	<set value='9800000' />	
+	</dataset>
+
+<dataset seriesName='COLPATRIA (SOLICITUDES)' color='F1683C' anchorBorderColor='F1683C' anchorBgColor='F1683C'>
+	<set value='50' />
+	<set value='48' />
+	<set value='48' />
+	<set value='48' />
+	<set value='25' />
+	<set value='47' />
+	<set value='33' />
+	<set value='50' />	
+	<set value='55' />	
+</dataset>
+
+</graph>

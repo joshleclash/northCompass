@@ -1,0 +1,2729 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<title>GENERADOR DE DIRECCIONES</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<script language="JavaScript" type="text/JavaScript">
+<!--
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+    var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+    if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+
+function MM_findObj(n, d) { //v4.01
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && d.getElementById) x=d.getElementById(n); return x;
+}
+
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+//-->
+</script>
+<script language="JavaScript">
+var message="Boton derecho deshabilitado.";
+function click(e) {
+if (document.all) {
+if (event.button == 2) {
+alert(message);
+return false;
+}
+}
+if (document.layers) {
+if (e.which == 3) {
+alert(message);
+return false;
+}
+}
+}
+if (document.layers) {
+document.captureEvents(Event.MOUSEDOWN);
+}
+document.onmousedown=click;
+// -->
+function fn_leer(){
+	var Direccion = document.getElementById('direccion').value;
+	alert(Direccion)	
+	}
+</script>
+</head>
+
+<style type="text/css">
+.general {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    border: thin ridge #007A35;
+}
+.general01 {
+      font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    border-top: thin none #007A35;
+    border-right: thin ridge #007A35;
+    border-bottom: thin none #007A35;
+    border-left: thin none #007A35;
+}
+
+.general02 {
+      font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    border-top: thin solid #007A35;
+    border-right: thin solid #007A35;
+    border-bottom: thin none #007A35;
+    border-left: thin solid #007A35;
+}
+
+.general03 {
+      font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    border-top: thin solid #007A35;
+    border-right: thin solid #007A35;
+    border-bottom: thin solid #007A35;
+    border-left: thin solid #007A35;
+}
+
+.campo01 {
+      font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px outset #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo011 {
+     font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo012 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo012A {
+  font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo013 {
+  font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px solid #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo013A {
+  font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px solid #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px solid #007A35;
+}
+
+.campo014 {
+  font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo015 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 9pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: bold;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: thin solid #007A35;
+    border-right: thin none #007A35;
+    border-bottom: thin none #007A35;
+    border-left: thin none #007A35;
+}
+
+.campo016 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px solid #007A35;
+    border-right: 1px solid #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px solid #007A35;
+}
+
+.campo017 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: capitalize;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px solid #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo018 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px solid #007A35;
+    border-right: 1px solid #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo019 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 8pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #000000;
+    border-top: 1px solid #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px solid #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo02 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #007A35;
+    border-top: 1px none #007A35;
+    border-right: 1px solid #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo03 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+    font-style: normal;
+    line-height: normal;
+    font-weight: normal;
+    text-transform: none;
+    text-decoration: none;
+    background-color: #FFFFFF;
+    bottom: auto;
+    clip:  rect(auto auto auto auto);
+    color: #007A35;
+    border-top: 1px none #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px none #007A35;
+}
+
+
+.campo1 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-color: #FFFFFF;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+}
+
+.campo1A {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #ffffff;
+    bordercolor="#000000"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: 18px;
+    border: 1px solid #007A35;
+    vertical-align: middle;
+    text-decoration: blink;
+    height: 20px;
+}
+
+.campo1B {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: bolder;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #ffffff;
+    bordercolor="#FFFFFF"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: 18px;
+    border: 1px solid #007A35;
+    vertical-align: middle;
+    height: 25px;
+}
+
+
+
+.campo11 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo12 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: none;
+    background-color: #80B89F;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo13 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo14 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top: 1px none #007A35;
+    border-right: 1px solid #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px none #007A35;
+}
+
+.campo15 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;}
+
+.campo16 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo17 {
+    font-family: Verdana, Arial, Helvetica;
+    font-size: 5.9pt;
+    font-style: normal;
+    font-weight: 500;
+    font-variant: normal;
+    text-transform: none;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height:  10pt;
+    line-height: 8pt;
+    color: #000000;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    text-align: center;
+}
+
+.campo171 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #0078C6;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #FFFFFF;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #002425;
+    border-right-color: #002425;
+    border-bottom-color: #002425;
+    border-left-color: #002425;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo172 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-color: #DFE8F6;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #002425;
+    border-right-color: #002425;
+    border-bottom-color: #002425;
+    border-left-color: #002425;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo172A {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #002425;
+    border-right-color: #002425;
+    border-bottom-color: #002425;
+    border-left-color: #002425;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo173 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: lighter;
+    font-variant: normal;
+    text-transform: none;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+    text-decoration: blink;
+}
+
+
+.campo18 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo18A {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo18B {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: none;
+    border-bottom-style: none;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo18C {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: solid;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo18D {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: solid;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo18E {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: none;
+    border-left-style: solid;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+.campo18F {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E6F2EB;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;
+    color: #000000;
+    border-top-style: none;
+    border-right-style: solid;
+    border-bottom-style: solid;
+    border-left-style: none;
+    border-top-color: #007A35;
+    border-right-color: #007A35;
+    border-bottom-color: #007A35;
+    border-left-color: #007A35;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+
+
+.campo2 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 1.35cm;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #007A35;
+    bordercolor="#1F7635"
+    bgcolor="#1F7635"
+    color: #000000;
+    line-height: normal;
+    color: #FFFFFF;
+    border: #007A35;
+
+}
+.campo3 {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: bold;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: #E2E9E3;
+    bordercolor="#E2E9E3"
+    bgcolor="#E2E9E3"
+    height: auto;
+    line-height: normal;}
+
+.campo4 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: capitalize;
+    background-color: "#00A872";
+    bordercolor="#00A872"
+    bgcolor="#00A872"
+    height: auto;
+    line-height: normal;
+}
+
+
+.verticaltext {
+writing-mode: tb-rl;
+filter: flipv fliph;
+}
+
+.verticaltext1 {
+    writing-mode: tb-rl;
+    filter: flipv fliph;
+    border-top: 1px none #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px solid #007A35;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #000000;
+    font-size: 14px;
+}
+
+.verticaltext2 {
+    writing-mode: tb-rl;
+    filter: flipv fliph;
+    background-color: #E6F2EB;
+    border-top: 1px none #007A35;
+    border-right: 1px none #007A35;
+    border-bottom: 1px none #007A35;
+    border-left: 1px solid #007A35;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+
+</style></style>
+
+<script language="javascript">
+function msm(){
+	alert('xxxx');
+}
+
+var casilla;
+
+// Copiado del visor, esta en validaciones.js
+/* Se usa para lanzar el evento afterupdate, como estamos en otra ventana, no se
+tiene acceso a los los manejadores del visor, por lo tanto se copio y se
+modifico de tal forma que no consulta en la tabla EVENTOS sino que llama
+directamente el evento afterupdate.
+*/
+function evaluate(objCas){
+   //crea el evento para refrescar el valor y lo dispara.
+   if (objCas.dispatchEvent){
+      //Codigo para mozilla.
+      var evento = document.createEvent("Events");
+      evento.initEvent('afterupdate', true, true);
+      objCas.dispatchEvent(evento);
+   } else if(objCas.fireEvent) {
+      //Codigo para IE
+       objCas.fireEvent("onafterupdate");
+   }
+}
+
+/* Esta funciÃ³n se usa como definiciÃ³n de evento para lanzar eventos programaticamente
+ * en casillas readonly, cuyos valores son actualizados por cÃ³digo y por lo tanto no
+ * lanzan eventos como onchange, es usado por el mÃ©todo extendido evaluate de HTMLInputElement.
+ * Se copio de validaciones.js
+ */
+function afterupdate(){
+   return;
+}
+
+function retornaDireccion(campoSalida,direccion)  {
+   // Retorna la dirección en el campo campoSalida del pagina que abrio el generador de Direcciones y cierra   la ventana.
+   // campoSalida:  Parametro de entrada que contiene el nombre de campo de la pagina destino.
+   // direccion: parametro de entrada que contiene la dirección a retornar.
+    var url = document.location.toString();
+  	var y = url.lenght;
+	var x = url.indexOf("=");
+	var z = campoSalida;
+
+	var campoStr = direccion;
+	var salida = "";
+	var j=0;
+	for (i=0;i<campoStr.length;i++) {
+	    var ca = campoStr.charAt(i);
+	    if (j==0 && ca != ' ' ) j=1;
+		if (j==1) salida = salida + ca;
+	}
+	direccion = salida;
+	var campoStr = direccion;
+	var salida = "";
+	var j = 0;
+    for (i=campoStr.length-1;i>-1;i--) {
+	    var ca = campoStr.charAt(i);
+		if (ca!=' ') j=1;
+        if (j==1) salida = ca + salida;
+	}
+	direccion = salida;
+	//alert(salida);
+	eval('opener.document.forms[0].' + casilla + '.value=\"' + direccion + '\"');
+	eval('evaluate(opener.document.forms[0].' + casilla + ')');
+	//alert(z);
+	//opener.parent.document.getElementById(z).value = direccion ;
+	window.close();
+}
+
+function cargaValorCampo(campoSalida)  {
+   // Carga el valor del campo de la ventana opener dado como parametro en  de entrada en el campo de la ventana actual
+   // dado en la vatiable de entada campoSalida.
+     var url = document.location.toString();
+
+        var y = url.length;
+	var x = url.indexOf("=");
+	var z = url.substr(x+1,y);
+	var zz="";
+	for (i = 0; i < z.length ; i++) {
+         if (z.substr(i,1) != '#')
+		    zz += z.substr(i,1);
+	}
+	z = zz;
+	var salida = "";
+        casilla = z;
+	salida = eval('opener.document.forms[0].' + z + '.value');
+
+        //alert(campoSalida);
+        document.getElementById(campoSalida).value = salida;
+	//document.getElementById(campoSalida).value = salida;
+}
+
+function retornaDato1(campoSalida,dato)  {
+   // Retorna el valor del dato en el campo campoSalida del pagina que abrio y cierra   la ventana.
+   // campoSalida:  Parametro de entrada que contiene el nombre de campo de la pagina destino.
+   // dato: parametro de entrada que contiene dato a retornar.
+    var url = document.location.toString();
+	var y = url.length;
+	var x = url.indexOf("=");
+	var z = url.substr(x+1,y);
+	var zz="";
+	for (i = 0; i < z.length ; i++) {
+         if (z.substr(i,1) != '#')
+		    zz += z.substr(i,1);
+	}
+	z = zz;
+	eval('opener.parent.document.forms[0].' + z + '.value=\"' + dato + ' \"');
+	window.close();
+}
+
+function leeParametro() {
+   // Lee parametro de estrada.
+   // valor:  Parametro de entrada.
+   // dato: parametro de entrada que contiene dato a retornar.
+
+    var url = document.location.href.toString();
+	var y = url.length;
+	var x = url.indexOf("=");
+	var z = url.substr(x+1,y);
+	var zz="";
+	for (i = 0; i < z.length ; i++) {
+         if (z.substr(i,1) != '#')
+		    zz += z.substr(i,1);
+	}
+	z = zz;
+	return z;
+}
+
+function concatenaString(valorString1, valorString2,campoSalida) {
+   // cancatena dos string y los deja en la variable campoSalida.
+   // valorString1:  parametro de entrada con l string a concatenar.
+   // valorString1:  parametro de entrada con 2 string a concatenar.
+   // campoSalida: parametro de entrada con el nombre de campo que contendrá el string concatenado.
+   var campoStr = valorString1;
+   salida= "";
+   var j=0;
+   for (i=campoStr.length-1;i>-1;i--) {
+	       var ca = campoStr.charAt(i);
+		   if (ca!=' ') j=1;
+           if (j==1) salida = salida + ca;
+	}
+	campoStr = salida;
+	salida = "";
+	j = 0;
+	for (i=0;i<campoStr.length;i++) {
+	    var ca = campoStr.charAt(i);
+	    if (ca==' ') j=1;
+        if (j!=1) salida = salida + ca;
+	}
+	campoStr = salida;
+	salida = "";
+	for (i=campoStr.length-1;i>-1;i--) {
+	    var ca = campoStr.charAt(i);
+	    salida = salida + ca;
+	}
+   var anterior = salida;
+   if (anterior.length > 0){
+      if(validaDireccion(valorString2,anterior)) {
+           salida = valorString1 + " " + valorString2.toUpperCase();
+           document.getElementById(campoSalida).value = salida;
+	  } else {
+        alert("no puede seleccionar dos nomenclaturas iguales ni más de dos letras seguidas");
+      }
+   }
+   else {
+      salida = valorString1 + " " + valorString2.toUpperCase();
+	  document.getElementById(campoSalida).value= salida;
+      //eval('document.getElementById(' + campoSalida + ').value=\"' + salida + '\"');
+   }
+}
+
+function concatenaNumero(valorString1, valorString2,campoSalida) {
+   // cancatena dos string y los deja en la variable campoSalida.
+   // valorString1:  parametro de entrada con l string a concatenar.
+   // valorString1:  parametro de entrada con 2 string a concatenar.
+   // campoSalida: parametro de entrada con el nombre de campo que contendrá el string concatenado.
+   var salida = "";
+   //if(valorString2=="") {
+   //    alert("Se debe seleccionar un componente de direccion " );
+   // }
+   //else {
+       //alert("entrada" + valorString1.length);
+	   var n = valorString1.length-1;
+	   var aux = valorString1.substr(n,1);
+	   if (aux == "0" || aux == "1" || aux == "2" ||aux == "3" ||aux == "4" ||aux == "5" ||aux == "6" ||
+	   aux == "7" || aux == "8" || aux == "9") {
+	       salida = valorString1.substring(0,n+1);
+	       salida += valorString2;
+		} else {
+		  salida = valorString1 + " " + valorString2;
+        }
+        document.getElementById(campoSalida).value= salida;
+//   }
+}
+
+function validaDireccion(valor1,valor2) {
+ var letras =  new Array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+ var valida = true;
+ var letra1 = false;
+ var letra2 = false;
+ var control = parseInt(document.getElementById('controlaLetras').value);
+ if (valor1 != null && valor2 != null) {
+ /*   if (valor1 == valor2) {
+	   valida = false;
+	} */
+    for (i=0;i<letras.length;i++) {
+	       if (valor1 == letras[i]) letra1 = true;
+           if (valor2 == letras[i]) letra2 = true;
+	}
+	if (letra1 && letra2) {
+	   control++;
+	   document.getElementById('controlaLetras').value = control;
+	   if (control > 2)
+	      valida = false;
+	}
+	else {
+	    if (valor1 == valor2) {
+	       valida = false;
+	    }
+	    document.getElementById('controlaLetras').value = "0";
+	}
+	return valida;
+  }
+}
+
+function borraUltComponenteDireccion(valorString1,campoSalida) {
+   // Borrar el ultimo compomente de la direccioón.
+   // valorString1:  parametro de entrada con el string de la dirección.
+   // campoSalida: parametro de entrada con el nombre de campo que contendrá el nuevo string (direccion modificada.
+   var salida = "";
+   var campoStr = valorString1;
+   var j = 0;
+   var n = campoStr.length;
+   if(campoStr.length > 0) {
+   	   for (i=campoStr.length-1;i>-1;i--) {
+	       var ca = campoStr.charAt(i);
+		   if (ca!=' ' && ca!='#' && ca!='-') j=1;
+               if (j==1) salida = salida + ca;
+	   }
+	   var k = salida.length;
+	   campoStr = salida;
+	   n = n - k;
+	   if (n > 2) {
+	      for (z=n;z>2;z--){
+		       campoStr = " " + salida;
+	      }
+	   }
+       salida = "";
+	   k = campoStr.length;
+	   j=0;
+	   for (i=0;i<k;i++) {
+	       var ca = campoStr.charAt(i);
+		   if (ca==' ' ) j=1;
+		   if (j==1) salida = salida + ca;
+	   }
+	   campoStr = salida;
+	   k = campoStr.length;
+	   salida = "";
+	   for (i=k-1;i>-1;i--) {
+	       var ca = campoStr.charAt(i);
+		   salida = salida + ca;
+	   }
+   }
+   document.getElementById(campoSalida).value = salida;
+}
+
+function borraEspaciosDerecha(valorString1,campoSalida) {
+ var salida = "";
+ var campoStr = valorString1;
+ var j = 0;
+ if(campoStr.length > 0) {
+    for (i=campoStr.length-1;i>-1;i--) {
+	    var ca = campoStr.charAt(i);
+		if (ca!=' ') j=1;
+        if (j==1) salida = ca + salida;
+	 }
+     document.getElementById(campoSalida).value = salida;
+  }
+}
+
+function borraEspaciosInternos(valorString1,campoSalida) {
+ var salida = "";
+ var campoStr = valorString1;
+ var j = 0;
+ if(campoStr.length > 0) {
+    for (i=0;i<campoStr.length;i++) {
+	    var ca = campoStr.charAt(i);
+		if (ca!=' ') j=0;
+		else j++;
+        if (j<2) salida = salida + ca;
+	 }
+     document.getElementById(campoSalida).value = salida;
+  }
+}
+
+function generadorDirecciones(campoRetorno) {
+     	var url = "";
+		url = "./direcciones.jsp?retorno=" + campoRetorno;
+		//url = "/generadorweb/CargarGneradorDireccionesRUT?retorno=" + campoRetorno;
+     	abrirPantalla(url,"Generador de direcciones",640,380,50,50);
+}
+
+function generadorDireccionesB(campoRetorno) {
+     	var url = "";
+		url = "./direccionesA.jsp?retorno=" + campoRetorno;
+		//url = "/generadorweb/cargargeneradordireccionesrut?retorno=" + campoRetorno;
+     	abrirPantalla(url,"Generador de direcciones",540,400,50,50);
+}
+
+function generadorDireccionesA(campoRetorno) {
+     	var url = "";
+		url = "/WebRut/formularios/direccionesD.jsp?retorno=" + campoRetorno;
+		//url = "/generadorweb/cargargeneradordireccionesrut?retorno=" + campoRetorno;
+     	abrirPantalla(url,"Generador de direcciones",720,560,50,50);
+}
+
+function confirmacionEnvio(errores) {
+     	var url = "";
+		url = "/WebRut/formularios/confirmaEnvio.jsp?errores=" + errores;
+		abrirPantalla(url,"Confirmación de envio",370,320,50,50);
+}
+
+function confirmacionEnvio1(campoRetorno) {
+     	var url = "";
+		url = "/WebRut/formularios/confirmaEnvio.jsp?retorno=" + campoRetorno;
+		//url = "/generadorweb/cargargeneradordireccionesrut?retorno=" + campoRetorno;
+     	abrirPantalla(url,"Confirmación de envio",400,380,50,50);
+}
+
+function cargarTablaContribuyente(campoRetorno) {
+     	var url = "";
+		url = "/WebRut/ayuda/tablasq/tipoContribuyente.htm?retorno=" + campoRetorno;
+        window.open(url,'',"toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=420, height=380, top=50, left=50");
+	  }
+
+function cargarTablarResponsabilidades(campoRetorno) {
+     	var url = "";
+		url = "/WebRut/ayuda/tablasq/tipoResponsabilidad.htm?retorno=" + campoRetorno;
+		window.open(url,'',"toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=420, height=380, top=50, left=50");
+}
+
+function cargarTablaDocumento(campoRetorno) {
+     	var url = "";
+		url = "/WebRut/ayuda/tablasq/tipoDocumento.htm?retorno=" + campoRetorno;
+		window.open(url,'',"toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=no, copyhistory=no, width=420, height=380, top=50, left=50");
+}
+
+function abrirPantalla(url, titulo ,ancho,alto,posx,posy) {
+  window.open(url,'titulo',"toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=" + ancho + ", height=" + alto + ", top=" + posy + ",left=" + posx)
+}
+
+function borraElemento(campoSalida) {
+// Borra el elelmento seleccionado de la lista de un campo tipo select.
+   // campoSalida: parametro de entrada con el nombre de campo tipo select donde se llenará la lista modificada.   jsArrayElementos = new Array();
+   jsArrayElementos = new Array();
+   lengthSelect = document.getElementById(campoSalida).length;
+   var indice = 0;
+   for (i=0;i<lengthSelect;i++) {
+      if (document.getElementById(campoSalida).selectedIndex!= i) {
+         jsArrayElementos [indice] = document.getElementById( campoSalida).options[i].text;
+	  indice++;
+	  }
+   }
+   var i = lengthSelect - 1;
+   while (i>=0) {
+      document.getElementById(campoSalida).remove(i);
+      i--;
+   }
+   ls = jsArrayElementos.length;
+   for (var i=0;i < ls; i++) {
+	       oOption 	= document.createElement("OPTION");
+           oOption.text = jsArrayElementos [i];
+	       oOption.value = i + " ";
+           document.getElementById(campoSalida).add(oOption);
+   }
+}
+
+function LimpiaElementosLista(campoSalida) {
+// Limpia los elementos de una de la lista de un campo tipo select.
+// campoSalida: parametro de entrada con el nombre de campo tipo select.
+  // lengthSelect = document.getElementById(campoSalida).length;
+   //var i = lengthSelect - 1;
+  //while (i>=0) {
+   //   document.getElementById(campoSalida).remove(i);
+   //   i--;
+   //}
+   document.getElementById('direccion').value="";
+  // document.forms[0].puente.value="";
+  document.getElementById('puente').value="";
+}
+
+function AddElemento(valor,campoSalida) {
+   // Adiciona un elelmento a una lista de un campo tipo select.
+   // campoSalida: parametro de entrada con el nombre de campo tipo select donde se llenará la lista modificada.
+
+   jsArrayElementos = new Array();
+   lengthSelect = document.getElementById(campoSalida).length; // ***************  eval('document.forms[0].' + campoSalida + '.length' );
+   for (i=0;i<lengthSelect;i++) {
+      jsArrayElementos [i] = document.getElementById(campoSalida ).options[i].text.toUpperCase();  // ***************eval('document.forms[0].' + campoSalida + '.options[' + "i" +'].text.toUpperCase()' );
+   }
+   var i = lengthSelect - 1;
+   while (i>=0) {
+       document.getElementById(campoSalida).remove(i); // ***********eval('document.forms[0].' + campoSalida + '.remove(' + "i" +')' );
+      i--;
+   }
+   ls = jsArrayElementos.length;
+   for (var i=0;i < ls; i++) {
+	       oOption 	= document.createElement("OPTION");
+           oOption.text = jsArrayElementos [i];
+	       oOption.value = i + " ";
+           document.getElementById(campoSalida).add(oOption); // *********eval('document.forms[0].' + campoSalida + '.add(oOption)' );
+   }
+   var oOption 	= document.createElement("OPTION");
+   oOption.text = valor;
+   oOption.value = i;
+   document.getElementById(campoSalida).add(oOption);
+   //alert("addElemento");
+   //eval('document.forms[0].' + campoSalida + '.add(oOption)' );
+}
+
+function subeElemento(campoSalida) {
+   // Sube el elelmento seleccionado de la lista de un campo tipo select.
+   // campoSalida: parametro de entrada con el nombre de campo tipo select donde se llenará la lista modificada.
+   jsArrayElementos = new Array();
+   lengthSelect =  document.getElementById(campoSalida).length;//************** eval('document.forms[0].' + campoSalida + '.length' );
+   var indice = 0;
+   for (i=0;i<lengthSelect;i++) {
+      if (document.getElementById(campoSalida).selectedIndex != i) {
+      jsArrayElementos [indice] = document.getElementById(campoSalida).options[i].text;
+	  indice++;
+	 }
+	 else {
+	   if (i>0){
+	     actual =  document.getElementById(campoSalida).options[i].text;
+		 jsArrayElementos [indice] = document.getElementById(campoSalida).options[i-1].text;
+		 jsArrayElementos [indice - 1] = document.getElementById(campoSalida).options[i].text;
+		 indice++;
+	 }
+	 else {
+	      jsArrayElementos [indice] = document.getElementById(campoSalida).options[i].text;
+	  indice++;
+	 }
+
+   }
+}
+var i = lengthSelect - 1;
+   while (i>=0) {
+      document.getElementById(campoSalida).remove(i);
+      i--;
+   }
+   ls = jsArrayElementos.length;
+   for (var i=0;i < ls; i++) {
+	       oOption 	= document.createElement("OPTION");
+           oOption.text = jsArrayElementos [i];
+	       oOption.value = i + " ";
+           document.getElementById(campoSalida).add(oOption);
+   }
+ }
+
+function bajaElemento(campoSalida) {
+   // Baja el elelmento seleccionado de en la lista de un campo tipo select.
+   // campoSalida: parametro de entrada con el nombre de campo tipo select donde se llenará la lista modificada.
+   jsArrayElementos = new Array();
+   lengthSelect = document.getElementById(campoSalida).length;
+   var indice = 0;
+   var baja = 0;
+   var actual = " ";
+   for (i=0;i<lengthSelect;i++) {
+   if (document.getElementById(campoSalida).selectedIndex != i) {
+	    jsArrayElementos [indice] = document.getElementById(campoSalida).options[i].text;
+	    indice++;
+		if (baja == 1) {
+	        jsArrayElementos [indice] = actual;
+	        indice++;
+		    baja = 0;
+		   }
+	 }
+	 else {
+	   if (i < lengthSelect - 1){
+	     actual =  document.getElementById( campoSalida).options[i].text;
+		 baja = 1;
+	  }
+	  else {
+	     jsArrayElementos [indice] = document.getElementById( campoSalida).options[i].text;
+	    indice++;
+	  }
+
+   }
+}
+var i = lengthSelect - 1;
+   while (i>=0) {
+      document.getElementById(campoSalida).remove(i);
+      i--;
+   }
+   ls = jsArrayElementos.length;
+   for (var i=0;i < ls; i++) {
+	       oOption 	= document.createElement("OPTION");
+           oOption.text = jsArrayElementos [i];
+	       oOption.value = i + " ";
+           document.getElementById(campoSalida).add(oOption);
+   }
+
+}
+
+function pasaElementosAString(campoLista,campoSalida) {
+   // Pasa los elementos de un campo tipo lista a un campo tipo string.
+   // campoLista: parametro de entrade con el nombre del campo tipo lista.
+   // campoSalida: parametro de entrada con el nombre del campo tipo string donde se concatenan los elementos de la lista.
+   var salida = "";
+   lengthSelect = document.getElementById(campoLista).length;
+   for (i=0;i<lengthSelect;i++) {
+        salida = salida + document.getElementById(campoLista).options[i].text;
+  }
+
+  document.getElementById(campoSalida).value = salida;
+ }
+
+function ocultaComplemento() {
+     // Muestra o esconde campo complemento a una nomenclatura que lo requiera
+	 // <DIV STYLE="display:yes" ID="COMPLEMENTO">  </DIV>
+	 // valorAValidar: Parametro de entrada que contiene el valor a validar para esconder la sección.
+	 // valor:  Parametro de entrada que contiene el valor, si es igual al contenido de valorAValidar
+	 //         escode la sección sino la muestra.
+	 // seccion: Parametro de entrada que contiene el nombre de la sección a mostrar o a esconder.
+     with  (document.getElementById('COMPLEMENTOS').style)
+		         display="none";
+     document.getElementById('complementoActivo').value = '0';
+}
+
+function ocultaComplementoCalle() {
+     // Muestra o esconde campo complemento a una nomenclatura que lo requiera
+	 // <DIV STYLE="display:yes" ID="COMPLEMENTO">  </DIV>
+	 // valorAValidar: Parametro de entrada que contiene el valor a validar para esconder la sección.
+	 // valor:  Parametro de entrada que contiene el valor, si es igual al contenido de valorAValidar
+	 //         escode la sección sino la muestra.
+	 // seccion: Parametro de entrada que contiene el nombre de la sección a mostrar o a esconder.
+	with  (document.getElementById('COMPLEMENTOCALLE').style)
+		         display="none";
+}
+
+function muestraComplemento(nomenclatura) {
+     // Muestra o esconde una seccion en documento que este dentro de las etiquetas
+	 // <DIV STYLE="display:yes" ID="seccion">  </DIV>
+	 // seccion: Parametro de entrada que contiene el nombre de la sección a mostrar o a esconder.
+       with  (document.getElementById('COMPLEMENTOS').style)
+		         display="";
+	   document.getElementById('nombreComplemento').value = "Digite nombre " + nomenclatura + ":";
+	   document.getElementById('complementoActivo').value = '1';
+	   document.getElementById('complemento').value = '';
+	   document.getElementById('complemento').focus();
+}
+
+function muestraComplementoCalle(nomenclatura) {
+     // Muestra o esconde una seccion en documento que este dentro de las etiquetas
+	 // <DIV STYLE="display:yes" ID="seccion">  </DIV>
+	 // seccion: Parametro de entrada que contiene el nombre de la sección a mostrar o a esconder.
+       with  (document.getElementById('COMPLEMENTOCALLE').style)
+		         display="";
+       document.getElementById('complementoActivo').value = '2';
+	   document.getElementById('auxiliar').value = nomenclatura;
+	   document.getElementById('nombreComplementoCalle').value = nomenclatura + " con nombre?";
+	   document.getElementById('complementoCalleSN').focus();
+}
+
+function enComplemento(){
+   if(document.getElementById('complementoActivo').value == "1")
+      document.getElementById('complemento').focus();
+   if(document.getElementById('complementoActivo').value == "2")
+      document.getElementById('complementoCalleSN').focus();
+}
+
+function ocultaConfirma() {
+     // Muestra o esconde campo complemento a una nomenclatura que lo requiera
+	 // <DIV STYLE="display:yes" ID="COMPLEMENTO">  </DIV>
+	 // valorAValidar: Parametro de entrada que contiene el valor a validar para esconder la sección.
+	 // valor:  Parametro de entrada que contiene el valor, si es igual al contenido de valorAValidar
+	 //         escode la sección sino la muestra.
+	 // seccion: Parametro de entrada que contiene el nombre de la sección a mostrar o a esconder.
+     with  (eval('CONFRIMAR' + '.style'))
+		         display="none";
+     document.getElementById('complementoActivo').value = '0';
+}
+
+function muestraConfirma(errores) {
+     // Muestra o esconde una seccion en documento que este dentro de las etiquetos
+	 // <DIV STYLE="display:yes" ID="seccion">  </DIV>
+	 // valorAValidar: Parametro de entrada que contiene el valor a validar para esconder la sección.
+	 // valor:  Parametro de entrada que contiene el valor, si es igual al contenido de valorAValidar
+	 //         escode la sección sino la muestra.
+	 // seccion: Parametro de entrada que contiene el nombre de la sección a mostrar o a esconder.
+	  if (errores == 1)  {
+	  	document.getElementById("ERRORES").style.display="";
+ 	  }
+	  else {
+	  	document.getElementById("CONFIRMAR").style.display="";
+	  }
+}
+
+function verificaComplemento(nomenclatura) {
+     // Muestra o esconde una seccion en documento que este dentro de las etiquetos
+	 // <DIV STYLE="display:yes" ID="seccion">  </DIV>
+	 // valorAValidar: Parametro de entrada que contiene el valor a validar para esconder la sección.
+	 // valor:  Parametro de entrada que contiene el valor, si es igual al contenido de valorAValidar
+	 //         escode la sección sino la muestra.
+	 // seccion: Parametro de entrada que contiene el nombre de la sección a mostrar o a esconder.
+	 // var salida = " Digite nombre ";
+	 var salida = "";
+	 if (nomenclatura == "EDIFICIO" || nomenclatura == "ADMINISTRACION"
+            || nomenclatura == "AEROPUERTO"
+			|| nomenclatura == "AGENCIA"
+            || nomenclatura == "AGRUPACION"
+            || nomenclatura == "AVENIDA CARRERA"
+            || nomenclatura == "ALMACEN"
+            || nomenclatura == "AUTOPISTA"
+            || nomenclatura == "AVENIDA"
+            || nomenclatura == "BOULEVAR"
+            || nomenclatura == "BARRIO"
+			|| nomenclatura == "BODEGA"
+			|| nomenclatura == "CARRERA"
+			|| nomenclatura == "CARRETERA"
+			|| nomenclatura == "CASA"
+            || nomenclatura == "CENTRO COMERCIAL"
+            || nomenclatura == "CIUDADELA"
+            || nomenclatura == "CELULA"
+            || nomenclatura == "CAMINO"
+            || nomenclatura == "CONJUNTO RESIDENCIAL"
+            || nomenclatura == "CONJUNTO"
+            || nomenclatura == "CORREGIMIENTO"
+           	|| nomenclatura == "CASERIO"
+            || nomenclatura == "DEPARTAMENTO"
+			|| nomenclatura == "DEPOSITO"
+            || nomenclatura == "EDIFICIO"
+			|| nomenclatura == "ETAPA"
+            || nomenclatura == "FINCA"
+            || nomenclatura == "HACIENDA"
+			|| nomenclatura == "LOTE"
+			|| nomenclatura == "MODULO"
+            || nomenclatura == "MUNICIPIO"
+            || nomenclatura == "PARCELA"
+            || nomenclatura == "PARQUE INDUSTRIAL"
+            || nomenclatura == "PASAJE"
+			|| nomenclatura == "PREDIO"
+            || nomenclatura == "PUENTE"
+			|| nomenclatura == "PUESTO"
+            || nomenclatura == "PASEO"
+            || nomenclatura == "SALON"
+            || nomenclatura == "SALON COMUNAL"
+			|| nomenclatura == "SECTOR"
+			|| nomenclatura == "SUITE"
+			|| nomenclatura == "TERMINAL"
+			|| nomenclatura == "TERRAZA"
+            || nomenclatura == "TORRE"
+            || nomenclatura == "UNIDAD"
+            || nomenclatura == "UNIDAD RESIDENCIAL"
+            || nomenclatura == "URBANIZACION"
+            || nomenclatura == "VEREDA"
+            || nomenclatura == "VIA"
+            || nomenclatura == "VARIANTE"
+			|| nomenclatura == "ZONA"
+			|| nomenclatura == "ZONA FRANCA"
+			|| nomenclatura == "ADELANTE"
+			|| nomenclatura == "AL LADO"
+            || nomenclatura == "ATRÁS"
+            || nomenclatura == "AEREOPUERTO"
+            || nomenclatura == "GLORIETA"
+            || nomenclatura == "PARAJE"
+            || nomenclatura == "INSPECCION DE POLICIA"
+			|| nomenclatura == "INSPECCION DEPARTAMENTAL"
+			|| nomenclatura == "INSPECCION MUNICIPAL")   {
+	    salida += nomenclatura.toLowerCase();
+		/* with  (document.getElementById('COMPLEMENTOS').style)
+		         display="";
+	       document.getElementById('nombreComplemento').value = salida;
+		   document.getElementById('complementoActivo').value = '1';
+		   document.getElementById('complemento').value = '';
+		   document.getElementById('complemento').focus();
+		*/
+		muestraComplementoCalle(salida);
+	}
+	if (nomenclatura == "OTRA NOMENCLATURA") {
+	     salida += "Digite " + nomenclatura.toLowerCase() + ":";
+	     with  (document.getElementById('COMPLEMENTOS').style)
+		         display="";
+	       document.getElementById('nombreComplemento').value = salida;
+		   document.getElementById('complementoActivo').value = '1';
+		   document.getElementById('complemento').value = '';
+		   document.getElementById('complemento').focus();
+    }
+	if (nomenclatura == "CALLE") {
+	    muestraComplementoCalle('Calle');
+    }
+}
+
+function validaComplemento() {
+    var digitos =  new Array("0","1","2","3","4","5","6","7","8","9");
+	var i,j;
+	var numeros = false;
+    if (document.getElementById('complemento').value.length == 0 || document.getElementById('complemento').value == "") {
+	    document.getElementById('complemento').focus();
+		return false;
+	}
+	else {
+	    var campoStr = document.getElementById('complemento').value;
+		for (i=campoStr.length-1;i>-1;i--) {
+	        var ca = campoStr.charAt(i);
+			 for(j=0;j<digitos.length;j++) {
+		          if (ca == digitos[j]) numeros = true;
+		     }
+		}
+	 }
+	 if (numeros) {
+	     alert("Esta campo no debe contener números, por favor verifique.");
+		 document.getElementById('complemento').value = "";
+	     document.getElementById('complemento').focus();
+		 return false;
+	 }
+	 else {
+	   ocultaComplemento();
+	   return true;
+	 }
+   return true;
+}
+
+function decodificarDireccion(dEntrada,campoSalida) {
+   var codigoNomenclaturas = new Array ("AD","AG","AGP","AK","AL","ALM","AP","APTDO","AUT",
+             "AV","BG","BL","BLV","BRR","CA","CC","CD","CEL","CIR","CL","CN","CON","CONJ",
+             "CR","CRR","CRT","CRV","CS","DG","DP","DPTO","DS","ED","EN","ESQ","ESTE","ET",
+             "EX","FCA","GJ","GS","HC","IN","KM","LC","LM","LT","MCP","MD","MN","MZ","NORTE",
+             "O","OCC","OESTE","OF","P","PA","PD","PH","PI","PJ","PL","PN","POR","PQ","PS",
+             "PT","SA","SC","SEC","SL","SM","SS","ST","SU","SUR","TER","TO","TV","TZ","UN",
+             "UR","URB","VDA","VTE","ZF","ZN","(OTRA)",
+			 "ADL","ALD","ATR","CAS","CEN","CS","CRR","ESC","HG","IP","IPD","IPM","MJ","MLL",
+			 "PRJ","PW","PAR","POS","RP","SA","SC","VIA");
+
+
+   var nomenclaturas = new Array ("ADMINISTRACION","AGENCIA","AGRUPACION","AVENIDA CARRERA",
+       "ALTILLO","ALMACEN","APARTAMENTO","APARTADO","AUTOPISTA","AVENIDA","BODEGA",
+       "BLOQUE","BOULEVAR","BARRIO","CASA","CENTRO COMERCIAL","CIUDADELA","CELULA",
+       "CIRCULAR","CALLE","CAMINO","CONJUNTO RESIDENCIAL","CONJUNTO","CARRERA",
+       "CORREGIMIENTO","CARRETERA","CIRCUNVALAR","CONSULTORIO","DIAGONAL","DEPOSITO",
+       "DEPARTAMENTO","DEPOSITO SOTANO","EDIFICIO","ENTRADA","ESQUINA","ESTE","ETAPA",
+       "EXTERIOR","FINCA","GARAJE","GARAJE SOTANO","HACIENDA","INTERIOR","KILOMETRO",
+       "LOCAL","LOCAL MEZZANINE","LOTE","MUNICIPIO","MODULO","MEZZANINE","MANZANA",
+       "NORTE","ORIENTE","OCCIDENTE","OESTE","OFICINA","PISO","PARCELA","PREDIO","PENTHOUSE",
+       "PARQUE INDUSTRIAL","PASAJE","PLANTA","PUENTE","PORTERIA","PARQUEADERO","PASEO",
+       "PUESTO","SALON","SALON COMUNAL","SECTOR","SOLAR","SUPERMANZANA","SEMISOTANO",
+       "SOTANO","SUITE","SUR","TERMINAL","TORRE","TRANSVERSAL","TERRAZA","UNIDAD",
+       "UNIDAD RESIDENCIAL","URBANIZACION","VEREDA","VARIANTE","ZONA FRANCA","ZONA","",
+	   "ADLANTE","AL LADO","ATRAS","CASERIO","CENTRO","COSULTORIO","CORREGIMIENTO","ESCALERA",
+	   "HANGAR","INSPECCION DE POLICIA","INSPECCION DEPARTAMENTAL","INSPECCION MUNICIPAL",
+	   "MOJON","MUELLE","PARAJE","PARK WAY","PARQUE","POSTE","ROUND POINT","SALON","SALON COMUNAL","VIA");
+  var texto = dEntrada;
+  var encontro = false;
+  var codigo = "";
+  var salida = "";
+  var controlB = 0;
+  var controlA = 0;
+  for (k=0; k<texto.length;k++) {
+      if (texto.substr(k,1) != " ") {
+	      codigo += texto.substr(k,1);
+      }
+      else if (codigo.length > 0) {
+          for(i=1;i < codigoNomenclaturas.length;i++) {
+              if (codigo == codigoNomenclaturas[i]) {
+                salida += " " + nomenclaturas[i];
+                encontro = true;
+             }
+          }
+          if(!encontro) {
+             salida += " " + codigo;
+          }
+          codigo = "";
+          encontro = false;
+      }
+      else {controlB++;
+        if (controlB == 2 ) {
+           if( controlA == 0) {
+              controlA = 1;
+              controlB = 0;
+              salida += " #";
+           } else salida += " -";
+       }
+     }
+  }
+  if (codigo.length > 0) {
+     for(i=1;i < codigoNomenclaturas.length;i++) {
+        if (codigo == codigoNomenclaturas[i]) {
+           salida += " " + nomenclaturas[i];
+           encontro = true;
+        }
+     }
+     if(!encontro) {
+             salida += " " + codigo;
+     }
+  }
+  //alert("salida:::: " + campoSalida + " --:" + salida);
+  document.getElementById(campoSalida).value= salida ;
+  //document.getElementById(campoSalida).value = salida;
+}
+
+function borraCaracteresEspeciales(campo,texto) {
+  var validos1  = new Array("1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "*", " ");
+  var validos2 =   new Array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m","n","ñ","o","p","q","r","s","t","u","v","w","x","y","z");
+  var validos3 =   new Array("A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+  var invalidos1 =   new Array("ó", "ú", "í", "á", "é", "Á","É","Í","Ó","Ú","&");
+  var remInvalidos1 =   new Array("o", "u", "i", "a", "e","A","E","I","O","U","\&");
+  var digito = 0;
+  var j = 0;
+  var salida = "";
+  for (i = 0; i < texto.length ; i++) {
+     // salida+= texto.substr(i,1);
+	  for (k=0; k<13;k++) {
+	      if (texto.substr(i,1) == validos1[k])
+		    salida += texto.substr(i,1);
+	  }
+	  for (k=0; k<30;k++) {
+	      if (texto.substr(i,1) == validos2[k])
+		    salida += texto.substr(i,1);
+	  }
+	  for (k=0; k<30;k++) {
+	      if (texto.substr(i,1) == validos3[k])
+		    salida += texto.substr(i,1);
+	  }
+	  for (k=0; k<11;k++) {
+	      if (texto.substr(i,1) == invalidos1[k])
+		    salida += remInvalidos1[k];
+	  }
+  }
+  campo.value = salida;
+ }
+
+
+</script>
+<body onLoad="MM_preloadImages('/WebRutMuisca/images/bp_uploadr.gif','/WebRutMuisca/images/bp_bajarr.gif','/WebRutMuisca/images/bp_arribar.gif');setInterval('blinkIt()',500);
+       cargaValorCampo('puente');decodificarDireccion(document.getElementById('puente').value,'direccion')">
+<script type="text/javascript">
+function blinkIt() {
+ if (!document.all) return;
+ else {
+   for(i=0;i<document.all.tags('blink').length;i++){
+      s=document.all.tags('blink')[i];
+      s.style.visibility=(s.style.visibility=='visible')?'hidden':'visible';
+   }
+ }
+}
+</script>
+
+
+<div style="position:absolute; left: 0px; top: 0px; z-index:0">
+<form action="" method="get" name="FormDireccion" id="FormDireccion" oncontextmenu="return false">
+
+  <table width="100%" border="0" align="center">
+    <tr>
+    </tr>
+    <tr>
+      <td height="9" colspan="3" > <div><font size="2" face="Arial, Helvetica, sans-serif"><strong>Direcci&oacute;n:</strong></font>
+          <input name="direccion" id="direccion" type="text" class="campo1B" value="" size="101" readonly="readonly">
+        </div></td>
+    </tr>
+
+    <tr  height="26">
+      <td  colspan="3" height="400" class="campo016">
+      <table width="100%" >
+            <tr height="20">
+              <td height="24" colspan="7" align="center" background="/WebRutMuisca/images/barracalcu2.jpg" class="campo171"  > NOMENCLATURAS
+                MAS USADAS </td>
+              <td colspan="4" align="center" class="campo171" ><font size="1">Buscar:</font>
+                <select name="select" id="select" class="campo1A"
+                  onChange="if(document.getElementById('complementoActivo').value=='0') {
+                               concatenaString(document.getElementById('puente').value,this.value,'puente');
+                               if(this.options[this.selectedIndex].text != 'OTRA NOMENCLATURA')
+                                  concatenaString(document.getElementById('direccion').value, this.options[this.selectedIndex].text,'direccion');
+                               verificaComplemento(this.options[this.selectedIndex].text);
+                               this.selectedIndex = 0;
+                            } else enComplemento();this.selectedIndex = 0;">
+                  <option value='' >Seleccione...</option>
+                                  <option value='ADL' >ADELANTE</option>
+                  <option value='AD' >ADMINISTRACION</option>
+                  <option value='AER' >AEROPUERTO</option>
+                  <option value='AG' >AGENCIA</option>
+                                  <option value='AGP' >AGRUPACION</option>
+                  <option value='ALD' >AL LADO</option>
+                  <option value='ALM' >ALMACEN</option>
+                  <option value='AL' >ALTILLO</option>
+                  <option value='APTDO' >APARTADO</option>
+                  <option value='AP' >APARTAMENTO</option>
+                  <option value='ATR' >ATRÃS</option>
+                  <option value='AUT' >AUTOPISTA</option>
+                  <option value='AV' >AVENIDA</option>
+                  <option value='AC' >AVENIDA CALLE</option>
+                  <option value='AK' >AVENIDA CARRERA</option>
+                                  <option value='BRR' >BARRIO</option>
+                                  <option value='BL' >BLOQUE</option>
+                                  <option value='BG' >BODEGA</option>
+                                  <option value='BLV' >BOULEVAR</option>
+                                  <option value='CL' >CALLE</option>
+                                  <option value='CN' >CAMINO</option>
+                                  <option value='CR' >CARRERA</option>
+                                  <option value='CRT' >CARRETERA</option>
+                                  <option value='CA' >CASA</option>
+                                  <option value='CAS' >CASERIO</option>
+                  <option value='CEL' >CELULA</option>
+                                  <option value='CEN' >CENTRO</option>
+                                  <option value='CC' >CENTRO COMERCIAL</option>
+                                  <option value='CIR' >CIRCULAR</option>
+                                  <option value='CRV' >CIRCUNVALAR</option>
+                                  <option value='CD' >CIUDADELA</option>
+                                  <option value='CONJ' >CONJUNTO</option>
+                  <option value='CON' >CONJUNTO RESIDENCIAL</option>
+                                  <option value='CS' >CONSULTORIO</option>
+                                  <option value='CRR' >CORREGIMIENTO</option>
+                                  <option value='DPTO' >DEPARTAMENTO</option>
+                                  <option value='DP' >DEPOSITO</option>
+                                  <option value='DS' >DEPOSITO SOTANO</option>
+                                  <option value='DG' >DIAGONAL</option>
+                                  <option value='ED' >EDIFICIO</option>
+                                  <option value='EN' >ENTRADA</option>
+                                  <option value='ESC' >ESCALERA</option>
+                                  <option value='ESQ' >ESQUINA</option>
+                                  <option value='ESTE' >ESTE</option>
+                                  <option value='ET' >ETAPA</option>
+                                  <option value='EX' >EXTERIOR</option>
+                                  <option value='FCA' >FINCA</option>
+                                  <option value='GJ' >GARAJE</option>
+                                  <option value='GS' >GARAJE SOTANO</option>
+                                  <option value='GT' >GLORIETA</option>
+                                  <option value='HC' >HACIENDA</option>
+                                  <option value='HG' >HANGAR</option>
+                                  <option value='IP' >INSPECCION DE POLICIA</option>
+                                  <option value='IPD' >INSPECCION DEPARTAMENTAL</option>
+                                  <option value='IPM' >INSPECCION MUNICIPAL</option>
+                                  <option value='IN' >INTERIOR</option>
+                                  <option value='KM' >KILOMETRO</option>
+                                  <option value='LC' >LOCAL</option>
+                                  <option value='LM' >LOCAL MEZZANINE</option>
+                                  <option value='LT' >LOTE</option>
+                                  <option value='MZ' >MANZANA</option>
+                                  <option value='MN' >MEZZANINE</option>
+                                  <option value='MD' >MODULO</option>
+                                  <option value='MJ' >MOJON</option>
+                  <option value='MLL' >MUELLE</option>
+                                  <option value='MCP' >MUNICIPIO</option>
+                                  <option value='NORTE' >NORTE</option>
+                                  <option value='OCC' >OCCIDENTE</option>
+                                  <option value='OESTE' >OESTE</option>
+                                  <option value='OF' >OFICINA</option>
+                                  <option value='O' >ORIENTE</option>
+                                  <option value='(!)' >OTRA NOMENCLATURA</option>
+                                  <option value='PRJ' >PARAJE</option>
+                                  <option value='PA' >PARCELA</option>
+                                  <option value='PW' >PARK WAY</option>
+                                  <option value='PAR' >PARQUE</option>
+                                  <option value='PQ' >PARQUEADERO</option>
+                                  <option value='PJ' >PASAJE</option>
+                                  <option value='PS' >PASEO</option>
+                                  <option value='PH' >PENTHOUSE</option>
+                                  <option value='P' >PISO</option>
+                                  <option value='PL' >PLANTA</option>
+                                  <option value='POR' >PORTERIA</option>
+                                  <option value='POS' >POSTE</option>
+                  <option value='PM' >PLAZA DE MERCADO</option>
+                  <option value='PD' >PREDIO</option>
+                  <option value='PN' >PUENTE</option>
+                  <option value='PT' >PUESTO</option>
+                  <option value='RP' >ROUND POINT</option>
+                  <option value='SA' >SALON</option>
+                                  <option value='SC' >SALON COMUNAL</option>
+                                  <option value='SEC' >SECTOR</option>
+                                  <option value='SS' >SEMISOTANO</option>
+                                  <option value='SL' >SOLAR</option>
+                                  <option value='ST' >SOTANO</option>
+                                  <option value='SU' >SUITE</option>
+                                  <option value='SM' >SUPERMANZANA</option>
+                                  <option value='SUR' >SUR</option>
+                                  <option value='TER' >TERMINAL</option>
+                                  <option value='TZ' >TERRAZA</option>
+                                  <option value='TO' >TORRE</option>
+                                  <option value='TV' >TRANSVERSAL</option>
+                                  <option value='UN' >UNIDAD</option>
+                                  <option value='UR' >UNIDAD RESIDENCIAL</option>
+                                  <option value='URB' >URBANIZACION</option>
+                                  <option value='VTE' >VARIANTE</option>
+                                  <option value='VDA' >VEREDA</option>
+                                  <option value='VIA' >VIA</option>
+                                  <option value='NOMBRE DE LA VIA' >VIAS DE NOMBRE COMUN</option>
+                                  <option value='ZN' >ZONA</option>
+                                  <option value='ZF' >ZONA FRANCA</option>
+                                </select></td>
+                              </tr>
+            <tr height="26">
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AP','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'APARTAMENTO','direccion');
+                                               } else enComplemento();">
+                <label > <strong>A</strong>partamento</label></td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AV','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'AVENIDA','direccion');
+                                               muestraComplementoCalle('avenida');} else enComplemento();" >
+                       <div align="center"><strong>A</strong>venida</label> </div></td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AUT','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'AUTOPISTA','direccion');
+                                                muestraComplementoCalle('autopista');} else enComplemento();">
+                <label > <strong>A</strong>utopista</label></td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'BRR','puente');
+                                                concatenaString(document.getElementById('direccion').value, 'BARRIO','direccion');
+                                                muestraComplementoCalle('Barrio');} else enComplemento();" >
+                <label  align="center"> <strong>B</strong>arrio</label></td>
+              <td width="88" align="center" class="campo171"
+                                onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'CL','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'CALLE','direccion');
+                                           muestraComplementoCalle('Calle');
+                                         }
+                                         else enComplemento();">
+                <label > <strong>C</strong>alle</label></td>
+              <td width="88" align="center" class="campo171"
+                         onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'CR','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'CARRERA','direccion');
+                                           muestraComplementoCalle('Calle');
+                                         }
+                                         else enComplemento();">
+                    <label > <strong>C</strong>arrera</label></td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'DG','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'DIAGONAL','direccion');
+                                               } else enComplemento();"> <label >
+                <div align="center"><strong>D</strong>iagonal</div></label>
+                </td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'ED','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'EDIFICIO','direccion');
+                                               muestraComplementoCalle('Edificio');} else enComplemento();" > <label >
+                <div align="center"><strong>E</strong>dificio</div></label>
+                </td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'NORTE','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'NORTE','direccion');
+                                              } else enComplemento();"> <label >
+                <div align="center"><strong>N</strong>orte</div></label>
+                </td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'SUR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SUR','direccion');
+                                               } else enComplemento();"> <label >
+                <div align="center"><strong>S</strong>ur</div></label>
+                </td>
+              <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {if(document.getElementById('complementoActivo').value=='0') { concatenaString(document.getElementById('puente').value,'TV','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'TRANSVERSAL','direccion');
+                                               } else enComplemento();} else enComplemento();"> <label>
+                <div align="center"><strong>T</strong>ransversal</div></label>
+              </td>
+            </tr>
+          </table >
+          <table >
+            <tr height="15">
+              <td colspan="10" align="center" class="campo172"  > NOMENCLATURAS</td>
+            </tr>
+            <tr height="26" >
+              <td width="88" height="26" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AD','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ADMINISTRACION','direccion');
+                                              } else enComplemento();">
+                <label > <strong>A</strong>dministraci&oacute;n</label> </td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AG','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'AGENCIA','direccion');
+                                               muestraComplementoCalle('agencia');} else enComplemento();">
+                <label > <strong>A</strong>gencia</label> </td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AGP','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'AGRUPACION','direccion');
+                                               muestraComplementoCalle('agrupaciÃ³n');} else enComplemento();">
+                <label > <strong>A</strong>grupaci&oacute;n</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'ALM','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ALMACEN','direccion');
+                                               muestraComplementoCalle('almacen');} else enComplemento();">
+                <label > <strong>A</strong>lmacen</label> </td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AL','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ALTILLO','direccion');
+                                               } else enComplemento();">
+                <label > <strong>A</strong>ltillo</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'APTDO','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'APARTADO','direccion');
+                                              } else enComplemento();" >
+                <label > <strong>A</strong>partado</label> </td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AP','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'APARTAMENTO','direccion');
+                                               } else enComplemento();">
+                <label > <strong>A</strong>partamento</label></td>
+
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AUT','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'AUTOPISTA','direccion');
+                                               muestraComplementoCalle('autopista');} else enComplemento();" >
+                <label > <strong>A</strong>utopista</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AV','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'AVENIDA','direccion');
+                                               muestraComplementoCalle('avenida');} else enComplemento();">
+                <label ><strong>A</strong>venida</label> </td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'AK','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'AVENIDA CARRERA','direccion');
+                                               muestraComplementoCalle('Avenida Carrera');} else enComplemento();">
+                <label > <strong>A</strong>venida <strong>C</strong>arrera</label>
+              </td>
+            </tr>
+            <tr height="26" >
+              <td width="88" height="29" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'BRR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'BARRIO','direccion');
+                                               muestraComplementoCalle('Barrio');} else enComplemento();">
+                <label> <strong>B</strong>arrio</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'BL','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'BLOQUE','direccion');
+                                               } else enComplemento();">
+                <label > <strong>B</strong>loque</label></td>
+              <td width="88"  align="center" class="campo172"
+                    onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'BG','puente');
+                       concatenaString(document.getElementById('direccion').value, 'BODEGA','direccion');
+                      } else enComplemento();"
+              >
+                <label > <strong>B</strong>odega</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'BLV','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'BOULEVAR','direccion');
+                                               muestraComplementoCalle('boulevar');} else enComplemento();">
+                <label  > <strong>B</strong>oulevar</label> </td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CL','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CALLE','direccion');
+                                               muestraComplementoCalle('Calle');} else enComplemento();">
+                <label > <strong>C</strong>alle</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CN','puente');
+                             concatenaString(document.getElementById('direccion').value, 'CAMINO','direccion');
+                              muestraComplementoCalle('camino');} else enComplemento();">
+                <label > <strong>C</strong>amino</label></td>
+              <td width="88" align="center" class="campo172"
+                   onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'CR','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'CARRERA','direccion');
+                                           muestraComplementoCalle('Carrera');
+                                         }
+                                         else enComplemento();"  >
+                <label > <strong>C</strong>arrera</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CARR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CARRETERA','direccion');
+                                               muestraComplementoCalle('Carretera');} else enComplemento();">
+                <label > <strong>C</strong>arretera</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CA','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CASA','direccion');
+                                               muestraComplementoCalle('Casa');} else enComplemento();"  >
+                <label  align="center" > <strong>C</strong>asa</label></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CEL','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CELULA','direccion');
+                                               muestraComplementoCalle('Celula');} else enComplemento();">
+                <label > <strong>C</strong>elula</label></td>
+            </tr>
+            <tr height="26" >
+              <td width="88" height="30" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CC','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CENTRO COMERCIAL','direccion');
+                                               muestraComplementoCalle('Ctro. Comercial');} else enComplemento();">
+                <label > <strong>C</strong>entro <strong>C</strong>omercial</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CIR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CIRCULAR','direccion');
+                                              } else enComplemento();">
+                <label > </label> <div align="center"><strong>C</strong>ircular</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CRV','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CIRCUNVALAR','direccion');
+                                               } else enComplemento();" >
+                <label > <strong>C</strong>ircunvalar</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CD','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CIUDADELA','direccion');
+                                               muestraComplementoCalle('Ciudadela');} else enComplemento();">
+                <label > <strong>C</strong>iudadela</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CONJ','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CONJUNTO','direccion');
+                                               muestraComplementoCalle('conjunto');} else enComplemento();">
+                <label > <strong>C</strong>onjunto</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CON','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CONJUNTO RESIDENCIAL','direccion');
+                                               muestraComplementoCalle('Conjunto');}
+                                               else enComplemento();">
+                <label > <strong>C</strong>onjunto <strong>R</strong>esidencial</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CS','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CONSULTORIO','direccion');
+                                               } else enComplemento();">
+                <label > <strong>C</strong>onsultorio</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'CORR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'CORREGIMIENTO','direccion');
+                                               muestraComplementoCalle('Corregimiento');} else enComplemento();">
+                <label > <strong>C</strong>orregimiento</label></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'DPTO','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'DEPARTAMENTO','direccion');
+                                               muestraComplementoCalle('Departamento');} else enComplemento();">
+                <label > </label> <div align="center"><strong>D</strong>epartamento</div></td>
+
+              <td width="88" align="center" class="campo172"
+                  onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'DP','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'DEPOSITO','direccion');
+                                           muestraComplementoCalle('Deposito');
+                                         }
+                                         else enComplemento();"  >
+                <label > </label> <div align="center"><strong>D</strong>eposito</div></td>
+            </tr>
+            <tr height="26" >
+
+              <td width="88" height="27" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'DS','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'DEPOSITO SOTANO','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>D</strong>eposito
+                  <strong>S</strong>otano</div></td>
+                  <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'DG','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'DIAGONAL','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>D</strong>iagonal</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'ED','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'EDIFICIO','direccion');
+                                               muestraComplementoCalle('Edificio');} else enComplemento();">
+                <label > </label> <div align="center"><strong>E</strong>dificio</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'EN','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ENTRADA','direccion');
+                                               muestraComplementoCalle('Entrada');} else enComplemento();">
+                <label > </label> <div align="center"><strong>E</strong>ntrada</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'ESQ','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ESQUINA','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>E</strong>squina</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'ESTE','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ESTE','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>E</strong>ste</div></td>
+              <td width="88" align="center" class="campo172"
+                     onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'ET','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'ETAPA','direccion');
+                                           muestraComplementoCalle('Etapa');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>E</strong>tapa</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'EX','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'EXTERIOR','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>E</strong>xterior</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'FCA','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'FINCA','direccion');
+                                               muestraComplementoCalle('Finca');} else enComplemento();">
+                <label > </label> <div align="center"><strong>F</strong>inca</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'GJ','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'GARAJE','direccion');
+                                } else enComplemento();">
+                <label > </label> <div align="center"><strong>G</strong>araje</div></td>
+            </tr>
+            <tr  height="26">
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'GS','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'GARAJE SOTANO','direccion');
+                                 } else enComplemento();">
+                <label > </label> <div align="center"><strong>G</strong>araje
+                  <strong>S</strong>otano</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'HC','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'HACIENDA','direccion');
+                                 muestraComplementoCalle('Hacienda');} else enComplemento();">
+                <label > </label> <div align="center"><strong>H</strong>acienda</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'IN','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'INTERIOR','direccion');
+                                 } else enComplemento();">
+                <label > </label> <div align="center"><strong>I</strong>nterior</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'KM','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'KILOMETRO','direccion');
+                                 } else enComplemento();" >
+                <label > </label> <div align="center"><strong>K</strong>ilometro</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'LC','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'LOCAL','direccion');
+                                } else enComplemento();">
+                <label > </label> <div align="center"><strong>L</strong>ocal</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'LM','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'LOCAL MEZZANINE','direccion');
+                                 } else enComplemento();">
+                <label > <strong>L</strong>ocal <strong>M</strong>ezzanine </label>
+              </td>
+              <td width="88" align="center" class="campo172"
+                     onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'LT','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'LOTE','direccion');
+                                           muestraComplementoCalle('Lote');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>L</strong>ote</div></td>
+                <td  height="27" width="88"  align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'MZ','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'MANZANA','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>M</strong>anzana</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'MN','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'MEZZANINE','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>M</strong>ezzanine</div></td>
+
+              <td width="88" align="center" class="campo172"
+                        onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'MD','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'MODULO','direccion');
+                                           muestraComplementoCalle('Modulo');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>M</strong>odulo</div></td>
+            </tr>
+            <tr>
+              <td width="88" height="27" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'MCP','puente');
+                                 concatenaString(document.getElementById('direccion').value, 'MUNICIPIO','direccion');
+                                 muestraComplementoCalle('Municipio');} else enComplemento();">
+                <label > </label> <div align="center"><strong>M</strong>unicipio</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'NORTE','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'NORTE','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>N</strong>orte</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'OCC','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'OCCIDENTE','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>O</strong>ccidente</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'OESTE','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'OESTE','direccion');
+                                                } else enComplemento();">
+                <label > </label> <div align="center"><strong>O</strong>este</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'OF','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'OFICINA','direccion');
+                                                } else enComplemento();">
+                <label > </label> <div align="center"><strong>O</strong>ficina</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'O','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ORIENTE','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>O</strong>riente</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PA','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PARCELA','direccion');
+                                               muestraComplementoCalle('Parcela');} else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>arcela</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PAR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PARQUE','direccion');
+                                               muestraComplementoCalle('Parque');} else enComplemento();">
+                <label > </label>
+                <div align="center"><strong>P</strong>arque</div></td>
+              <td width="88" align="center" class="campo172" onClick="
+              if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PQ','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PARQUEADERO','direccion');
+                                               muestraComplementoCalle('Parqueadero');} else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>arqueadero</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PJ','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PASAJE','direccion');
+                                               muestraComplementoCalle('Pasaje');} else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>asaje</div></td>
+            </tr>
+            <tr height="26" >
+              <td width="88" height="28" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PS','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PASEO','direccion');
+                                               muestraComplementoCalle('Paseo');} else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>aseo</div></td>
+
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PH','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PENTHOUSE','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>enthouse</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'P','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PISO','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>iso</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PL','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PLANTA','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>lanta</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'POR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PORTERIA','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>orteria</div></td>
+                <td width="88" align="center" class="campo172"
+                     onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'PD','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'PREDIO','direccion');
+                                           muestraComplementoCalle('Predio');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>redio</div></td>
+              <td width="88" align="center" class="campo172"
+                    onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'PN','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'PUENTE','direccion');
+                                               muestraComplementoCalle('Puente');} else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>uente</div></td>
+              <td width="88" align="center" class="campo172"
+                   onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'PT','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'PUESTO','direccion');
+                                           muestraComplementoCalle('Puesto');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>P</strong>uesto</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'SA','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SALON','direccion');
+                                               muestraComplementoCalle('SalÃ³n');} else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>al&oacute;n</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'SC','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SALON COMUNAL','direccion');
+                                               muestraComplementoCalle('SalÃ³n Comunal');} else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>al&oacute;n
+                  <strong>C</strong>omunal</div></td>
+            </tr>
+            <tr height="26" >
+              <td width="88" height="29" align="center" class="campo172"
+
+                   onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'SEC','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'SECTOR','direccion');
+                                           muestraComplementoCalle('Sector');
+                                         }
+                                         else enComplemento();" >
+                <label > </label> <div align="center"><strong>S</strong>ector</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'SS','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SEMISOTANO','direccion');
+                                              } else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>emisotano</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'SL','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SOLAR','direccion');
+                                              } else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>olar</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'ST','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SOTANO','direccion');
+                                              } else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>otano</div></td>
+                <td width="88" align="center" class="campo172"
+                        onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'SU','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'SUITE','direccion');
+                                           muestraComplementoCalle('Suite');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>uite</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'SM','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SUPERMANZANA','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>upermanzana</div></td>
+
+
+
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'SUR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'SUR','direccion');
+                                                } else enComplemento();">
+                <label > </label> <div align="center"><strong>S</strong>ur</div></td>
+              <td width="88" align="center" class="campo172"
+                    onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'TER','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'TERMINAL','direccion');
+                                           muestraComplementoCalle('Terminal');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>T</strong>erminal</div></td>
+                <td width="88" align="center" class="campo172"
+                    onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'TZ','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'TERRAZA','direccion');
+                                           muestraComplementoCalle('Terraza');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>T</strong>erraza</div></td>
+              <td width="88" align="center" class="campo172"
+                    onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'TO','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'TORRE','direccion');
+                                           muestraComplementoCalle('Torre');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>T</strong>orre</div></td>
+
+            </tr>
+            <tr height="26" >
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {if(document.getElementById('complementoActivo').value=='0') { concatenaString(document.getElementById('puente').value,'TV','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'TRANSVERSAL','direccion');
+                                               } else enComplemento()} else enComplemento();" >
+                <label > </label> <div align="center"><strong>T</strong>ransversal</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'UN','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'UNIDAD','direccion');
+                                               muestraComplementoCalle('Unidad');} else enComplemento();" >
+                <label > </label> <div align="center"><strong>U</strong>nidad</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'UR','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'UNIDAD RESIDENCIAL','direccion');
+                                               muestraComplementoCalle('Unidad Residencial');} else enComplemento();">
+                <label > </label> <div align="center"><strong>U</strong>nidad
+                  <strong>R</strong>esidencial</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'URB','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'URBANIZACION','direccion');
+                                               muestraComplementoCalle('UrbanizaciÃ³n');} else enComplemento();">
+                <label > </label> <div align="center"><strong>U</strong>rbanizaci&oacute;n</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'VTE','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'VARIANTE','direccion');
+                                               muestraComplementoCalle('Variante');} else enComplemento();">
+                <label > </label> <div align="center"><strong>V</strong>ariante</div></td>
+              <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'VDA','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'VEREDA','direccion');
+                                               muestraComplementoCalle('Vereda');} else enComplemento();">
+                <label > </label> <div align="center"><strong>V</strong>ereda</div></td>
+                <td width="88" align="center" class="campo172" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'ZN','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'ZONA','direccion');
+                                               muestraComplementoCalle('Zona');} else enComplemento();">
+                <label > </label> <div align="center"><strong>Z</strong>ona</div></td>
+
+              <td width="88" align="center" class="campo172"
+                     onClick="if(document.getElementById('complementoActivo').value=='0') {
+                                           concatenaString(document.getElementById('puente').value,'ZF','puente');
+                                           concatenaString(document.getElementById('direccion').value, 'ZONA FRANCA','direccion');
+                                           muestraComplementoCalle('Zona Frenca');
+                                         }
+                                         else enComplemento();">
+                <label > </label> <div align="center"><strong>Z</strong>ona Franca</div></td>
+
+              <td width="88"  align="center"  class="campo172A" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,' ','puente');
+                                               concatenaString(document.getElementById('direccion').value, '#','direccion');
+                                                } else enComplemento();">
+                <label align="center" > <strong>#</strong> </label> </td>
+              <td width="5" align="center" class="campo172A" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,' ','puente');
+                                               concatenaString(document.getElementById('direccion').value, '-','direccion');
+                                               } else enComplemento();">
+                <label > </label> <div align="center"><strong>-</strong></div></td>
+
+               
+          </table >
+          <table >
+          <tr height="20">
+            <td colspan="10" align="center" class="campo171" background="/WebRutMuisca/images/barracalcu2.jpg" > DIGITOS</td>
+            <td colspan="27" align="center" class="campo171" background="/WebRutMuisca/images/barracalcu2.jpg" > LETRAS</td>
+          </tr>
+          <tr height="20" >
+            <td width="88" height="20" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'1','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '1','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>1</strong></div> </label> </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'2','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '2','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>2</strong></div>  </label>       </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'3','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '3','direccion');
+                                                } else enComplemento();">
+               <label > <div align="center"><strong>3</strong></div>   </label>   </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'4','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '4','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>4</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'5','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '5','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>5</strong></div>   </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'6','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '6','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>6</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'7','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '7','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>7</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'8','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '8','direccion');
+                                                } else enComplemento();">
+                   <label > <div align="center"><strong>8</strong></div>  </label> </td>
+            <td width="88" align="center"  class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'9','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '9','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>9</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaNumero(document.getElementById('puente').value,'0','puente');
+                                               concatenaNumero(document.getElementById('direccion').value, '0','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>0</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'A','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'A','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>A</strong></div>
+              </label> </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'B','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'B','direccion');
+                                                } else enComplemento();">
+                   <label > <div align="center"><strong>B</strong></div>
+              </label>       </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'C','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'C','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>C</strong></div>   </label>   </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'D','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'D','direccion');
+                                              } else enComplemento();">
+                   <label > <div align="center"><strong>D</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'E','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'E','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>E</strong></div>   </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'F','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'F','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>F</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'G','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'G','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>G</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'H','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'H','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>H</strong></div>  </label> </td>
+            <td width="88" align="center"  class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'I','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'I','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>I</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'J','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'J','direccion');
+                                              } else enComplemento();">
+                   <label > <div align="center"><strong>J</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'K','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'K','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>K</strong></div> </label> </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'L','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'L','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>L</strong></div>  </label>       </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'M','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'M','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>M</strong></div>   </label>   </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'N','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'N','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>N</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'O','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'O','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>O</strong></div>   </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'P','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'P','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>P</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'Q','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'Q','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>Q</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'R','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'R','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>R</strong></div>  </label> </td>
+            <td width="88" align="center"  class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'S','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'S','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>S</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'T','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'T','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>T</strong></div>  </label>  </td>
+                   <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'U','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'U','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>U</strong></div> </label> </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'V','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'V','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>V</strong></div>  </label>       </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'W','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'W','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>W</strong></div>   </label>   </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'X','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'X','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>X</strong></div>  </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'Y','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'Y','direccion');
+                                              } else enComplemento();">
+               <label > <div align="center"><strong>Y</strong></div>   </label>  </td>
+            <td width="88" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'Z','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'Z','direccion');
+                                               } else enComplemento();">
+                   <label > <div align="center"><strong>Z</strong></div>  </label>  </td>
+            <td width="40" align="center" class="campo171" onClick="if(document.getElementById('complementoActivo').value=='0') {concatenaString(document.getElementById('puente').value,'BIS','puente');
+                                               concatenaString(document.getElementById('direccion').value, 'BIS','direccion');
+                                               } else enComplemento();">
+               <label > <div align="center"><strong>BIS</strong></div>  </label>  </td>
+          </tr>
+        </table>
+    </td>
+    </tr>
+    <tr>
+      <td colspan="2" class="campo17"> <div align="center"><DIV STYLE="display:none" ID="COMPLEMENTOCALLE" >
+        <div align="center"><blink>
+          <input name="nombreComplementoCalle" id="nombreComplementoCalle" type="text" size="30" value="" class="campo173" readonly></blink>
+                <select name="complementoCalleSN" id="complementoCalleSN" class="campo1A"
+                       onChange="ocultaComplementoCalle();
+                                if (this.options[this.selectedIndex].text == 'Si')
+                                    muestraComplemento(document.getElementById('auxiliar').value);
+                                else document.getElementById('complementoActivo').value = '0';
+                                    this.selectedIndex = 0;"
+                        onFocus="this.style.backgroundColor='#ffefce'">
+                     <option value="" selected>Seleccione..</option>
+                     <option value="Si">Si</option>
+                     <option value="No" >No</option>
+               </select>&nbsp;
+        </div>
+        </DIV> </div>
+         <div align="center"><DIV STYLE="display:none" ID="COMPLEMENTOS" >
+        <div align="center"><blink>
+          <input name="anterior" id="anterior" type="hidden" value="">
+          <input name="auxiliar" id="auxiliar" type="hidden" value="">
+          <input name="nombreComplemento" id="nombreComplemento" type="text" size="38" value="" class="campo173" readonly>
+                </blink>
+                <input name="complemento" id="complemento" type="text" size="40" maxlength="40" class="campo1A"
+            onFocus="this.style.backgroundColor='#ffefce'"
+            onChange="borraCaracteresEspeciales(this,this.value);borraEspaciosDerecha(document.getElementById('complemento').value,'complemento');
+                      borraEspaciosInternos(document.getElementById('complemento').value,'complemento');
+                  if( validaComplemento()) {concatenaString(document.getElementById('puente').value,this.value,'puente');
+                  concatenaString(document.getElementById('direccion').value,this.value,'direccion');
+                  document.getElementById('auxiliar').value='';}" >
+              </div>
+        </DIV> </div></td>
+      <td width="49%" class="campo17"><div align="center">
+          <p><a href="#" onMouseOut="MM_swapImgRestore()"  onClick="if(document.getElementById('complementoActivo').value!='3') {borraUltComponenteDireccion(document.getElementById('puente').value,'puente');borraUltComponenteDireccion(document.getElementById('direccion').value,'direccion');document.getElementById('puente2').selectedIndex=document.getElementById('puente2').length - 1;document.getElementById('puente3').selectedIndex=document.getElementById('puente2').selectedIndex;borraElemento('puente2');borraElemento('puente3');} else enComplemento();" onMouseOver="MM_swapImage('devolver','','../../Images/Iconos/cancel.png',1)"><img src="../../Images/Iconos/cancel.png" alt="Borra Ultima" name="devolver" width="20" height="20" border="0"></a><font size="1" face="Arial, Helvetica, sans-serif">
+            Cancelar Ultima &nbsp;&nbsp;&nbsp;&nbsp;
+             <a href="#" onClick="if(document.getElementById('complementoActivo').value=='0') {LimpiaElementosLista('puente2');LimpiaElementosLista('puente3');} else enComplemento();" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Limpiar','','../../Images/Iconos/clear.gif',1)"><img src="../../Images/Iconos/clear.gif" alt="Limpiar" name="Limpiar" width="20" height="20" border="0"></a>Limpiar  &nbsp;&nbsp;&nbsp;&nbsp;
+             <a href="#" onClick="if(document.getElementById('complementoActivo').value=='0') {retornaDireccion(document.getElementById('retorno').value,document.getElementById('puente').value);} else enComplemento();" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Completa','','../../Images/Iconos/book_next.png',1)"><img src="../../Images/Iconos/book_next.png" alt="Dirección Completa" name="Completa" width="20" height="20" border="0"></a>
+            Direcci&oacute;n Completa </font></p>
+          </div></td>
+    </tr>
+    <tr>
+      <td height="9" colspan="3" > <div align="center">
+        <input name="puente" id="puente" type="hidden" value="" size="85" readonly="readonly" class="campo1B">
+        </div></td>
+    </tr>
+
+  </table>
+  <DIV STYLE="display:none" ID="MANEJO" >
+  <table width="14%" border="0"  align="center">
+    <tr>
+      <td width="25%"  rowspan="4"><select name="puente2" size="10" multiple id="puente2" class="campo1">
+        </select> </td>
+      <td width="32%"  rowspan="4"><select name="puente3" size="10" multiple id="puente3" class="campo1" readonly disabled="true">
+        </select> </td>
+      <td width="43%" class="campo18B" > <div align="center"> <a href="#" onClick="if(document.getElementById('complementoActivo').value=='0') {puente3.selectedIndex=puente2.selectedIndex;bajaElemento('puente2');pasaElementosAString('puente2','puente');bajaElemento('puente3');pasaElementosAString('puente3','direccion');} else enComplemento();" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Bajar','','/images/bp_arribar.gif',1)"><img src="/images/bp_arriba.gif"alt="Bajar " name="Bajar" width="20" height="20" border="0"></a>
+        </div></td>
+    </tr>
+    <tr>
+      <td class="campo18B" > <div align="center"> <a href="#"  onClick="if(document.getElementById('complementoActivo').value=='0') {puente3.selectedIndex=puente2.selectedIndex; subeElemento('puente2');pasaElementosAString('puente2','puente');subeElemento('puente3');pasaElementosAString('puente3','direccion');} else enComplemento();"  onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Subir','','/imagenes/es/botones/bp_bajarr.gif',1)"><img src="/images/bp_bajar.gif"  alt="Subir" name="Subir" width="20" height="20" border="0"></a>
+        </div></td>
+    </tr>
+    <tr>
+      <td class="campo18B" ><div align="center"> <a href="#"  onClick="if(document.getElementById('complementoActivo').value=='0'){ puente3.selectedIndex=puente2.selectedIndex;borraElemento('puente2');pasaElementosAString('puente2','puente');borraElemento('puente3');pasaElementosAString('puente3','direccion') } else enComplemento();"  onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Borrar','','/images/bp_cancelar.gif',1)"><img src="/images/bp_cancela.gif" alt="Borrar" name="Borrar" width="20" height="20" border="0"></a>
+        </div></td>
+    </tr>
+    <tr>
+      <td height="54" class="campo18B" ><input name="complementoActivo" id="complementoActivo" type="hidden" size="33" value="0" >
+        &nbsp;</td>
+    </tr>
+  </table>
+
+  </DIV>
+    <input name="retorno" id="retorno" value="null" type="hidden" >
+    <input name="controlaLetras" id="controlaLetras" value="0" type="hidden" >
+</form>
+
+</div>
+</body>
+</html>

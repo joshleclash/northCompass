@@ -1,0 +1,166 @@
+<?php
+include ("conexion.php");
+session_start();
+$nombres=$_SESSION["Nombres"];
+$apeliidos=$_SESSION["Apellidos"];
+$nombrc=$nombres." ".$apeliidos;
+$time=date("d/m/Y");
+?>
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/ext-all.css">
+<script type="text/javascript" src="../../ExtJS/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-all.js"></script>
+<script type="text/javascript" src="../../ExtJs/ext-lang-sp.js"></script>
+<script type="text/javascript" src="../../ExtJs/examples/ux/CheckColumn.js"></script>
+<!--<script type="text/javascript" src="../../ExtJs/examples/ux/GroupSummary.js"></script> -->
+<!-- <script type="text/javascript" src="../../extjs/examples/grid/totals.js"></script>-->
+<!-- <link rel="stylesheet" type="text/css" href="../../ExtJs/examples/ux/css/GroupSummary.css" /> -->
+<!-- page specific --> 
+<script language="javascript">
+
+Ext.onReady(function(){
+   
+	// Tab Principal ----------------------------------------------------------------------------
+	    var tabs = new Ext.TabPanel({
+        renderTo: document.body,
+		id: 'tabs',
+        activeTab: 0,        
+		deferredRender: false,
+		frame: true,
+        defaults:{autoScroll: true},
+		height: 560,
+        items:[
+			{
+                title: 'Formulario Busqueda',
+				id: 'tab1',
+                contentEl: 'div_Contenido'
+            }
+        ]
+    });
+	
+	//Funcion Tab Principal
+    function handleActivate(tab){
+        var tab_title 	= tab.title;
+		var tab_id		= tab.id;
+		tabs.doLayout();
+    }
+	//Fin Tab Principal
+	
+	
+	//FormPanel Busqueda -----------------------------------------------------------------------
+	var form_Busqueda = new Ext.form.FormPanel({
+        renderTo: 'div_Buscar',
+		bodyStyle : 'padding:5px;',	       
+        collapsible: true,
+		animCollapse: true,
+		iconCls: 'cssBuscar',
+		autoHeight: true,
+		labelAlign: 'top',
+        height: 100,  		      
+        defaults: {
+            anchor: '0'
+        },
+        items: [
+			{
+				layout:'column',
+				border:false,
+				items:[{
+					columnWidth:1.0,
+					layout: 'form',
+					border:false,
+					items: [{
+						xtype:			'textfield',
+						id: 			'txt_busqueda',
+						fieldLabel: 	'Parametros de busqueda',
+						name:			'txt_busqueda',
+						anchor:			'98%',		
+					}],
+								buttons : [{
+								text : 'Consultar',
+								iconCls : 'btn_continuar',
+								margins:  '200, 200, 200, 200',
+								disabled: false,
+								handler: function() {
+									fn_enviar();																		   
+							}									
+				}],
+				buttonAlign:'right'
+				}]
+			}
+		]
+	});
+//------------------------------------------------------------------------------------------
+// GridGrouping
+//------------------------------------------------------------------------------------------
+
+    var xg = Ext.grid;
+
+	var ds_grid = new Ext.data.GroupingStore({		
+		url:'Form_Busqueda_SQL.asp?consulta=0',
+		reader: new Ext.data.JsonReader({
+		 totalProperty: 'totalCount',
+			 root: 'topics'
+				},[
+					{name: 'Csc', type: 'float'},
+					{name: 'Csc_Autorizacion' , type: 'float'},
+					{name: 'NombreCompleto', type: 'string'},	
+					{name: 'Identificacion', type: 'string'},			
+					{name: 'Contrato_Csc' , type: 'string'},
+					{name: 'Autorizacion' , type: 'string'},
+					{name: 'Creacion' , type: 'string'},
+					{name: 'Dias' , type: 'float'},
+					{name: 'FechaI' , type: 'string'},
+					{name: 'FechaF' , type: 'string'},
+					{name: 'Boton' , type: 'string'},
+					{name: 'Estado' , type: 'string'},
+					{name: 'EPS_Csc', type:'string'}
+		]),
+		idProperty: 'NombreCompleto',
+		sortInfo:{field: 'NombreCompleto', direction: "ASC"},
+		groupField:'Contrato_Csc'
+	});
+
+    var grid = new xg.EditorGridPanel({
+        ds: ds_grid,
+		columns: [
+			{id:'csc', header:'Csc', dataIndex:'Csc', width:20, hidden: true},            
+			{id:'numeroidentificacion', header: 'Numero Identificaci&oacute;n', width: 80, sortable: true, dataIndex: 'NumeroIdentificacion'},
+            {id:'nombres', header: 'Nombres', width: 120, sortable: true, dataIndex: 'nombres'},
+			{id:'ciudad', header: 'Ciudad', width: 50, sortable: true, dataIndex: 'ciudad'}, 
+			{id:'Ffinal', header: 'Fecha Creaci&oacute;n', width: 50,  sortable: true, dataIndex: 'FechaF'},  
+			{id:'estado', header: 'Estado', width: 40,  sortable: true, dataIndex: 'estado'},
+			{id:'accion', header: 'Icono', width:40, sortable: true, dataIndex: 'accion'}
+        ],		
+		view: new Ext.grid.GroupingView({
+            forceFit:true,
+			startCollapsed: true,
+            showGroupName: true,
+            enableNoGroups:true,
+            hideGroupedColumn: false,
+            groupOnSort: true,
+            groupTextTpl: '{text}  		 ({[values.rs.length]} {[values.rs.length > 1 ? "Usuarios" : "Usuarios"]})'
+        }),
+        frame:false,
+		width:'100%',
+        height: 380,
+		clicksToEdit: 1,
+        collapsible: false,
+        animCollapse: false,
+		iconCls: 'icon-grid',
+		loadMask: true,
+        renderTo: 'editor-grid'
+    });		
+ 
+
+function fn_enviar(){
+	var ano = "2011";
+	var mes = "09";
+	ds_grid.load({waitMsg:'Consultando...', params:{ano:ano, mes:mes}});
+};
+
+});
+</script> 
+<div id="div_Contenido">
+	<div style="padding:5px;" id="div_Buscar"></div>
+ 	 <div style="height:5px;"></div>
+	<div style="padding:5px;" id="editor-grid"></div>
+</div>
