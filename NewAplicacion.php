@@ -8,42 +8,42 @@ $Perfil=$_SESSION["Perfil"];
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>NorthCompas</title>
-<link rel="stylesheet" type="text/css" href="/ExtJS/resources/css/ext-all.css" /> 
+<link rel="stylesheet" type="text/css" href="ExtJS/resources/css/ext-all.css" /> 
  
     <!-- overrides to base library --> 
 <!--    <link rel="stylesheet" type="text/css" href="./ExtJS/examples/ux/css/Portal.css" /> -->
-    <link rel="stylesheet" type="text/css" href="/ExtJS/examples/ux/css/GroupTab.css" /> 
+    <link rel="stylesheet" type="text/css" href="ExtJS/examples/ux/css/GroupTab.css" /> 
     <style type="text/css"> 
 	/* styles for iconCls */
 	.x-icon-creacion{
-		background-image:url('./Images/Iconos/application_add.png')
+		background-image:url('Images/Iconos/application_add.png')
 		}
 	.x-icon-modificacion {
-		background-image: url('./Images/Iconos/application_edit.png');
+		background-image: url('Images/Iconos/application_edit.png');
 	}
 	.x-icon-busqueda{
-	background-image: url('./Images/Iconos/IconoBusqueda.jpg');
+	background-image: url('Images/Iconos/IconoBusqueda.jpg');
 		}
 	.x-icon-programacion{
-		background-image:url('./Images/Iconos/application_go.png');
+		background-image:url('Images/Iconos/application_go.png');
 		}
 	.x-icon-domicilio{
-		background-image:url('./Images/Iconos/house.png');	
+		background-image:url('Images/Iconos/house.png');	
 		}
 	.x-icon-indicadores{
-		background-image:url('./Images/Iconos/chart_bar.png	');			
+		background-image:url('Images/Iconos/chart_bar.png');			
 		}
 	.x-icon-reportes {
-		background-image: url('./Images/Iconos/report_go.png');
+		background-image: url('Images/Iconos/report_go.png');
 		}	
 	.x-icon-useredith {
-		background-image: url('./Images/Iconos/user_edit.png');
+		background-image: url('Images/Iconos/user_edit.png');
 		}
 	.x-icon-useradd {
-		background-image: url('./Images/Iconos/user_add.png	');
+		background-image: url('Images/Iconos/user_add.png');
 	}
 	.x-icon-logout {
-		background-image: url('./Images/Iconos/user_disabled.png');
+		background-image: url('Images/Iconos/user_disabled.png');
 		}	
 	
 	#div1{
@@ -58,7 +58,7 @@ $Perfil=$_SESSION["Perfil"];
 		left: 450px;
 		width:100px;
 		height:20PX;
-		background:white url(./ExtJs/docs/resources/block-bg.gif) repeat-x;
+		background:white url('ExtJs/docs/resources/block-bg.gif') repeat-x;
 		color:#003366;
 		font:bold 13px tahoma,arial,helvetica;
 		padding:10px;
@@ -86,24 +86,24 @@ $Perfil=$_SESSION["Perfil"];
     <!-- ** Javascript ** --> 
     <!-- ExtJS library: base/adapter --> 
     <!--<script type="text/javascript" src="./Aplicacion/welcome.php"></script> -->
-<script type="text/javascript" src="/ExtJS/adapter/ext/ext-base.js"></script> 
+<script type="text/javascript" src="ExtJS/adapter/ext/ext-base.js"></script> 
  
     <!-- ExtJS library: all widgets --> 
-    <script type="text/javascript" src="/ExtJS/ext-all.js"></script> 
+    <script type="text/javascript" src="ExtJS/ext-all.js"></script> 
  
     <!-- overrides to base library --> 
  
     <!-- extensions --> 
-    <script type="text/javascript" src="/ExtJS/examples/ux/GroupTabPanel.js"></script> 
-    <script type="text/javascript" src="/ExtJS/examples/ux/GroupTab.js"></script> 
+    <script type="text/javascript" src="ExtJS/examples/ux/GroupTabPanel.js"></script> 
+    <script type="text/javascript" src="ExtJS/examples/ux/GroupTab.js"></script> 
  
-    <script type="text/javascript" src="/ExtJS/examples/ux/Portal.js"></script> 
-    <script type="text/javascript" src="/ExtJS/examples/ux/PortalColumn.js"></script> 
-    <script type="text/javascript" src="/ExtJS/examples/ux/Portlet.js"></script> 
+    <script type="text/javascript" src="ExtJS/examples/ux/Portal.js"></script> 
+    <script type="text/javascript" src="ExtJS/examples/ux/PortalColumn.js"></script> 
+    <script type="text/javascript" src="ExtJS/examples/ux/Portlet.js"></script> 
  
     <!-- page specific --> 
-    <script type="text/javascript" src="/ExtJS/examples/shared/examples.js"></script> 
-    <script type="text/javascript" src="/ExtJS/examples/portal/sample-grid.js"></script> 
+    <script type="text/javascript" src="ExtJS/examples/shared/examples.js"></script> 
+    <script type="text/javascript" src="ExtJS/examples/portal/sample-grid.js"></script> 
  
  	<!--<script type="text/javascript" src="./ExtJs/Examples/grouptabs/grouptabs.js"></script> -->
 
@@ -138,13 +138,13 @@ Ext.onReady(function() {
 					iconCls: 'x-icon-domicilio',
 					tabTip: 'Visita Domiciliria',
                     style: 'padding: 10px;',
-                    html:	'<iframe name="myIframe01" src="./Aplicacion/Welcome.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
+                    html:	'<iframe name="myIframe01" src="Aplicacion/Welcome.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
 					},{
 					title: 'Estado Solicitud',
 					iconCls: 'x-icon-domicilio',
 					tabTip: 'Estado Visita Domiciliria',
                     style: 'padding: 10px;',
-					html:	'<iframe name="myIframe01" src="./Aplicacion/Visita/Form_Visita.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
+					html:	'<iframe name="myIframe01" src="Aplicacion/Visita/Form_Visita.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
 					}]
 			
 			
@@ -189,14 +189,14 @@ Ext.onReady(function() {
                     iconCls: 'x-icon-configuration',
                     tabTip: 'Solicitudes',
                     style: 'padding: 10px;',
-					html:'<iframe name="myIframe01" src="./Aplicacion/Welcome.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'					
+					html:'<iframe name="myIframe01" src="Aplicacion/Welcome.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'					
 					},{
 					title:   'Creaci&oacute;n',
                     iconCls: 'x-icon-creacion',
                     tabTip:  'Creacion Solicitud',
 					
                     style:   'padding: 10px;',
-					html: '<iframe name="myIframe01" src="./Aplicacion/Solicitud/Form_Creacion.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
+					html: '<iframe name="myIframe01" src="Aplicacion/Solicitud/Form_Creacion.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
                   		
 				 },{
 					title: 'Busqueda',
@@ -204,7 +204,7 @@ Ext.onReady(function() {
                     tabTip: 'Busqueda Solicitud',
 					//disabled: true,
                     style: 'padding: 10px;',
-                    html: '<iframe name="myIframe01" src="./Aplicacion/Busqueda/Form_Busqueda.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
+                    html: '<iframe name="myIframe01" src="Aplicacion/Busqueda/Form_Busqueda.php" width="100%" height="99%" frameborder="0" style="vertical-align:top;" scrolling="yes">'
 				}]
 			},{
 			   
@@ -329,6 +329,6 @@ function cerrar(url){
 
 </head>
 <body>
-<div id="div3" onclick="cerrar('default.php');"><img src="./Images/Iconos/lock.png" />Cerrar Session</div>
+<div id="div3" onclick="cerrar('Default.php');"><img src="Images/Iconos/lock.png" />Cerrar Session</div>
 </body>
 </html>

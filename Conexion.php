@@ -1,7 +1,7 @@
 <?php
-$host='northcompas.db.8472814.hostedresource.com';
-$user='northcompas';
-$pass="S1t12009";
+$host='localhost';
+$user='root';
+$pass="";
 $link=mysql_connect($host,$user,$pass) or die ("Imposible conectarse con la base de datos");
 function db($database, $link){
 	$db=mysql_select_db($database,$link);

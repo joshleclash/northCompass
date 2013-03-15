@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('Conexion.php');
-include('../Envio-Mail.php');
+include('../../Conexion.php');
+include('../components/Components.php');
 $consulta=$_REQUEST['consulta'];
 $Csc_Login=$_SESSION["Csc"];
 if ($consulta==0){
@@ -9,14 +9,16 @@ $SQL001="select * from   departamento ";
 mysql_select_db('northcompas', $link);
 $Con001=mysql_query($SQL001)or die('Error');
 	$i=0;
+        $js='';	
 	while($row001=mysql_fetch_array($Con001))
 	{
 		$CscDepartamento=$row001['CscDepartamento'];
 		$DscDepartamento=$row001['DscDepartamento'];
 		if ($i<>0)
 		{
-			$i++;
-			$js.=',';
+                        $i++;
+                        
+                    	$js.=',';
 			$js.="{'csc':'".$CscDepartamento."','dsc':'".$DscDepartamento."'}";
 			
 		}
@@ -32,14 +34,15 @@ $Con001=mysql_query($SQL001)or die('Error');
 	echo $json;	
 }else if ($consulta==1){
 $CodDep	=$_REQUEST['CodDep'];
-$SQL001="select * from  ciudad where CodDepartamento='".$CodDep."' order by DescCiudad asc";
+$SQL001="select * from  ciudad where CscDepartamento='".$CodDep."' order by DscCiudad asc";
 mysql_select_db('northcompas', $link);
 $Con001=mysql_query($SQL001)or die('Error');
 	$i=0;
+        $js='';
 	while($row001=mysql_fetch_array($Con001))
 	{
-		$CodCiudad=$row001['CodCiudad'];
-		$DescCiudad=$row001['DescCiudad'];
+		$CodCiudad=$row001['CscCiudad'];
+		$DescCiudad=$row001['DscCiudad'];
 		if ($i<>0)
 		{
 			$i++;
@@ -109,15 +112,17 @@ $Con002=mysql_query($SQL002)or die('Error');
 					$Rs004=mysql_fetch_array($Result004);
 						if ($Rs004['Cliente_Csc']!=0)
 							{
-								$SqlTerceros2="select t2.* from cliente t1, terceros t2 where t2.Estado_Csc='1' and  t1.CscCliente = t2.Cliente_Csc and t2.Cliente_Csc".
+								$SqlTerceros2="select t2.* from cliente t1, terceros t2 where t2.Estado_Csc='1' and  t1.Csc_Cliente = t2.Cliente_Csc and t2.Cliente_Csc".
 								"='".$Rs004['Cliente_Csc']."'";
 								db('northcompas', $link);
 									$i=0;
 										$ResultTer=mysql_query($SqlTerceros2);
+                                                                                
 											while($RsTer=mysql_fetch_array($ResultTer))
 												{
 													$csc=$RsTer['Csc_Terceros'];
 													$dsc=$RsTer['Dsc_Terceros'];
+                                                                                                        $js='';
 												if ($i!=0)
 													{
 													$i++;
@@ -162,25 +167,29 @@ $Con002=mysql_query($SQL002)or die('Error');
 }else if ($consulta==5){
 }else if ($consulta==6)
 	{/////////////////////upload e insert
-		$hi_lst_contrato=$_REQUEST['hi_lst_contrato'];
-		$txt_nombres=$_REQUEST['txt_nombres'];
-		$txt_session=$_REQUEST['txt_session'];
-		$hi_lst_identificacion=$_REQUEST['hi_lst_identificacion'];
-		$txt_direccion=$_REQUEST['txt_direccion'];
-		$hi_lst_ciudad=$_REQUEST['hi_lst_ciudad'];
-		$txt_telfijo=$_REQUEST['txt_telfijo'];
-		$txt_telcelular=$_REQUEST['txt_telcelular'];
-		$txt_empresa=$_REQUEST['hi_lst_empresa'];
-		$txt_apellidos=$_REQUEST['txt_apellidos'];
-		$txt_identificacion=$_REQUEST['txt_identificacion'];
-		$hi_lst_departamento=$_REQUEST['hi_lst_departamento'];
-		$hi_lst_localidad=$_REQUEST['hi_lst_localidad'];
-		$txt_barrio=$_REQUEST['txt_barrio'];
-		$txt_celular=$_REQUEST['txt_celular'];
-		$txt_cargo=$_REQUEST['txt_cargo'];
-		$txt_observaciones=$_REQUEST['txt_observaciones'];
-		$archivo=$_REQUEST['archivo'];
-$SQL006="INSERT INTO  creacion (Login_Csc, Nombres, Apellidos, Nombre_Completo, T_Identificacion, Num_Identificacion, Departamento, Ciudad, Barrio, Dsc_Barrio, Empresa, T_Contrato, Direccion, Tel_Fijo,  Tel_Celular, Tel_Celular2, Cargo, Observaciones, Fecha_Creacion) VALUES ('".$txt_session."','".$txt_nombres."','".$txt_apellidos."','".$txt_nombres." ".$txt_apellidos."','".$hi_lst_identificacion."','".$txt_identificacion."','".$hi_lst_departamento."','".$hi_lst_ciudad."','".$hi_lst_localidad."','".$txt_barrio."','".$txt_empresa."','".$hi_lst_contrato."','".$txt_direccion."','".$txt_telfijo."','".$txt_telcelular."','".$txt_celular."','".$txt_cargo."','".$txt_observaciones."','".date("Y")."/".date("m")."/".date("d")."')";
+		@$hi_lst_contrato=$_REQUEST['hi_lst_contrato'];
+		@$txt_nombres=$_REQUEST['txt_nombres'];
+		@$txt_session=$_REQUEST['txt_session'];
+		@$hi_lst_identificacion=$_REQUEST['hi_lst_identificacion'];
+		@$txt_direccion=$_REQUEST['txt_direccion'];
+		@$hi_lst_ciudad=$_REQUEST['hi_lst_ciudad'];
+		@$txt_telfijo=$_REQUEST['txt_telfijo'];
+		@$txt_telcelular=$_REQUEST['txt_telcelular'];
+		@$txt_empresa=$_REQUEST['hi_lst_empresa'];
+		@$txt_apellidos=$_REQUEST['txt_apellidos'];
+		@$txt_identificacion=$_REQUEST['txt_identificacion'];
+		@$hi_lst_departamento=$_REQUEST['hi_lst_departamento'];
+		@$hi_lst_localidad=$_REQUEST['hi_lst_localidad'];
+		@$txt_barrio=$_REQUEST['txt_barrio'];
+		@$txt_celular=$_REQUEST['txt_celular'];
+		@$txt_cargo=$_REQUEST['txt_cargo'];
+		@$txt_observaciones=$_REQUEST['txt_observaciones'];
+		@$archivo=$_REQUEST['archivo'];
+            $SQL006="INSERT INTO  creacion (Login_Csc, Nombres, Apellidos, Nombre_Completo,
+                    T_Identificacion, Num_Identificacion, Departamento, Ciudad, Barrio, 
+                    Dsc_Barrio, Empresa, T_Contrato, Direccion, Tel_Fijo,  Tel_Celular, 
+                    Tel_Celular2, Cargo, Observaciones, Fecha_Creacion) 
+            VALUES (".$txt_session.",'".$txt_nombres."','".$txt_apellidos."','".$txt_nombres." ".$txt_apellidos."','".$hi_lst_identificacion."','".$txt_identificacion."','".$hi_lst_departamento."','".$hi_lst_ciudad."','".$hi_lst_localidad."','".$txt_barrio."','".$txt_empresa."','".$hi_lst_contrato."','".$txt_direccion."','".$txt_telfijo."','".$txt_telcelular."','".$txt_celular."','".$txt_cargo."','".$txt_observaciones."','".date("Y")."/".date("m")."/".date("d")."')";
 	$db=db('northcompas',$link);
 		$QUERY=mysql_query($SQL006)or die("{success:false}");
 		$last=mysql_query("SELECT Csc_Creacion AS 'cantidad' FROM creacion ORDER BY Csc_Creacion DESC Limit 1")or die("{success:false}");
@@ -190,20 +199,24 @@ $SQL006="INSERT INTO  creacion (Login_Csc, Nombres, Apellidos, Nombre_Completo, 
 		$QueryMail=mysql_query($SQLMAIL);
 		$i=0;
 			while($rowmail=mysql_fetch_array($QueryMail)){
-				$mail=$rowmail['Mail'];	
+				$mails[$i]=$rowmail['Mail'];
+                                $mails['admin']='joshleclash@gmail.com';
+                                $mails['admin2']='d_gomez@sitiltda.com';
+                                
+                                $mail=$rowmail['Mail'];	
 				if ($i!=0)
 					{
-						$send.=",";
+						@$send.=",";
 						$i++;
 						$send.=$mail;
 					}
 				else{
 						$i++;
-						$send.=$mail;	
+						@$send.=$mail;	
 					}
 				}
-$emails.=$send;
-$Mensaje.="Hemos recibido una nueva solicitud.<br/><br/>".
+                @$emails.=$send;
+                @$Mensaje.="Hemos recibido una nueva solicitud.<br/><br/>".
 		  "Su número de identificación de solicitud es: <strong>".$cantidad."</strong><br/><br/>".
 		  '¿Necesitas ayuda rápida? Encontrar respuestas, en la opción Chat de nuestra<br/>'.
 		  'aplicación haz <a href="http://www.northcompass.com.co" title="NorthCompas"/>clic aquí.</a><br/><br/>'.
@@ -211,8 +224,13 @@ $Mensaje.="Hemos recibido una nueva solicitud.<br/><br/>".
 		  "Gracias,<br/>".
 		  "Northcompass.com.co<br/><br/><br/>".
 		  "Por favor no responda este mensaje.";
-		  fn_Mail($emails,"Nueva Solicitud - ID ".$cantidad,$Mensaje);
-echo "{success: true, bien:{csc:'".$cantidad."'}}";	
+                $components = new Components();
+                $mail = $components->sendRsForMail($mails, "Nueva Solicitud - ID ".$cantidad, $Mensaje);
+                if($mail){
+                    echo "{success: true, bien:{csc:'".$cantidad."'}}";
+                  }else{
+                      echo "{success: false}";
+                  }	
 //echo $Mensaje,$emails;
 }
 ?>

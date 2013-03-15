@@ -141,8 +141,7 @@ Bienvenido a North Compass (Aplicaci&oacute;n En Desarrollo)<br />
         <div id="example-gridestado"></div>
 		<p class="Estilo1">&nbsp;</p>
             <p><em>Usted esta conectado(a) desde <?php  echo $_SERVER['REMOTE_ADDR'];?>
-             <?php echo $_SERVER['HTTP_CLIENT_IP'];?></em></p>
-            <p><em>Aplicaci&oacute;n En Desarrollo 1.0.0</em> </p>
+             <p><em>Aplicaci&oacute;n En Desarrollo 1.0.0</em> </p>
           </div>
         </div>
         <p>&nbsp;</p>       

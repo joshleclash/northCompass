@@ -1,5 +1,5 @@
 <?php
-include ("Conexion.php");
+include ("../../Conexion.php");
 session_start();
 $CscLogin=$_SESSION["Csc"];
 $time=date("d/m/Y");
@@ -28,7 +28,7 @@ $time=date("d/m/Y");
 }
 .loading-indicator{
 	font-size:8pt;
-	background-image:url('file:/ExtJS/resources/images/default/grid/loading.gif');
+	background-image:url('../../ExtJS/resources/images/default/grid/loading.gif');
 	background-repeat:no-repeat;
 	background-position:top left;
 	padding-left:20px;
@@ -48,27 +48,27 @@ $time=date("d/m/Y");
 }
 #loading .loading-indicator{
 	border:1px solid #a3bad9;
-	background:white url(file:///D|/ExtJs/docs/resources/block-bg.gif) repeat-x;
+	background-image:url('../../ExtJs/docs/resources/block-bg.gif') repeat-x;
 	color:#003366;
 	font:bold 13px tahoma,arial,helvetica;
 	padding:10px;
 	margin:0;
 }
 .icon-login {
-	background-image:url(file:///D|/images/login.png) !important;
+	background-image:url('../../images/login.png') !important;
 }
 p {
 	margin:5px;
 }
 .settings {
-	background-image:url(file:///D|/Mis%20Documentos/bhmips/ExtJS/examples/shared/icons/fam/folder_wrench.png);
+	
 }
 .nav {
-	background-image:url(file:///D|/Mis%20Documentos/bhmips/ExtJS/examples/shared/icons/fam/folder_go.png);
+	
 }
 /* IM window icons */
 .user {
-    background-image:url(file:///D|/Mis%20Documentos/bhmips/ExtJS/examples/shared/icons/fam/user.gif) !important;
+    
 }
 </style>
 

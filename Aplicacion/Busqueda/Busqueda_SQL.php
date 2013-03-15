@@ -1,5 +1,5 @@
 <?php
-include("Conexion.php");
+include("../../Conexion.php");
 $consulta=$_REQUEST['consulta'];
 	db('northcompas',$link);
 if ($consulta==0)
@@ -37,17 +37,23 @@ else if ($consulta==1)
 			{
 $Radio=$_REQUEST['Radio'];
 $chk=$_REQUEST['chk'];
+$js='';
+$json='';
 $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 	 if ($chk=='false')
 	 	{
 		if ($Radio==1)
 				{
 				$Buscar=$_REQUEST['Buscar'];
-				$SplitBuscar=split("/",$Buscar);
-				$Buscar=$SplitBuscar[2]."-".$SplitBuscar[1]."-".$SplitBuscar[0];				
+                                if(strpos($Buscar, "/")){
+                                    $SplitBuscar=explode("/",$Buscar);
+                                    $Buscar=$SplitBuscar[2]."-".$SplitBuscar[1]."-".$SplitBuscar[0];				
+                                }
+				
 					$SQL="select * from creacion where Fecha_Creacion like '%".$Buscar."%'";
 					$Result=mysql_query($SQL);
 					$i=0;
+                                        
 					while($Rs=mysql_fetch_array($Result))
 						{
 							$Csc_Creacion=$Rs['Csc_Creacion'];
@@ -59,10 +65,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -96,14 +102,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 
@@ -115,8 +121,7 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 				
 				}else if ($Radio==2)
 				{
-				$Buscar=$_REQUEST['Buscar'];
-								
+                                        $Buscar=$_REQUEST['Buscar'];
 					$SQL="select * from creacion where Nombre_Completo like '%".$Buscar."%'".
 					"union ".
 					"select t1.* from creacion t1, info_familiar t2 where t2.Nombres_Familiares	 like '%".$Buscar."%'".
@@ -137,11 +142,12 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 					"union ".
 					"select t1.* from creacion t1, info_familiar t2 where t2.Nombre_Madre	 like '%".$Buscar."%'".
 					"union ".
-					"select t1.* from creacion t1, info_familiar t2 where t2.apellidos_Madre	 like '%".$Buscar."%'";
-					
+					"select t1.* from creacion t1, info_familiar t2 where t2.Apellidos_Madre	 like '%".$Buscar."%'";
 					
 					$Result=mysql_query($SQL);
 					$i=0;
+                                        $js='';
+                                        $json='';
 					while($Rs=mysql_fetch_array($Result))
 						{
 							$Csc_Creacion=$Rs['Csc_Creacion'];
@@ -153,11 +159,11 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
-								}
+										$DscCiudad=$RsCiu['DscCiudad'];
+                                                    			}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
 								if($Estado==0)
@@ -190,14 +196,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";				
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";				
 								}	
 						}
@@ -240,10 +246,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -277,14 +283,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";				
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";				
 								}	
 						}
@@ -316,10 +322,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -353,14 +359,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 						}
@@ -389,10 +395,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -426,14 +432,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 						}
@@ -458,10 +464,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -495,14 +501,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 						}
@@ -538,10 +544,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -575,14 +581,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}	
 						}
@@ -608,10 +614,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -645,14 +651,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}	
 						}
@@ -665,14 +671,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 					{
 					$Buscar=$_REQUEST['Buscar'];
 					//$SQL="select * from creacion where Dsc_Barrio like '%".$Buscar."%'";
-					$SQL="SELECT * FROM creacion t1, departamento t2, ciudad t3  where   t1.Departamento=t2.CscDepartamento and t1.Departamento=t3.CodDepartamento".
-					" and t1.ciudad=t3.CodCiudad and Dsc_Barrio like '%".$Buscar."%'".
+					$SQL="SELECT * FROM creacion t1, departamento t2, ciudad t3  where   t1.Departamento=t2.CscDepartamento and t1.Departamento=t3.CscDepartamento".
+					" and t1.ciudad=t3.CscCiudad and Dsc_Barrio like '%".$Buscar."%'".
 					" union".
-					" SELECT * FROM creacion t1, departamento t2, ciudad t3  where  t1.Departamento=t2.CscDepartamento and t1.Departamento=t3.CodDepartamento".
-					" and t1.ciudad=t3.CodCiudad and t2.DscDepartamento like '%".$Buscar."%'".
+					" SELECT * FROM creacion t1, departamento t2, ciudad t3  where  t1.Departamento=t2.CscDepartamento and t1.Departamento=t3.CscDepartamento".
+					" and t1.ciudad=t3.CscCiudad and t2.DscDepartamento like '%".$Buscar."%'".
 					" union ".
-					" SELECT * FROM creacion t1, departamento t2, ciudad t3  where     t1.Departamento=t2.CscDepartamento and t1.Departamento=t3.CodDepartamento".
-					" and t1.ciudad=t3.CodCiudad and t3.DescCiudad like '%".$Buscar."%'";
+					" SELECT * FROM creacion t1, departamento t2, ciudad t3  where     t1.Departamento=t2.CscDepartamento and t1.Departamento=t3.CscDepartamento".
+					" and t1.ciudad=t3.CscCiudad and t3.DscCiudad like '%".$Buscar."%'";
 					$Result=mysql_query($SQL);
 					$i=0;
 					while($Rs=mysql_fetch_array($Result))
@@ -686,10 +692,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -723,14 +729,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 						}
@@ -759,10 +765,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Ciudad=$Rs['Ciudad'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -796,14 +802,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 
@@ -830,10 +836,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Ciudad=$Rs['Ciudad'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -867,14 +873,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 
@@ -901,10 +907,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Ciudad=$Rs['Ciudad'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -938,14 +944,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}	
 
@@ -972,10 +978,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Ciudad=$Rs['Ciudad'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -1009,14 +1015,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 
@@ -1043,10 +1049,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Ciudad=$Rs['Ciudad'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -1080,14 +1086,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 
@@ -1113,10 +1119,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Ciudad=$Rs['Ciudad'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -1150,14 +1156,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 
@@ -1184,10 +1190,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -1221,14 +1227,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 						}
@@ -1254,10 +1260,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -1291,14 +1297,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}	
 						}
@@ -1318,7 +1324,7 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 					" and t1.ciudad=t3.CodCiudad and t2.DscDepartamento = '".$Buscar."'".
 					" union ".
 					" SELECT * FROM creacion t1, departamento t2, ciudad t3  where     t1.Departamento=t2.CscDepartamento and t1.Departamento=t3.CodDepartamento".
-					" and t1.ciudad=t3.CodCiudad and t3.DescCiudad = '".$Buscar."'";
+					" and t1.ciudad=t3.CodCiudad and t3.DscCiudad = '".$Buscar."'";
 					$Result=mysql_query($SQL);
 					$i=0;
 					while($Rs=mysql_fetch_array($Result))
@@ -1332,10 +1338,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 							$Placas=$Rs['Placas'];
 							if ($Departamento!='' and $Ciudad != '')
 								{
-									$SqlCiu="Select * from ciudad where CodDepartamento='".$Departamento."' and CodCiudad ='".$Ciudad."'";
+									$SqlCiu="Select * from ciudad where CscDepartamento='".$Departamento."' and CscCiudad ='".$Ciudad."'";
 										$ResultCiu=mysql_query($SqlCiu);
 										$RsCiu=mysql_fetch_array($ResultCiu);
-										$DescCiudad=$RsCiu['DescCiudad'];
+										$DscCiudad=$RsCiu['DscCiudad'];
 								}
 							$Fecha_Creacion=$Rs['Fecha_Creacion'];
 							$Estado=$Rs['Estado'];
@@ -1369,14 +1375,14 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								$js.=",";
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
 								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DescCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";
 								}	
 						}

@@ -1,5 +1,5 @@
 <?php
-include ("Conexion.php");
+include ("../../Conexion.php");
 session_start();
 $nombres=$_SESSION["Nombres"];
 $apeliidos=$_SESSION["Apellidos"];

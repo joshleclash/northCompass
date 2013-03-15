@@ -7,9 +7,9 @@ $exp_reg="[^A-Z0-9]";
 $exp_reg="[^0-9]";
 }
 
-return substr(eregi_replace($exp_reg, "", md5(time())) .
-eregi_replace($exp_reg, "", md5(time())) .
-eregi_replace($exp_reg, "", md5(time())),
+return substr(preg_replace($exp_reg, "", md5(time())) .
+                preg_replace($exp_reg, "", md5(time())) .
+                preg_replace($exp_reg, "", md5(time())),
 0, $longitud);
 }
 ?>

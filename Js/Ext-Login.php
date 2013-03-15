@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php @session_start();?>
 <?php
 include("./php/GenCodigo.php");
 $pass=genera_password(7);

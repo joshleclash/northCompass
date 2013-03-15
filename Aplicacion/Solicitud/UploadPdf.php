@@ -1,5 +1,5 @@
 <?php
-include("Conexion.php");
+include("../../Conexion.php");
 
 session_start();
 $CscLogin=$_SESSION["Csc"];
@@ -104,6 +104,7 @@ echo '<td align="right"><input type="button"  value="Previsualizar" onClick="Pre
 function Cambio($carateres)
 	{
 		$random='';
+                $letras='';
 		$letras.="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		$letras.="abcdefghijklmnopqrstuvwxyz";
 		$letras.="0123456789";
@@ -130,8 +131,8 @@ if (isset($_FILES['file_pdf']['tmp_name']))
 						
 							if ($Csc_Pdf=='')
 								{
-									$PdfInsert="Insert into Pdf (Identificacion, Usuario_Csc, PdfFile, Terceros_Csc) values('".$Identificacion."','".$CscLogin."'".
-									",'".$newFilename."','".$Empresa."')";
+									$PdfInsert="Insert into Pdf (Identificacion, Usuario_Csc, PdfFile, Terceros_Csc) values('".$Identificacion."',".$CscLogin."".
+									",'".$newFilename."',".$Empresa.")";
 									db('northcompas', $link);
 									if ($Identificacion=='' && $Empresa=='')
 											{
@@ -139,7 +140,7 @@ if (isset($_FILES['file_pdf']['tmp_name']))
 													return false;
 											}
 										mysql_query($PdfInsert)or die('<p class="error">Error al crear archivo</p>');
-										move_uploaded_file($TmpFile, "UploadPdf/".	$newFilename)or die("Error al mover el archivo");
+										move_uploaded_file(trim($TmpFile), "UploadPdf/".	$newFilename)or die("Error al mover el archivo");
 										echo '<p class="ok">Archivo Guardado Correctamente</p>';
 										$Csc_Pdf1=Consultar($Identificacion, $Empresa, $link);
 										echo '<td align="right"><input type="button"  value="Previsualizar" onClick="Previsualizar('.$Csc_Pdf1.');"></td>';
@@ -155,7 +156,7 @@ if (isset($_FILES['file_pdf']['tmp_name']))
 													return false;
 											}
 										mysql_query($PdfUpdate)or die('<p class="error">Error al actualizar archivo</p>');
-										move_uploaded_file($TmpFile, "UploadPdf/".	$newFilename)or die("Error al mover el archivo");
+										move_uploaded_file(trim($TmpFile), "UploadPdf/".	$newFilename)or die("Error al mover el archivo");
 											echo '<p class="ok">Archivo Actualizado Correctamente</p>';
 											$Csc_Pdf2=Consultar($Identificacion, $Empresa, $link);
 											echo '<td align="right"><input type="button"  value="Previsualizar" onClick="Previsualizar('.$Csc_Pdf2.');"></td>';
