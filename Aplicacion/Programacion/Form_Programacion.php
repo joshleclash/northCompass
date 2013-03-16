@@ -43,7 +43,7 @@ var ds_Cliente = new Ext.data.Store({
 		});
 
 var ds_ClienteUpdate = new Ext.data.Store({
-	//autoLoad: true,
+	autoLoad: true,
 		proxy: new Ext.data.HttpProxy({url:'Form_Programacion_SQL.php?consulta=3'}),
 		reader: new Ext.data.JsonReader({
 			root:'topics',

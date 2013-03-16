@@ -1,6 +1,6 @@
 <?php
-include ("Conexion.php");
-session_start();
+include ("../../Conexion.php");
+@session_start();
 $nombres=$_SESSION["Nombres"];
 $apeliidos=$_SESSION["Apellidos"];
 $Csc_Login=$_SESSION["Csc"];
@@ -19,16 +19,16 @@ $time=date("d/m/Y");
 <html>
 <head>
 <meta name="content"  content="text/html;" http-equiv="content-type" charset="utf-8">
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/resources/css/ext-all.css">
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/welcomeinc.css">
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/examples/form/file-upload.css">
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="../../ExtJS/welcomeinc.css">
+<link rel="stylesheet" type="text/css" href="../../ExtJS/examples/form/file-upload.css">
 <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAA4LolQJYOca5J6tY83OJydhTUKULPSSDvqStY6p9kABiwK8UHvhSCPCxGjXQx4MARiS9CY54_Zp6_fg" type="text/javascript"></script>
-<script type="text/javascript" src="/../../ExtJS/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="../../ExtJS/adapter/ext/ext-base.js"></script>
 <!--<script type="text/javascript" src="/../../Alert.js"></script>-->
-<script type="text/javascript" src="/../../ExtJS/ext-all.js"></script>
-<script type="text/javascript" src="/../../ExtJS/ext-lang-sp.js"></script>
-<script type="text/javascript" src="/../../ExtJS/examples/ux/fileuploadfield/FileUploadField.js"></script> 
-<script type="text/javascript" src="/../../ExtJS/examples/ux/GMapPanel.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-all.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-lang-sp.js"></script>
+<script type="text/javascript" src="../../ExtJS/examples/ux/fileuploadfield/FileUploadField.js"></script> 
+<script type="text/javascript" src="../../ExtJS/examples/ux/GMapPanel.js"></script>
 </head>
 <title>NORTH COMPAS</title> 
 <style type="text/css">
@@ -41,7 +41,7 @@ $time=date("d/m/Y");
 }
 .loading-indicator{
 	font-size:8pt;
-	background-image:url('file:/ExtJS/resources/images/default/grid/loading.gif');
+	background-image:url('../../ExtJS/resources/images/default/grid/loading.gif');
 	background-repeat:no-repeat;
 	background-position:top left;
 	padding-left:20px;
@@ -61,28 +61,29 @@ $time=date("d/m/Y");
 }
 #loading .loading-indicator{
 	border:1px solid #a3bad9;
-	background:white url(file:///D|/ExtJs/docs/resources/block-bg.gif) repeat-x;
+	background-image: url('../../ExtJS/docs/resources/block-bg.gif');
 	color:#003366;
 	font:bold 13px tahoma,arial,helvetica;
 	padding:10px;
 	margin:0;
 }
 .icon-login {
-	background-image:url(file:///D|/images/login.png) !important;
+	background-image:url('../../images/login.png') !important;
 }
 p {
 	margin:5px;
 }
+/*
 .settings {
 	background-image:url(file:///D|/Mis%20Documentos/bhmips/ExtJS/examples/shared/icons/fam/folder_wrench.png);
 }
 .nav {
 	background-image:url(file:///D|/Mis%20Documentos/bhmips/ExtJS/examples/shared/icons/fam/folder_go.png);
 }
-/* IM window icons */
+
 .user {
     background-image:url(file:///D|/Mis%20Documentos/bhmips/ExtJS/examples/shared/icons/fam/user.gif) !important;
-}
+}*/
 .DatosBasicos {
     background-image:url(DatosBasicos.png) !important;
 }

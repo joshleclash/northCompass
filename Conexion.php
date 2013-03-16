@@ -28,6 +28,49 @@ function Ciudad($link, $departamento, $Ciudad)
 					return $DescCiudad;
 	
 	}
-$components = new Components();
+        function UsuarioTabla($link, $csc_creacion, $tabla)
+	{
+		$Sql="Select * from ".$tabla."  where Creacion_Csc='".$csc_creacion."'";
+                //echo $Sql;
+                	db('northcompas',$link);
+				$Result=mysql_query($Sql);
+					$Rs=mysql_fetch_array($Result);
+					$Usuario_Csc=$Rs['Usuario_Csc'];
+					return $Usuario_Csc;
+	
+	}
+function Terceros($link, $Csc_Terceros)
+	{
+		$Sql="Select * from terceros  where Cliente_Csc='".$Csc_Terceros."'";
+			db('northcompas',$link);
+				$Result=mysql_query($Sql);
+					$Rs=mysql_fetch_array($Result);
+					$Dsc_Terceros=$Rs['Dsc_Terceros'];
+					$Cliente_Csc=$Rs['Cliente_Csc'];
+					return $Dsc_Terceros."-".$Cliente_Csc;
+	
+	}
+function Empresa($link, $CscCliente)
+	{
+		$Sql="Select * from cliente  where Csc_Cliente='".$CscCliente."'";
+                //echo $Sql;
+			db('northcompas',$link);
+				$Result=mysql_query($Sql);
+					$Rs=mysql_fetch_array($Result);
+					$DscCliente=$Rs['Dsc_Cliente'];
+					return $DscCliente;
+	
+	}				
+function Usuario($link, $login_csc)
+	{
+		$Sql="Select * from login  where Csc_Login='".$login_csc."'";
+			db('northcompas',$link);
+				$Result=mysql_query($Sql);
+					$Rs=mysql_fetch_array($Result);
+					$Nombres=$Rs['Nombres'];
+					$Apellidos=$Rs['Apellidos'];
+					return $Nombres." ".$Apellidos;
+	
+	}
 
 ?>

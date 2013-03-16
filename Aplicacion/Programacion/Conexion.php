@@ -54,35 +54,5 @@ function Usuario($link, $login_csc)
 					return $Nombres." ".$Apellidos;
 	
 	}
-function UsuarioTabla($link, $csc_creacion, $tabla)
-	{
-		$Sql="Select * from ".$tabla."  where Creacion_Csc='".$csc_creacion."'";
-			db('northcompas',$link);
-				$Result=mysql_query($Sql);
-					$Rs=mysql_fetch_array($Result);
-					$Usuario_Csc=$Rs['Usuario_Csc'];
-					return $Usuario_Csc;
-	
-	}
-function Terceros($link, $Csc_Terceros)
-	{
-		$Sql="Select * from terceros  where Csc_Terceros='".$Csc_Terceros."'";
-			db('northcompas',$link);
-				$Result=mysql_query($Sql);
-					$Rs=mysql_fetch_array($Result);
-					$Dsc_Terceros=$Rs['Dsc_Terceros'];
-					$Cliente_Csc=$Rs['Cliente_Csc'];
-					return $Dsc_Terceros."-".$Cliente_Csc;
-	
-	}
-function Empresa($link, $CscCliente)
-	{
-		$Sql="Select * from cliente  where CscCliente='".$Csc_Terceros."'";
-			db('northcompas',$link);
-				$Result=mysql_query($Sql);
-					$Rs=mysql_fetch_array($Result);
-					$DscCliente=$Rs['DscCliente'];
-					return $DscCliente;
-	
-	}				
+
 ?>

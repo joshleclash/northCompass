@@ -1,5 +1,7 @@
 <?php 
-include("Conexion.php");
+include("../../Conexion.php");
+$js='';
+$json='';
 function fn_envioCorreos($link, $Estado,  $csc_creacion)
 	{
 		$header='<img src="http://www.northcompass.com.co/Aplicacion/Solicitud/Header.png">';
@@ -46,24 +48,24 @@ if ($consulta==0){/////////////////////////////////departamento
 }else if ($consulta==1){///////////////////////////ciudad
 $Cdepto=$_REQUEST['Cdepto'];
 	
-$SQL001="select * from   ciudad where CodDepartamento='".$Cdepto."' order by DescCiudad asc";
+$SQL001="select * from   ciudad where CscDepartamento='".$Cdepto."' order by DscCiudad asc";
 	mysql_select_db('northcompas',$link);
 	$Con001=mysql_query($SQL001);
 	$i=0;
 	
 	while($row001=mysql_fetch_array($Con001)){
 		$CodCiudad=$row001['CodCiudad'];
-		$DescCiudad=$row001['DescCiudad'];
+		$DscCiudad=$row001['DscCiudad'];
 			if($i<>0)
 			{
 				$js.=",";
 				$i++;
-				$js=$js."{'csc':'".$CodCiudad."','dsc':'".$DescCiudad."'}";
+				$js=$js."{'csc':'".$CodCiudad."','dsc':'".$DscCiudad."'}";
 			}
 			else
 			{
 				$i++;
-				$js=$js."{'csc':'".$CodCiudad."','dsc':'".$DescCiudad."'}";
+				$js=$js."{'csc':'".$CodCiudad."','dsc':'".$DscCiudad."'}";
 			}
 		}
 	$json.="{root:[".$js;	
@@ -226,11 +228,11 @@ $Csc=$_REQUEST['Csc'];
 								$Ciudad=$Rs007['Ciudad'];
 								if ($Departamento!='' and $Ciudad!='')
 									{
-										$SqlCiu="Select * from ciudad where 	CodCiudad=".$Ciudad." and CodDepartamento=".$Departamento."";
+										$SqlCiu="Select * from ciudad where 	CscCiudad=".$Ciudad." and CscDepartamento=".$Departamento."";
 											db('northcompas',$link);
 											$ResultCiud=mysql_query($SqlCiu);
 											$RsCiu=mysql_fetch_array($ResultCiud);	
-											$Ciudad=$RsCiu['DescCiudad'];
+											$Ciudad=$RsCiu['DscCiudad'];
 									}
 								else
 									{
@@ -242,7 +244,7 @@ $Csc=$_REQUEST['Csc'];
 								if($Empresa!='')
 									{
 									$Tercero=Terceros($link, $Empresa);	
-									$TerceroSplit=split("-",$Tercero);
+									$TerceroSplit=explode("-",$Tercero);
 									$Tercero=$TerceroSplit[0];
 									
 									$Empresa1=Empresa($link, $TerceroSplit[1]);
