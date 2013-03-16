@@ -1,5 +1,5 @@
 <?php
-include ("Conexion.php");
+include ("../../Conexion.php");
 session_start();
 $nombres=$_SESSION["Nombres"];
 $apeliidos=$_SESSION["Apellidos"];
@@ -8,11 +8,11 @@ $time=date("d/m/Y");
 $CscSession=$_SESSION["Csc"];
 $Perfil=$_SESSION['Perfil'];
 ?>
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/resources/css/ext-all.css">
-<script type="text/javascript" src="/../../ExtJS/adapter/ext/ext-base.js"></script>
-<script type="text/javascript" src="/../../ExtJS/ext-all.js"></script>
-<script type="text/javascript" src="/../../ExtJS/ext-lang-sp.js"></script>
-<script type="text/javascript" src="/../../ExtJS/examples/ux/CheckColumn.js"></script>
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/ext-all.css">
+<script type="text/javascript" src="../../ExtJS/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-all.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-lang-sp.js"></script>
+<script type="text/javascript" src="../../ExtJS/examples/ux/CheckColumn.js"></script>
 <!--<script type="text/javascript" src="../../ExtJs/examples/ux/GroupSummary.js"></script> -->
 <!-- <script type="text/javascript" src="../../extjs/examples/grid/totals.js"></script>-->
 <!-- <link rel="stylesheet" type="text/css" href="../../ExtJs/examples/ux/css/GroupSummary.css" /> -->    
@@ -164,7 +164,7 @@ var tabs = new Ext.TabPanel({
 					displayField:   'dsc',
 					valueField:     'csc',
 					store:          new Ext.data.Store({
-//					autoLoad: true,
+					autoLoad: true,
 					proxy:   new Ext.data.HttpProxy({url:'Form_Programacion_SQL.php?consulta=2'}),
 					reader: 	new Ext.data.JsonReader({root:'root'},[{name:'csc', type:'string'},{name:'dsc', type:'string'}])					
 							

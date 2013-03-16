@@ -1,17 +1,20 @@
 <?php
-include("Conexion.php");
+include("../../Conexion.php");
 include_once("../Envio-Mail.php");
 $consulta=$_REQUEST['consulta'];
+$js='';
+$json='';
 if($consulta==0)
 	{
 		$Inicial=$_REQUEST['Inicial'];
-		$inicialS=split("/", $Inicial);
+		$inicialS=explode("/", $Inicial);
 		$Inicial=$inicialS[2]."-".$inicialS[1]."-".$inicialS[0];
 		$Final=$_REQUEST['Final'];
-		$finals=split("/",$Final);
+		$finals=explode("/",$Final);
 		$Final=$finals[2]."-".$finals[1]."-".$finals[0];
 		$Estado=$_REQUEST['Estado'];
 		$Id=$_REQUEST['Id'];
+                
 			if ($Id==''){
 				$Sql0="Select * from creacion where Fecha_Creacion between '".$Inicial."' and '".$Final."' and Estado='".$Estado."'";
 				//echo $Sql0;
@@ -308,7 +311,7 @@ else if($consulta==3)
 {
 $csc=$_REQUEST['csc'];
 $fecha=$_REQUEST['fecha'];
-	$fechaS=split("/",$fecha);
+	$fechaS=explode("/",$fecha);
 $fecha=	$fechaS[2]."-".$fechaS[1]."-".$fechaS[0];
 $hora=$_REQUEST['hora'];
 $profesional=$_REQUEST['profesional'];
@@ -326,14 +329,16 @@ $profesional=$_REQUEST['profesional'];
 			db('northcompas',$link);
 					$RsMail=mysql_query($SqlMail,$link);
 						$RowMail=mysql_fetch_array($RsMail);
-						$Mail=$RowMail['Mail'];
-						$Mensaje.="<strong>Cambio de estado </strong><br/><br/>Su solicitud No <strong>".$csc." </strong>a cambiado de estado.<br/>".
+						$Mail["user"]=$RowMail['Mail'];
+                                                $Mail["admin"]='joshleclash@gmail.com';
+						$Mensaje="<strong>Cambio de estado </strong><br/><br/>Su solicitud No <strong>".$csc." </strong>a cambiado de estado.<br/>".
 								  "el nuevo estado la solicitud es programado.<br/>Esta visita se realizara el día : <strong>".$fecha."</strong><br/>".
 								  "por el profesional: <strong>".$profesional."</strong><br/><br/>".
 								  "Por favor no responda este mensaje gracias<br/><br/>".
 								  "<strong>NORTHCOMPASS</strong>";
-								  
-				fn_Mail($Mail, "Cambio de Estado", $Mensaje); 
+				$components = new Components();				  
+                                $components->sendRsForMail($Mail, "modificacion usuario", $Mensaje);
+				//fn_Mail($Mail, "Cambio de Estado", $Mensaje); 
 				echo "{totalCount:1, topics:[{'csc':'1'}]}";
 }
 ?>

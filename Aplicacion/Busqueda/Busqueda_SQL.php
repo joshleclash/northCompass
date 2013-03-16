@@ -216,23 +216,26 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 				{
 				$Buscar=$_REQUEST['Buscar'];
 							//	Tel_Fijo	Tel_Celular
-					$SQL="select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Telefono_Conyuge like '%".$Buscar."%'".
+                                                       
+                                    $SQL="select t1.* from creacion t1 where t1.Tel_Celular like  '".$Buscar."%' or t1.Tel_Celular2 like  '".$Buscar."%' or  t1.Tel_Fijo like '".$Buscar."%' ".
+                                          "union ".  
+                                          "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Telefono_Conyuge like '".$Buscar."%'".
 					  "union ".
-					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Celular_Conyuge like '%".$Buscar."%'".
+					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Celular_Conyuge like '".$Buscar."%'".
 					  "union ".
-					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Tel_TrabajoConyu like '%".$Buscar."%'".
+                                          "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Tel_TrabajoConyu like '".$Buscar."%'".
 					  "union ".
-					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Telefono_Padre like '%".$Buscar."%'".
+					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Telefono_Padre like '".$Buscar."%'".
 					  "union ".
-					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Celular_Padre like '%".$Buscar."%'".
+					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Celular_Padre like '".$Buscar."%'".
 					  "union ".
-					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Tel_Madre like '%".$Buscar."%'".
+					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Tel_Madre like '".$Buscar."%'".
 					  "union ".
-					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Cel_Madre like '%".$Buscar."%'";
-					
+					  "select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Cel_Madre like '".$Buscar."%'";
+					//echo $SQL;
 					  		db('northcompas',$link);
 								$Result=mysql_query($SQL);
-								$Rows=mysql_affected_rows();		
+					
 						
 							$i=0;
 					while($Rs=mysql_fetch_array($Result))
@@ -303,10 +306,17 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 				{
 				$Buscar=$_REQUEST['Buscar'];
 								
-					$SQL="select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t1.Num_Identificacion like '%".$Buscar."%' ".
-					"union ".
-					"select t1.* from creacion t1,  info_familiar t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Numero_Identificacion like '%".$Buscar."%' ";
-					
+					$SQL="SELECT t1.*
+                                                FROM creacion t1, info_familiar t2
+                                               WHERE   t1.Csc_Creacion = t2.Creacion_Csc and t1.Num_Identificacion LIKE '%".$Buscar."%'
+                                              UNION
+                                              SELECT t1.*
+                                                FROM creacion t1, info_familiar t2
+                                               WHERE t1.Csc_Creacion = t2.Creacion_Csc
+                                                     AND t2.Numero_Identificacion LIKE '%".$Buscar."%' ";
+                                
+                                
+					//echo $SQL;
 					
 					
 					$Result=mysql_query($SQL);
@@ -379,9 +389,10 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 				{
 				$Buscar=$_REQUEST['Buscar'];
 								
-					$SQL="select t1.* from creacion t1,  vivienda t2 where t2.Creacion_Csc=t1.Csc_Creacion and t1.Direccion like '%".$Buscar."%' ".
+					$SQL="select t1.* from creacion t1,  vivienda t2 where t2.Creacion_Csc=t1.Csc_Creacion and t1.Direccion like '%". $Buscar ."%' ".
 					"union ".
-					"select t1.* from creacion t1,  vivienda t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Direccion like '%".$Buscar."%' ";
+					"select t1.* from creacion t1,  vivienda t2 where t2.Creacion_Csc=t1.Csc_Creacion and t2.Direccion like ' %". $Buscar ."%' ";
+                                        
 					$Result=mysql_query($SQL);
 					$i=0;
 					while($Rs=mysql_fetch_array($Result))
@@ -450,7 +461,11 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 				}else if ($Radio==6)
 				{
 				$Buscar=$_REQUEST['Buscar'];
-					$SQL="Select t1.* from creacion t1, cliente t2 where t1.Empresa=t2.CscCliente and DscCliente like '%".$Buscar."%'";
+					$SQL="SELECT t1.*
+                                              FROM creacion t1, terceros t2, cliente t3
+                                              WHERE t1.Empresa=t2.Csc_Terceros and t2.Cliente_Csc=t3.Csc_Cliente and
+                                            t3.Dsc_Cliente like '%" . $Buscar . "%'";
+                                        //echo $SQL;
 					$Result=mysql_query($SQL);
 					$i=0;
 					while($Rs=mysql_fetch_array($Result))
@@ -530,7 +545,7 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 					"Select t1.* from creacion t1, documentos t2 where t1.Csc_Creacion=t2.Creacion_Csc and t2.Placas2 like '%".$Buscar."%'".
 					"union ".
 					"Select t1.* from creacion t1, documentos t2 where t1.Csc_Creacion=t2.Creacion_Csc and t2.Placas1 like '%".$Buscar."%'";
-					
+					//echo $SQL;
 					$Result=mysql_query($SQL);
 					$i=0;
 					while($Rs=mysql_fetch_array($Result))
@@ -750,8 +765,11 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 			if ($Radio==1)
 				{
 				$Buscar=$_REQUEST['Buscar'];
-				$SplitBuscar=split("/",$Buscar);
-				$Buscar=$SplitBuscar[2]."-".$SplitBuscar[1]."-".$SplitBuscar[0];				
+				 if(strpos($Buscar, "/")){
+                                    $SplitBuscar=explode("/",$Buscar);
+                                    $Buscar=$SplitBuscar[2]."-".$SplitBuscar[1]."-".$SplitBuscar[0];				
+                                }
+				
 					$SQL="select * from creacion where Fecha_Creacion = '".$Buscar."'";
 					$Result=mysql_query($SQL);
 					$i=0;
@@ -824,6 +842,7 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 				$Buscar=$_REQUEST['Buscar'];
 								
 					$SQL="select * from creacion where Nombre_Completo = '".$Buscar."'";
+                                        //echo $SQL;
 					$Result=mysql_query($SQL);
 					$i=0;
 					while($Rs=mysql_fetch_array($Result))
@@ -872,16 +891,16 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								{
 								$js.=",";
 								$i++;
-								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
+								@$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
 								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
 								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
-								$$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
+								@$$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
 								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
-								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
+								"'Placas':'".@$Placas."','Otros':'".$Otros."'}";		
 								}	
 
 						}
@@ -943,16 +962,16 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								{
 								$js.=",";
 								$i++;
-								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
-								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
+								@$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
+								@"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								@"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
-								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
-								"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
+								@$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
+								@"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								@"'Placas':'".$Placas."','Otros':'".$Otros."'}";	
 								}	
 
 						}
@@ -1014,16 +1033,16 @@ $Otros='<img src="../../Images/Iconos/application_cascade.png"/>';
 								{
 								$js.=",";
 								$i++;
-								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
-								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
+								@$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
+								@"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								@"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}
 							else
 								{
 								$i++;
-								$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
-								"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
-								"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
+								@$js.="{'post_id':'".$i."','Csc':'".$Csc_Creacion."','NombreCompleto':'".$Apellidos." ".$Nombres."','Identificacion':'".
+								@"".$Num_Identificacion."','Ciudad':'".$DscCiudad."','Fecha':'".$Fecha_Creacion."','Estado':'".$Estado."','Icono':'".$Icono."',".
+								@"'Placas':'".$Placas."','Otros':'".$Otros."'}";		
 								}	
 
 						}

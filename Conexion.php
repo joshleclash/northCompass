@@ -1,4 +1,5 @@
 <?php
+include_once 'Aplicacion/components/Components.php';
 $host='localhost';
 $user='root';
 $pass="";
@@ -19,12 +20,14 @@ function Departamento($link, $departamento)
 	}
 function Ciudad($link, $departamento, $Ciudad)
 	{
-		$Sql="Select * from ciudad where CodDepartamento='".$departamento."' and CodCiudad='".$Ciudad."'";
+		$Sql="Select * from ciudad where CscDepartamento='".$departamento."' and CscCiudad='".$Ciudad."'";
 			mysql_select_db('northcompas',$link);
 				$Result=mysql_query($Sql);
 					$Rs=mysql_fetch_array($Result);
-					$DescCiudad=$Rs['DescCiudad'];
+					$DescCiudad=$Rs['DscCiudad'];
 					return $DescCiudad;
 	
 	}
+$components = new Components();
+
 ?>

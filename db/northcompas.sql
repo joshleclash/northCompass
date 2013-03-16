@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `Csc_Cliente` int(11) NOT NULL AUTO_INCREMENT,
   `Dsc_Cliente` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Csc_Cliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 -- --------------------------------------------------------
 
@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `login` (
   `Cliente_Csc` int(11) DEFAULT NULL,
   `Mail` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`Csc_Login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 -- --------------------------------------------------------
 
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `pdf` (
   `Terceros_Csc` int(11) DEFAULT NULL,
   `Usuario_Csc` int(11) DEFAULT NULL,
   PRIMARY KEY (`Csc_Pdf`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 -- --------------------------------------------------------
 
