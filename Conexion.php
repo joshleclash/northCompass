@@ -53,7 +53,7 @@ function Terceros($link, $Csc_Terceros)
 function Empresa($link, $CscCliente)
 	{
 		$Sql="Select * from cliente  where Csc_Cliente='".$CscCliente."'";
-                //echo $Sql;
+                //  echo $Sql;
 			db('northcompas',$link);
 				$Result=mysql_query($Sql);
 					$Rs=mysql_fetch_array($Result);

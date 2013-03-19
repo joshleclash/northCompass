@@ -22,15 +22,18 @@ $time=date("d/m/Y");
 <link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/ext-all.css">
 <link rel="stylesheet" type="text/css" href="../../ExtJS/welcomeinc.css">
 <link rel="stylesheet" type="text/css" href="../../ExtJS/examples/form/file-upload.css">
-<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;sensor=true&amp;key=ABQIAAAA4LolQJYOca5J6tY83OJydhTUKULPSSDvqStY6p9kABiwK8UHvhSCPCxGjXQx4MARiS9CY54_Zp6_fg" type="text/javascript"></script>
+
 <script type="text/javascript" src="../../ExtJS/adapter/ext/ext-base.js"></script>
 <!--<script type="text/javascript" src="/../../Alert.js"></script>-->
 <script type="text/javascript" src="../../ExtJS/ext-all.js"></script>
 <script type="text/javascript" src="../../ExtJS/ext-lang-sp.js"></script>
 <script type="text/javascript" src="../../ExtJS/examples/ux/fileuploadfield/FileUploadField.js"></script> 
 <script type="text/javascript" src="../../ExtJS/examples/ux/GMapPanel.js"></script>
+
+<!--AIzaSyA-OLwP8KTTrkuV5PqDOQg0Pjx5iKTgdU8-->
 </head>
 <title>NORTH COMPAS</title> 
+
 <style type="text/css">
 .backfielset{
 	background:#666;
@@ -927,7 +930,8 @@ var ds_Tab7 = new Ext.data.Store({
 									title: 'Foto',
 									
 									autoHeight : true,
-									html : '<iframe src="" id="Upload2" width="98%" height="260px"></iframe>'
+									//html : '<iframe src="" id="Upload2" width="98%" height="260px"></iframe>'
+                                                                        html:'<div id="map_canvas" style=" height: 100px; width: 100px;"></div>'
 										
 								}]
 						},{
@@ -978,7 +982,7 @@ var ds_Tab7 = new Ext.data.Store({
 					layout:'column',
 					title:'Información de Vivienda',
 					id:	'Info_Vivienda',
-					disabled: true,
+					//disabled: true,
 					activeTab: 2,
 					iconCls: 'InformacionVIVIENDA',
 					items:[{
@@ -1288,23 +1292,7 @@ var ds_Tab7 = new Ext.data.Store({
 											autoHeight : true,
 											layout: 'fit',
 											items:[{
-													xtype: 'gmappanel',
-													gmapType: 'map',
-													width:250,
-													height:400,
-												 mapConfOpts: ['enableScrollWheelZoom','enableDoubleClickZoom','enableDragging'],
-                   								 mapControls: ['GSmallMapControl','GMapTypeControl','NonExistantControl'],
-													//x: 40,
-													//y: 60,
-													zoomLevel: 15,
-													setCenter: {
-													lat: 4.68902,
-													lng: -74.101474,
-														  marker: {
-														  title: 'Villaluz'
-														  }
-													}
-											//html:	'<div id="map" style="width: 300px; height: 200px"></div>'
+                                                                                            html:	'<iframe src="mapa.php" style="width: 99%; height: 400px; border:2px solid #000;"></div>'
 											}]
 										}]	
 								},{
@@ -6228,7 +6216,7 @@ Ext.getCmp('txt_DirTab2').on('focus', function(){
 
 </script>
 </head>
-<body>
+<body onload="initialize();">
     <div id="div_Contenido">
 	    <div id="div_Buscar" style="padding:5px;"></div>
     	 <div style="height:3px;"></div>

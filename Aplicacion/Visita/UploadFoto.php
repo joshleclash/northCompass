@@ -1,6 +1,6 @@
 <?php
-session_start();
-include("Conexion.php");
+@session_start();
+include("../../Conexion.php");
 $Csc_Login=$_SESSION["Csc"];
 $Csc=$_REQUEST['csc'];
 $sql="Select * from datos_basicos where Creacion_Csc='".$Csc."'";

@@ -11,13 +11,16 @@ function fn_envioCorreos($link, $Estado,  $csc_creacion)
 			db('northcompas',$link);
 				$Result=mysql_query($SQL); 	
 					$Rs=mysql_fetch_array($Result);
+                        $Send='';
 			$Send.="La informacion de <STRONG>".$Rs['Nombre_Completo']."</STRONG><br/> Identificado con :".
 				   "<STRONG>".$Rs['T_Identificacion']."</STRONG> Numero: <STRONG>".$Rs['Num_Identificacion']." </STRONG><br/>".
 				   "El estado de el ID : ".$csc_creacion." a cambiado ahora esta en estado: ".$Estado."<br/>".
 				   "Favor no responda este mensaje <br/><br/>Mensaje Generado Automaticamente<br/><br/><STRONG>NORTHCOMPAS</STRONG>";
 				   
 			$cabeceras = "Content-type: text/html\r\n";
-			mail($Rs['Mail'], 'Cambio de Estado', $header."<br/><br/>".$Send."<br/><br/>".$footer, $cabeceras);
+                        $components = new Components();
+                        $components->sendRsForMail($Rs['Mail'], "Cambio de Estado", $Send);
+			//mail($Rs['Mail'], 'Cambio de Estado', $header."<br/><br/>".$Send."<br/><br/>".$footer, $cabeceras);
 	}	
 $Fecha_Creacion=date("Y")."-".date("m")."-".date("d");
 $consulta=$_REQUEST['consulta'];
@@ -54,7 +57,7 @@ $SQL001="select * from   ciudad where CscDepartamento='".$Cdepto."' order by Dsc
 	$i=0;
 	
 	while($row001=mysql_fetch_array($Con001)){
-		$CodCiudad=$row001['CodCiudad'];
+		$CodCiudad=$row001['CscCiudad'];
 		$DscCiudad=$row001['DscCiudad'];
 			if($i<>0)
 			{
@@ -275,13 +278,13 @@ $Csc=$_REQUEST['Csc'];
 	if ($tab==1)
 			{
 				$Nacimiento=$_REQUEST['Nacimiento'];
-				$NacimientoSplit=split("/",$Nacimiento);
+				$NacimientoSplit=explode("/",$Nacimiento);
 				$Nacimiento=$NacimientoSplit[2]."/".$NacimientoSplit[1]."/".$NacimientoSplit[0];
-				$Ciudad=$_REQUEST['hi_lst_ciudad'];
+				@$Ciudad=$_REQUEST['hi_lst_ciudad'];
 				$Telefono=$_REQUEST['txt_Telefono'];
 				$Cel2=$_REQUEST['txt_Celular2'];
 				$Rh=$_REQUEST['lst_gsanguineo'];
-				$Departamento=$_REQUEST['hi_lst_departamento'];
+				@$Departamento=$_REQUEST['hi_lst_departamento'];
 				
 				$Municipio=$_REQUEST['txt_Municipio'];
 				$Cel1=$_REQUEST['txt_Celular1'];
@@ -297,8 +300,8 @@ $Csc=$_REQUEST['Csc'];
 							{
 								fn_envioCorreos($link, 'VISITA', $Csc);
 					$Sql008="Insert Into datos_basicos(Creacion_Csc, Usuario_Csc, Identificacion, Fecha_Nacimiento, Ciudad_Csc, Telefono, Celular1, Celular2,"
-					."Grupo_Sanguineo, Departamento_Csc, Municipio, Mail, Observacion) Values ('".$Csc."','".$Login."','".$Cedula."','".$Nacimiento."','".$Ciudad."',".
-					"'".$Telefono."','".$Cel1."','".$Cel2."','".$Rh."','".$Departamento."','".$Municipio."','".$Mail."','".$Observacion."')";
+					."Grupo_Sanguineo, Departamento_Csc, Municipio, Mail, Observacion) Values (".$Csc.",".$Login.",'".$Cedula."','".$Nacimiento."',".$Ciudad.",".
+					"'".$Telefono."','".$Cel1."','".$Cel2."','".$Rh."',".$Departamento.",'".$Municipio."','".$Mail."','".$Observacion."')";
 					db('northcompas', $link);
 					mysql_query($Sql008)or die("{success:false}");
 						//update estado 
@@ -884,7 +887,7 @@ $Ob3=$_REQUEST['Ob3'];
 				$Fecha_Nacimiento=$Rs10['Fecha_Nacimiento'];
 				if ($Fecha_Nacimiento!='')
 					{
-					$splitFecha=split("-",$Fecha_Nacimiento);
+					$splitFecha=explode("-",$Fecha_Nacimiento);
 					$Fecha_Nacimiento=$splitFecha[2]."/".$splitFecha[1]."/".$splitFecha[0];
 					}
 				else
