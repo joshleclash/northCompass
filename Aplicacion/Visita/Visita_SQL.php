@@ -339,22 +339,22 @@ $Csc=$_REQUEST['Csc'];
 			}
 	else if ($tab==2)
 			{
-			$txt_Direccion=$_REQUEST['txt_Direccion'];
-			$txt_BarrioV=$_REQUEST['txt_BarrioV'];
-			$hi_lst_ciudad2=$_REQUEST['hi_lst_ciudad2'];
-			$hi_lst_estratoV=$_REQUEST['hi_lst_estratoV'];
-			$hi_lst_departamento2=$_REQUEST['hi_lst_departamento2'];
-			$Municipio_V=$_REQUEST['Municipio_V'];
-			$hi_lst_inmuebleV=$_REQUEST['hi_lst_inmuebleV'];//casa o otro
-			$hi_lst_tinmuebles=$_REQUEST['hi_lst_tinmuebles'];//arriendo y eso
-			$Arrendador_V=$_REQUEST['Arrendador_V'];
-			$Canon_V=$_REQUEST['Canon_V'];
-			$Dueno_V=$_REQUEST['Dueno_V'];
-			$Referencias_V=$_REQUEST['Referencias_V'];
-			$Distribucion_V=$_REQUEST['Distribucion_V'];
-			$Convivencia_V=$_REQUEST['Convivencia_V'];
-			$Ob2=$_REQUEST['Ob2'];
-			$SqlSelect2="Select * from vivienda  where Creacion_Csc='".$Csc."'";
+			@$txt_Direccion=$_REQUEST['txt_Direccion'];
+			@$txt_BarrioV=$_REQUEST['txt_BarrioV'];
+			@$hi_lst_ciudad2=$_REQUEST['hi_lst_ciudad2'];
+			@$hi_lst_estratoV=$_REQUEST['hi_lst_estratoV'];
+			@$hi_lst_departamento2=$_REQUEST['hi_lst_departamento2'];
+			@$Municipio_V=$_REQUEST['Municipio_V'];
+			@$hi_lst_inmuebleV=$_REQUEST['hi_lst_inmuebleV'];//casa o otro
+			@$hi_lst_tinmuebles=$_REQUEST['hi_lst_tinmuebles'];//arriendo y eso
+			@$Arrendador_V=$_REQUEST['Arrendador_V'];
+			@$Canon_V=$_REQUEST['Canon_V'];
+			@$Dueno_V=$_REQUEST['Dueno_V'];
+			@$Referencias_V=$_REQUEST['Referencias_V'];
+			@$Distribucion_V=$_REQUEST['Distribucion_V'];
+			@$Convivencia_V=$_REQUEST['Convivencia_V'];
+			@$Ob2=$_REQUEST['Ob2'];
+			@$SqlSelect2="Select * from vivienda  where Creacion_Csc='".$Csc."'";
 			db('northcompas', $link);
 			$Result2=mysql_query($SqlSelect2)or die("Query Error.".$SqlSelect2);
 			$Rs2=mysql_fetch_array($Result2);
@@ -364,7 +364,7 @@ $Csc=$_REQUEST['Csc'];
 				fn_envioCorreos($link, 'REFERENCIACIÓN', $Csc);
 			$Sqltab2="insert into  vivienda (Creacion_Csc, Usuario_Csc, Identificacion, Direccion, Ciudad_Csc, Barrio_Dsc, Estrato, Departamento_Csc, Municipio_Dsc,".
 			" T_inmueble, Tipo_Inmueble, Arrendador, Canon, Nombre, Entorno, Distribucion, Caracteristicas, Georeferenciacion, Foto, Observaciones) VALUES ('".$Csc."',".
-			"'".$Login."','".$Cedula."','".$txt_Direccion."','".$hi_lst_ciudad2."','".$txt_BarrioV."','".$hi_lst_estratoV."','".$hi_lst_departamento2."',".
+			"".$Login.",'".$Cedula."','".$txt_Direccion."','".$hi_lst_ciudad2."','".$txt_BarrioV."','".$hi_lst_estratoV."','".$hi_lst_departamento2."',".
 			"'".$Municipio_V."','".$hi_lst_inmuebleV."','".$hi_lst_tinmuebles."','".$Arrendador_V."','".$Canon_V."','".$Dueno_V."','".$Referencias_V."',".
 			"'".$Distribucion_V."','".$Convivencia_V."','Sin Definir','Sin Definir','".$Ob2."')";
 			db('northcompas', $link);
@@ -409,54 +409,54 @@ $Csc=$_REQUEST['Csc'];
 		}
 		else if ($tab==3)	
 		{
-$num_licencia=$_REQUEST['num_licencia'];
-$num_categoria=$_REQUEST['num_categoria'];
-$hi_lst_licencia=$_REQUEST['hi_lst_licencia'];
-$ObLicencia=$_REQUEST['ObLicencia'];
-$ObRunt=$_REQUEST['ObRunt'];
-$txt_vehiculo1=$_REQUEST['txt_vehiculo1'];
-$txt_placas1=$_REQUEST['txt_placas1'];
-$txt_vehiculo2=$_REQUEST['txt_vehiculo2'];
-$txt_placas2=$_REQUEST['txt_placas2'];
-$txt_vehiculo3=$_REQUEST['txt_vehiculo3'];
-$txt_placas3=$_REQUEST['txt_placas3'];
-$hi_lst_vehiculo=$_REQUEST['hi_lst_vehiculo'];
-$ObVehiculo=$_REQUEST['ObVehiculo'];
-$txt_moto1=$_REQUEST['txt_moto1'];
-$num_moto1=$_REQUEST['num_moto1'];
-$txt_moto2=$_REQUEST['txt_moto2'];
-$num_moto2=$_REQUEST['num_moto2'];
-$hi_lst_moto=$_REQUEST['hi_lst_moto'];
-$ObMoto=$_REQUEST['ObMoto'];
-$hi_lst_libreta=$_REQUEST['hi_lst_libreta'];
-$hi_lst_conducta=$_REQUEST['hi_lst_conducta'];
-$num_libreta=$_REQUEST['num_libreta'];
-$num_distrito=$_REQUEST['num_distrito'];
-$txt_salvo=$_REQUEST['txt_salvo'];
-$hi_lst_salvo=$_REQUEST['hi_lst_salvo'];
-$num_marca=$_REQUEST['num_marca'];
-$num_calibre=$_REQUEST['num_calibre'];
-$num_serial=$_REQUEST['num_serial'];
-$txt_antecedentes=$_REQUEST['txt_antecedentes'];
-$txt_vecindad=$_REQUEST['txt_vecindad'];
-$txt_verificacicon=$_REQUEST['txt_verificacicon'];
-$num_pasado=$_REQUEST['num_pasado'];
-$date_pasado=$_REQUEST['date_pasado'];
-$date_pasadoSplit=split("/",$date_pasado);
-$date_pasado=$date_pasadoSplit[2]."/".$date_pasadoSplit[1]."/".$date_pasadoSplit[0];
-$num_pasaporte=$_REQUEST['num_pasaporte'];
-$date_pasaporte=$_REQUEST['date_pasaporte'];
-$date_pasaporteSplit=split("/", $date_pasaporte);
-$date_pasaporte=$date_pasaporteSplit[2]."/".$date_pasaporteSplit[1]."/".$date_pasaporteSplit[0];
-$num_visa=$_REQUEST['num_visa'];
-$date_visa=$_REQUEST['date_visa'];
-$date_visaSplit=split("/",$date_visa);
-$date_visa=$date_visaSplit[2]."/".$date_visaSplit[1]."/".$date_visaSplit[0];
-$hi_lst_paisVisa=$_REQUEST['hi_lst_paisVisa'];
-$txt_antecedentesJudiciales=$_REQUEST['Judiciales'];
-$txt_datacredito=$_REQUEST['txt_datacredito'];
-$txt_clinton=$_REQUEST['txt_clinton'];
-$Ob3=$_REQUEST['Ob3'];
+@$num_licencia=$_REQUEST['num_licencia'];
+@$num_categoria=$_REQUEST['num_categoria'];
+@$hi_lst_licencia=$_REQUEST['hi_lst_licencia'];
+@$ObLicencia=$_REQUEST['ObLicencia'];
+@$ObRunt=$_REQUEST['ObRunt'];
+@$txt_vehiculo1=$_REQUEST['txt_vehiculo1'];
+@$txt_placas1=$_REQUEST['txt_placas1'];
+@$txt_vehiculo2=$_REQUEST['txt_vehiculo2'];
+@$txt_placas2=$_REQUEST['txt_placas2'];
+@$txt_vehiculo3=$_REQUEST['txt_vehiculo3'];
+@$txt_placas3=$_REQUEST['txt_placas3'];
+@$hi_lst_vehiculo=$_REQUEST['hi_lst_vehiculo'];
+@$ObVehiculo=$_REQUEST['ObVehiculo'];
+@$txt_moto1=$_REQUEST['txt_moto1'];
+@$num_moto1=$_REQUEST['num_moto1'];
+@$txt_moto2=$_REQUEST['txt_moto2'];
+@$num_moto2=$_REQUEST['num_moto2'];
+@$hi_lst_moto=$_REQUEST['hi_lst_moto'];
+@$ObMoto=$_REQUEST['ObMoto'];
+@$hi_lst_libreta=$_REQUEST['hi_lst_libreta'];
+@$hi_lst_conducta=$_REQUEST['hi_lst_conducta'];
+@$num_libreta=$_REQUEST['num_libreta'];
+@$num_distrito=$_REQUEST['num_distrito'];
+@$txt_salvo=$_REQUEST['txt_salvo'];
+@$hi_lst_salvo=$_REQUEST['hi_lst_salvo'];
+@$num_marca=$_REQUEST['num_marca'];
+@$num_calibre=$_REQUEST['num_calibre'];
+@$num_serial=$_REQUEST['num_serial'];
+@$txt_antecedentes=$_REQUEST['txt_antecedentes'];
+@$txt_vecindad=$_REQUEST['txt_vecindad'];
+@$txt_verificacicon=$_REQUEST['txt_verificacicon'];
+@$num_pasado=$_REQUEST['num_pasado'];
+@$date_pasado=$_REQUEST['date_pasado'];
+@$date_pasadoSplit=explode("/",$date_pasado);
+@$date_pasado=$date_pasadoSplit[2]."/".$date_pasadoSplit[1]."/".$date_pasadoSplit[0];
+@$num_pasaporte=$_REQUEST['num_pasaporte'];
+@$date_pasaporte=$_REQUEST['date_pasaporte'];
+@$date_pasaporteSplit=explode("/", $date_pasaporte);
+@$date_pasaporte=$date_pasaporteSplit[2]."/".$date_pasaporteSplit[1]."/".$date_pasaporteSplit[0];
+@$num_visa=$_REQUEST['num_visa'];
+@$date_visa=$_REQUEST['date_visa'];
+@$date_visaSplit=explode("/",$date_visa);
+@$date_visa=$date_visaSplit[2]."/".$date_visaSplit[1]."/".$date_visaSplit[0];
+@$hi_lst_paisVisa=$_REQUEST['hi_lst_paisVisa'];
+@$txt_antecedentesJudiciales=$_REQUEST['Judiciales'];
+@$txt_datacredito=$_REQUEST['txt_datacredito'];
+@$txt_clinton=$_REQUEST['txt_clinton'];
+@$Ob3=$_REQUEST['Ob3'];
 	$Sqltab3="Select * from  documentos where Creacion_Csc='".$Csc."'";
 		db('northcompas', $link);
 		$ResultTab3=mysql_query($Sqltab3)or die(mysql_error($Sqltab3).$Sqltab3);
@@ -464,7 +464,7 @@ $Ob3=$_REQUEST['Ob3'];
 			$Csc_Documentos=$RsTab3['Csc_Documentos'];
 			if($Csc_Documentos=='')
 				{
-					$InserTab3=" Insert into documentos (Creacion_Csc, Usuario_Csc,	Identificacion,	Num_Licencia, Categoria, PendientesL, Observaciones,".
+                                            $InserTab3=" Insert into documentos (Creacion_Csc, Usuario_Csc,	Identificacion,	Num_Licencia, Categoria, PendientesL, Observaciones,".
 					           " RuntObservaciones,	Vehiculo1,	Placas1, Vehiculo2, Placas2, Vehiculo3, Placas3, PendientesV, ObservacionesV, Moto1, PlacaM1,".
 							   " Moto2,	PlacaM2, PendienteM, ObservacionesM, LibretaCat, LibretaCod, Num_Libreta, Distrito, SalvoconductoA, TipoA, MarcaA,".
 							   " CalibreA, SerieNum, ReporteD, CertificadoVecindad, CodPasado, NumPasado, VencePasado, Pasaporte, VencePasaporte, NumVisa,".
@@ -530,12 +530,12 @@ $Ob3=$_REQUEST['Ob3'];
 						}
 				}
 		}else if ($tab==4){
-			$Send_Grid1=$_REQUEST['Send_Grid1'];
-			$Send_Grid2=$_REQUEST['Send_Grid2'];
-			$send_Grid3=$_REQUEST['send_Grid3'];
-			$doc_Falso=$_REQUEST['doc_Falso'];
-			$doc_Adulterado=$_REQUEST['doc_Adulterado'];
-			$Ob4=$_REQUEST['Ob4'];
+			@$Send_Grid1=$_REQUEST['Send_Grid1'];
+			@$Send_Grid2=$_REQUEST['Send_Grid2'];
+			@$send_Grid3=$_REQUEST['send_Grid3'];
+			@$doc_Falso=$_REQUEST['doc_Falso'];
+			@$doc_Adulterado=$_REQUEST['doc_Adulterado'];
+			@$Ob4=$_REQUEST['Ob4'];
 			$SelectTab4="Select * from info_academica where Creacion_Csc='".$Csc."'";
 				db('northcompas',$link);
 				$ResulTab4=mysql_query($SelectTab4)or die("Error Al consultar Tab 4");
@@ -545,7 +545,7 @@ $Ob3=$_REQUEST['Ob3'];
 					{
 						$InserTab4="Insert into  info_academica (Creacion_Csc, Usuario_Csc, Identificacion, Grid1, Grid2, Grid3, DocFalso, DocAdult, ".
 						"Observaciones, Fecha_Creacion) values ('".$Csc."','".$Login."','".$Cedula."','".$Send_Grid1."','".$Send_Grid2."','".$send_Grid3."',".
-						"'".$doc_Falso."','".$doc_Adulterado."','".$Ob4."','".date("Y")."/".date("m")."/".date("d")."')";
+						"'".$doc_Falso."','".$doc_Adulterado."','".$Ob4."','".Components::getDate()."')";
 						db('northcompas', $link);
 						mysql_query($InserTab4)or die("Error Insert Tab 4");
 					}

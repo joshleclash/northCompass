@@ -1,6 +1,7 @@
 <?php
-session_start();
-include("Conexion.php");
+@session_start();
+include("../../Conexion.php");
+
 $Csc_Login=$_SESSION["Csc"];
 $Csc=$_REQUEST['csc'];
 $sql="Select * from vivienda where Creacion_Csc='".$Csc."'";
@@ -90,11 +91,11 @@ function imagen(){
 function RandomString($largo){
 	$random='';
 	srand((double)microtime()*100000);
-	$Chars.="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	$Chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	$Chars.="abcdefghijklmnopqrstuvwxyz";
 	$Chars.="0123456789";
 	//añadiendo a lista de carateres
-		for($i;$i<=$largo;$i++)
+		for($i=0;$i<=$largo;$i++)
 			{
 				$random.=substr($Chars,(rand()%(strlen($Chars))),1);
 			}
@@ -113,7 +114,7 @@ if (isset($_FILES['file_Vivienda']['tmp_name']))
 		else
 			{	
 						echo $ViviendaType;
-				if ($ViviendaType=='image/png' || $ViviendaType=='image/x-png' || $ViviendaType=='image/jpeg' || $ViviendaType=='image/pjpeg' && $ViviendaSize<=3000000){
+				if ($ViviendaType=='image/png' || $ViviendaType=='image/x-png' || $ViviendaType=='image/jpeg' || $ViviendaType=='image/pjpeg' || $ViviendaType=='image/bmp'&& $ViviendaSize<=3000000){
 						$newViviendaName=RandomString(5).$ViviendaName;
 						move_uploaded_file($ViviendaTmp, "uploads/".$newViviendaName)or die('<p class="perror">Error al cargar la imagen Intentelo nuevamente</p>');	
 							

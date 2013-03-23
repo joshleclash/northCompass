@@ -1048,7 +1048,13 @@ var ds_Tab7 = new Ext.data.Store({
 												{name:'6', value:'6'}																								
 												]												
 											})				   
-									}]
+									},{
+                                                                            xtype:'textfield',
+                                                                            fieldLabel:     'Referenciacion',
+                                                                            name:   	    'txt_localizacion',
+                                                                            id:	'txt_localizacion',
+                                                                            anchor :	    '70%'
+                                                                        }]
 							},{
 								columnWidth:.5,
 								layout: 'form',
@@ -1292,7 +1298,7 @@ var ds_Tab7 = new Ext.data.Store({
 											autoHeight : true,
 											layout: 'fit',
 											items:[{
-                                                                                            html:	'<iframe src="mapa.php" style="width: 99%; height: 400px; border:2px solid #000;"></div>'
+                                                                                            html:	'<iframe id="mapaIframe" src="mapa.php" style="width: 99%; height: 400px; border:2px solid #000;"></div>'
 											}]
 										}]	
 								},{
@@ -1321,7 +1327,8 @@ var ds_Tab7 = new Ext.data.Store({
 									text:'Guardar y Continuar',
 									handler: function(){
 																		
-													Ext.getCmp('tabdocs').setDisabled(false);
+													fn_EnvioTabs(2);
+                                                                                                        /*Ext.getCmp('tabdocs').setDisabled(false);
 													Ext.getCmp('Info_Vivienda').setDisabled(true);
 													Ext.getCmp('tb_Formularios').setActiveTab(3);
 													Ext.getCmp('field').expand(true);
@@ -1342,7 +1349,7 @@ var ds_Tab7 = new Ext.data.Store({
 													Ext.getCmp('fieldAntecedentesJu').expand(true);
 													Ext.getCmp('fieldDatacredito').expand(true);
 													Ext.getCmp('fieldClinton').expand(true);
-													fn_EnvioTabs(2);
+													*/
 											
 										}
 										}]
@@ -5106,7 +5113,15 @@ var ds_Tab7 = new Ext.data.Store({
             
     });
 	
-	
+        //MAPA DE GOOGLE
+        Ext.getCmp('txt_localizacion').on('blur',function(){
+        var latitud = document.getElementById("txt_localizacion").value;
+        document.getElementById("mapaIframe").contentWindow.codeAddress(latitud)
+        //alert(latitud);
+        
+        
+        
+        })
 	
 	
 	
@@ -5309,6 +5324,7 @@ function fn_EnvioTabs(Dato){
 	var Cedula = document.getElementById('Id_C').value;
 	var Login = document.getElementById('csc_Login').value;
 	//alert(Dato)
+        
 		if (Cedula == ''|| Login =='' || Csc=='')
 			{
 				Ext.Msg.alert('Error','Error de session Intentelo nuevamente');
@@ -5317,7 +5333,8 @@ function fn_EnvioTabs(Dato){
 			}
 			//alert(Dato)
 	tabs.form.submit({
-		success:function(){
+                success:function(){
+                    alert("EnvioOK"+Dato);
 			//alert(Dato)
 			Ext.Msg.alert("Confirmacion","Creacion Exitosa desea continuar", function (btn, text){
 						if (btn=='ok')

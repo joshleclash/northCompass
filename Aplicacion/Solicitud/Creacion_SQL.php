@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../../Conexion.php');
-include('../components/Components.php');
+//include('../components/Components.php');
 $consulta=$_REQUEST['consulta'];
 $Csc_Login=$_SESSION["Csc"];
 if ($consulta==0){
@@ -225,7 +225,7 @@ $Con002=mysql_query($SQL002)or die('Error');
 		  "Northcompass.com.co<br/><br/><br/>".
 		  "Por favor no responda este mensaje.";
                 $components = new Components();
-                $mail = $components->sendRsForMail($mails, "Nueva Solicitud - ID ".$cantidad, $Mensaje);
+                $mail = true;//$components->sendRsForMail($mails, "Nueva Solicitud - ID ".$cantidad, $Mensaje);
                 if($mail){
                     echo "{success: true, bien:{csc:'".$cantidad."'}}";
                   }else{
