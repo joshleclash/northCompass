@@ -1,4 +1,4 @@
-<?php include("Conexion.php");
+<?php include("../../Conexion.php");
 
 $consulta=$_REQUEST['consulta'];
 if ($consulta==0)//CONSULTA PARA CARGAR LA INFO DE Empresa

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 23-03-2013 a las 16:32:50
+-- Tiempo de generación: 28-03-2013 a las 16:29:08
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -19,6 +19,31 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `northcompas`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `audiovisuales`
+--
+
+CREATE TABLE IF NOT EXISTS `audiovisuales` (
+  `Csc_Audiovisual` int(11) NOT NULL AUTO_INCREMENT,
+  `Creacion_Csc` int(11) NOT NULL,
+  `Usuario_Csc` int(11) NOT NULL,
+  `Observaciones` text NOT NULL,
+  `AudioFile` varchar(60) NOT NULL,
+  `VideoFile` varchar(60) NOT NULL,
+  `EntrevistaFile` varchar(60) NOT NULL,
+  `AprobacionFile` varchar(60) NOT NULL,
+  PRIMARY KEY (`Csc_Audiovisual`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `audiovisuales`
+--
+
+INSERT INTO `audiovisuales` (`Csc_Audiovisual`, `Creacion_Csc`, `Usuario_Csc`, `Observaciones`, `AudioFile`, `VideoFile`, `EntrevistaFile`, `AprobacionFile`) VALUES
+(1, 2, 1, 'NIGUNA', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -1189,15 +1214,26 @@ CREATE TABLE IF NOT EXISTS `concepto` (
   `Csc_Concepto` int(11) NOT NULL AUTO_INCREMENT,
   `Creacion_Csc` int(11) DEFAULT NULL,
   `Usuario_Csc` int(11) DEFAULT NULL,
+  `Identificacion` varchar(20) NOT NULL,
+  `Fuma` varchar(20) NOT NULL,
+  `Medicamentos` varchar(20) NOT NULL,
+  `Alimentos` varchar(20) NOT NULL,
+  `Analisis` varchar(100) NOT NULL,
+  `Actitud` varchar(100) NOT NULL,
+  `ObActitud` varchar(100) NOT NULL,
+  `Concepto` varchar(100) NOT NULL,
+  `ObConcepto` text NOT NULL,
+  `Fecha_Creacion` date NOT NULL,
   PRIMARY KEY (`Csc_Concepto`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `concepto`
 --
 
-INSERT INTO `concepto` (`Csc_Concepto`, `Creacion_Csc`, `Usuario_Csc`) VALUES
-(1, 1, 1);
+INSERT INTO `concepto` (`Csc_Concepto`, `Creacion_Csc`, `Usuario_Csc`, `Identificacion`, `Fuma`, `Medicamentos`, `Alimentos`, `Analisis`, `Actitud`, `ObActitud`, `Concepto`, `ObConcepto`, `Fecha_Creacion`) VALUES
+(1, 1, 1, '', '', '', '', '', '', '', '', '', '0000-00-00'),
+(2, 2, 1, '1019002704', 'No', 'NO', 'NO', 'OK', 'Excelente', 'OK', 'Favorable', 'OK', '2013-03-28');
 
 -- --------------------------------------------------------
 
@@ -1243,7 +1279,7 @@ CREATE TABLE IF NOT EXISTS `creacion` (
 
 INSERT INTO `creacion` (`Csc_Creacion`, `Num_Identificacion`, `Login_Csc`, `Nombres`, `Apellidos`, `Nombre_Completo`, `T_Identificacion`, `Departamento`, `Ciudad`, `Barrio`, `Dsc_Barrio`, `Empresa`, `T_Contrato`, `Direccion`, `Tel_Fijo`, `Tel_Celular`, `Tel_Celular2`, `Cargo`, `Observaciones`, `Fecha_Creacion`, `Placas`, `Estado`, `Profesional`, `Fecha_Programacion`, `Hora_Visita`, `Fecha_Visita`, `Fecha_Referenciacion`, `Fecha_Final`) VALUES
 (1, '80189303', 1, 'diego', 'verano', 'diego verano', 'CEDULA DE CIUDADANIA', '11', '11001', '', '', '1', 'Directo', 'calle 77 bis # 86-60', '(252)273-8', '', '(320)479-6367', 'Auxiliar It', 'El candidado aparentemente aplica a el perfil de la compaÃ±ia', '2013-03-16', NULL, 3, '2', '2013-03-20', '8:30 AM', '2013-03-23', NULL, NULL),
-(2, '1019002704', 1, 'Juan Pablo', 'Verano Russi', 'Juan Pablo Verano Russi', 'TARJETA DE IDENTIDAD', '91', '91798', '', '', '1', 'Temporal', 'Calle 24 # 45-60', '(+57)252-2738', '', '', 'Web Designer', 'ok todo funciona bien', '2013-03-19', NULL, 3, '2', '0001-01-01', '', NULL, NULL, NULL),
+(2, '1019002704', 1, 'Juan Pablo', 'Verano Russi', 'Juan Pablo Verano Russi', 'TARJETA DE IDENTIDAD', '91', '91798', '', '', '1', 'Temporal', 'Calle 24 # 45-60', '(+57)252-2738', '', '', 'Web Designer', 'ok todo funciona bien', '2013-03-19', NULL, 5, '2', '0001-01-01', '', '2013-03-28', '2013-03-28', '2013-03-28'),
 (3, '1019002704', 1, 'Juan Pablo', 'Verano Russi', 'Juan Pablo Verano Russi', 'TARJETA DE IDENTIDAD', '91', '91798', '', '', '1', 'Temporal', 'Calle 24 # 45-60', '(+57)252-2738', '', '', 'Web Designer', 'ok todo funciona bien', '2013-03-19', NULL, 4, '1', '0001-01-01', '8:50 AM', '2013-03-23', '2013-03-23', NULL);
 
 -- --------------------------------------------------------
@@ -1385,7 +1421,7 @@ CREATE TABLE IF NOT EXISTS `documentos` (
   `Clinton` text NOT NULL,
   `ObTab3` text NOT NULL,
   PRIMARY KEY (`Csc_Documentos`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `documentos`
@@ -1393,7 +1429,8 @@ CREATE TABLE IF NOT EXISTS `documentos` (
 
 INSERT INTO `documentos` (`Csc_Documentos`, `PlacaM1`, `PlacaM2`, `Placas3`, `Placas2`, `Placas1`, `Creacion_Csc`, `Usuario_Csc`, `Identificacion`, `Num_Licencia`, `Categoria`, `PendientesL`, `Observaciones`, `RuntObservaciones`, `Vehiculo1`, `Vehiculo2`, `Vehiculo3`, `PendientesV`, `ObservacionesV`, `Moto1`, `Moto2`, `PendienteM`, `ObservacionesM`, `LibretaCat`, `LibretaCod`, `Num_Libreta`, `Distrito`, `SalvoconductoA`, `TipoA`, `MarcaA`, `CalibreA`, `SerieNum`, `ReporteD`, `CertificadoVecindad`, `CodPasado`, `NumPasado`, `VencePasado`, `Pasaporte`, `VencePasaporte`, `NumVisa`, `VenceVisa`, `Pais`, `Antecedentes`, `Datacredito`, `Clinton`, `ObTab3`) VALUES
 (1, 'm1', 'm2', 'm3', 'm4', 'm5', 1, 1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '', '', '0000-00-00', '', '', '', '', ''),
-(2, '', '', '', '', '', 3, 1, '1019002704', '1019002704', '5', 'SI', 'Catualizar', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '0000/00/00', '', '0000-00-00', '', '', '', 'NO no se encuentra reportado esta todo ok', 'NInguna');
+(2, '', '', '', '', '', 3, 1, '1019002704', '1019002704', '5', 'SI', 'Catualizar', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '', '0000/00/00', '', '0000-00-00', '', '', '', 'NO no se encuentra reportado esta todo ok', 'NInguna'),
+(3, '', '', '', '', '', 2, 1, '1019002704', '80200', '3', 'NO', 'no aplica', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', '897987987', '2013/03/28', '80200532', '2020-12-31', '', '', '', '', 'ninguna');
 
 -- --------------------------------------------------------
 
@@ -1414,14 +1451,15 @@ CREATE TABLE IF NOT EXISTS `info_academica` (
   `Observaciones` text NOT NULL,
   `Fecha_Creacion` date NOT NULL,
   PRIMARY KEY (`Csc_Academica`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `info_academica`
 --
 
 INSERT INTO `info_academica` (`Csc_Academica`, `Creacion_Csc`, `Usuario_Csc`, `Identificacion`, `Grid1`, `Grid2`, `Grid3`, `DocFalso`, `DocAdult`, `Observaciones`, `Fecha_Creacion`) VALUES
-(1, 3, 1, '1019002704', '0NaN|Tecnologo|Sistemas|Seleccione|ok|Seleccione PaÃ­s|27/03/2013|Activo|26/03/2013-', '00|Ingles|20%|Bogota-', '00|Diplomado||||||||20/03/2013|Terminado|27/03/2013-', 'ok', '', 'ok', '2013-03-23');
+(1, 3, 1, '1019002704', '0NaN|Tecnologo|Sistemas|Seleccione|ok|Seleccione PaÃ­s|27/03/2013|Activo|26/03/2013-', '00|Ingles|20%|Bogota-', '00|Diplomado||||||||20/03/2013|Terminado|27/03/2013-', 'ok', '', 'ok', '2013-03-23'),
+(2, 2, 1, '1019002704', '0NaN|Tecnologo|no aplica|Seleccione||Seleccione PaÃ­s||Seleccione nivel estudios|Dia/Mes/AÃ±o-', '00|Ingles|25%|colombia-', '00|Curso|no aplica|||||||28/03/2013|Terminado|28/03/2013-', 'no aplica', 'no aplica', 'no aplica', '2013-03-28');
 
 -- --------------------------------------------------------
 
@@ -1430,7 +1468,7 @@ INSERT INTO `info_academica` (`Csc_Academica`, `Creacion_Csc`, `Usuario_Csc`, `I
 --
 
 CREATE TABLE IF NOT EXISTS `info_familiar` (
-  `Csc_Info_Familiar` int(11) NOT NULL AUTO_INCREMENT,
+  `Csc_Familiar` int(11) NOT NULL AUTO_INCREMENT,
   `Nombres_Familiares` varchar(40) NOT NULL,
   `Apellidos_Familiares` varchar(40) NOT NULL,
   `Nombre_Amigo` varchar(40) NOT NULL,
@@ -1449,16 +1487,105 @@ CREATE TABLE IF NOT EXISTS `info_familiar` (
   `Tel_Madre` varchar(20) NOT NULL,
   `Cel_Madre` varchar(20) NOT NULL,
   `Numero_Identificacion` varchar(20) NOT NULL,
-  `Creacion_Csc` int(11) DEFAULT NULL,
-  PRIMARY KEY (`Csc_Info_Familiar`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `Creacion_Csc` int(11) NOT NULL,
+  `Actividad` varchar(20) NOT NULL,
+  `Empresa_Padre` varchar(50) NOT NULL,
+  `Cargo_Padre` varchar(50) NOT NULL,
+  `Tel_TraPadre` varchar(20) NOT NULL,
+  `Pais_M` varchar(20) NOT NULL,
+  `Departamento_CscM` varchar(20) NOT NULL,
+  `Ciudad_CscM` varchar(20) NOT NULL,
+  `Actividad_M` varchar(20) NOT NULL,
+  `Empresa_Madre` varchar(50) NOT NULL,
+  `Cargo_Madre` varchar(20) NOT NULL,
+  `Tel_TraMadre` varchar(20) NOT NULL,
+  `Grid_Hermanos` text NOT NULL,
+  `Fecha_Creacion` date NOT NULL,
+  `Usuario_Csc` int(11) NOT NULL,
+  `Identificacion` varchar(20) NOT NULL,
+  `Cargo_Familiares` varchar(100) NOT NULL,
+  `Telefono_Familiares` varchar(20) NOT NULL,
+  `Cargo_Amigo` varchar(20) NOT NULL,
+  `Telefono_Amigo` varchar(20) NOT NULL,
+  `Grid_Referencias` text NOT NULL,
+  `Estado_Civil` varchar(20) NOT NULL,
+  `Tipo_Identificacion` varchar(20) NOT NULL,
+  `Mail_Conyuge` varchar(50) NOT NULL,
+  `Empresa_Conyuge` varchar(50) NOT NULL,
+  `Actividad_Conyuge` varchar(50) NOT NULL,
+  `Grid_Hijos` text NOT NULL,
+  `Pais_P` varchar(20) NOT NULL,
+  `Departamento_Csc` varchar(20) DEFAULT NULL,
+  `Ciudad_Csc` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`Csc_Familiar`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `info_familiar`
 --
 
-INSERT INTO `info_familiar` (`Csc_Info_Familiar`, `Nombres_Familiares`, `Apellidos_Familiares`, `Nombre_Amigo`, `Apellido_Amigo`, `Nombre_Conyuge`, `Apellidos_Conyuge`, `Nombre_Padre`, `Apellido_Padre`, `Nombre_Madre`, `Apellidos_Madre`, `Telefono_Conyuge`, `Celular_Conyuge`, `Tel_TrabajoConyu`, `Telefono_Padre`, `Celular_Padre`, `Tel_Madre`, `Cel_Madre`, `Numero_Identificacion`, `Creacion_Csc`) VALUES
-(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '80189303', 1);
+INSERT INTO `info_familiar` (`Csc_Familiar`, `Nombres_Familiares`, `Apellidos_Familiares`, `Nombre_Amigo`, `Apellido_Amigo`, `Nombre_Conyuge`, `Apellidos_Conyuge`, `Nombre_Padre`, `Apellido_Padre`, `Nombre_Madre`, `Apellidos_Madre`, `Telefono_Conyuge`, `Celular_Conyuge`, `Tel_TrabajoConyu`, `Telefono_Padre`, `Celular_Padre`, `Tel_Madre`, `Cel_Madre`, `Numero_Identificacion`, `Creacion_Csc`, `Actividad`, `Empresa_Padre`, `Cargo_Padre`, `Tel_TraPadre`, `Pais_M`, `Departamento_CscM`, `Ciudad_CscM`, `Actividad_M`, `Empresa_Madre`, `Cargo_Madre`, `Tel_TraMadre`, `Grid_Hermanos`, `Fecha_Creacion`, `Usuario_Csc`, `Identificacion`, `Cargo_Familiares`, `Telefono_Familiares`, `Cargo_Amigo`, `Telefono_Amigo`, `Grid_Referencias`, `Estado_Civil`, `Tipo_Identificacion`, `Mail_Conyuge`, `Empresa_Conyuge`, `Actividad_Conyuge`, `Grid_Hijos`, `Pais_P`, `Departamento_Csc`, `Ciudad_Csc`) VALUES
+(1, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '80189303', 1, '', '', '', '', '', '', '', '', '', '', '', '', '0000-00-00', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', NULL, NULL),
+(2, '', '', 'asdA', 'sd', '', '', '', '', 'sd', 'SD', '', '', '', '', '', 'SD', 'sd', '', 2, 'Empleado', '', '', '', '', '', '', 'Empleado', '', '', '', '00|asd|SD||ASD|sd|Pensionado|SD|sd-', '2013-03-28', 1, '1019002704', '', '', 'AD', 'sd', '00|SDA|asd|ASD|ad|-', 'UniÃ³n libre', '', '', '', '', '', '', '', ''),
+(3, '', '', 'asdA', 'sd', '', '', '', '', 'sd', 'SD', '', '', '', '', '', 'SD', 'sd', '', 2, '', '', '', '', '', '', '', 'Ama de casa', '', '', '', '00|asd|SD||ASD|sd|Pensionado|SD|sd-', '2013-03-28', 1, '1019002704', '', '', 'AD', 'sd', '00|SDA|asd|ASD|ad|-', 'Soltero', '', '', '', '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `info_finaciera`
+--
+
+CREATE TABLE IF NOT EXISTS `info_finaciera` (
+  `Csc_Finaciero` int(11) NOT NULL AUTO_INCREMENT,
+  `Creacion_Csc` int(11) NOT NULL,
+  `Usuario_Csc` int(11) NOT NULL,
+  `Identificacion` varchar(20) NOT NULL,
+  `Salario` varchar(20) NOT NULL,
+  `Pension` varchar(20) NOT NULL,
+  `Arriendos` varchar(20) NOT NULL,
+  `Honorarios` varchar(20) NOT NULL,
+  `Otros` varchar(20) NOT NULL,
+  `EgresoA` varchar(20) NOT NULL,
+  `EgresoB` varchar(20) NOT NULL,
+  `EgresoC` varchar(20) NOT NULL,
+  `EgresoD` varchar(20) NOT NULL,
+  `EgresoE` varchar(20) NOT NULL,
+  `RetiroTab7` varchar(20) NOT NULL,
+  `ObservacionesTab7` varchar(20) NOT NULL,
+  `Fecha_Creacion` date NOT NULL,
+  PRIMARY KEY (`Csc_Finaciero`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `info_finaciera`
+--
+
+INSERT INTO `info_finaciera` (`Csc_Finaciero`, `Creacion_Csc`, `Usuario_Csc`, `Identificacion`, `Salario`, `Pension`, `Arriendos`, `Honorarios`, `Otros`, `EgresoA`, `EgresoB`, `EgresoC`, `EgresoD`, `EgresoE`, `RetiroTab7`, `ObservacionesTab7`, `Fecha_Creacion`) VALUES
+(1, 2, 1, '1019002704', '1', '1', '1', '1', '1', '6', '6', '6', '6', '6', '', 'NINGUNA', '2013-03-28');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `info_laboral`
+--
+
+CREATE TABLE IF NOT EXISTS `info_laboral` (
+  `Csc_Laboral` int(11) NOT NULL AUTO_INCREMENT,
+  `Creacion_Csc` int(11) NOT NULL,
+  `Usuario_Csc` int(11) NOT NULL,
+  `Identificacion` varchar(20) NOT NULL,
+  `Observaciones` text NOT NULL,
+  `Grid_Laboral` text NOT NULL,
+  `Fecha_Creacion` date NOT NULL,
+  PRIMARY KEY (`Csc_Laboral`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `info_laboral`
+--
+
+INSERT INTO `info_laboral` (`Csc_Laboral`, `Creacion_Csc`, `Usuario_Csc`, `Identificacion`, `Observaciones`, `Grid_Laboral`, `Fecha_Creacion`) VALUES
+(1, 2, 1, '1019002704', 'ADF', '0NaN|JKHKJH|ANTIOQUIA|AMAGA|JKSADFSAF|-|ASDF|JKHKJH|ADF|1|ADF||', '2013-03-28');
 
 -- --------------------------------------------------------
 
@@ -1472,7 +1599,7 @@ CREATE TABLE IF NOT EXISTS `ingresos` (
   `Acepto` varchar(20) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   PRIMARY KEY (`Csc_Ingresos`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Volcado de datos para la tabla `ingresos`
@@ -1484,7 +1611,9 @@ INSERT INTO `ingresos` (`Csc_Ingresos`, `Login_Csc`, `Acepto`, `Fecha`) VALUES
 (8, 1, 'Acepto', '2013-03-19'),
 (9, 1, 'Acepto', '2013-03-19'),
 (10, 1, 'Acepto', '2013-03-23'),
-(11, 1, 'Acepto', '2013-03-23');
+(11, 1, 'Acepto', '2013-03-23'),
+(12, 1, 'Acepto', '2013-03-28'),
+(13, 1, 'Acepto', '2013-03-28');
 
 -- --------------------------------------------------------
 
@@ -1845,24 +1974,6 @@ INSERT INTO `pdf` (`Csc_Pdf`, `PdfFile`, `Identificacion`, `Terceros_Csc`, `Usua
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `table 16`
---
-
-CREATE TABLE IF NOT EXISTS `table 16` (
-  `COL 1` varchar(10) DEFAULT NULL,
-  `COL 2` varchar(14117) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Volcado de datos para la tabla `table 16`
---
-
-INSERT INTO `table 16` (`COL 1`, `COL 2`) VALUES
-('', 'CENTRO DE EDUCACION MILITAR  CEMIL;\r\n",CENTRO EDUCACIONAL DE COMPUTOS Y SISTEMASCEDESISTEMAS');
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `terceros`
 --
 
@@ -1906,11 +2017,11 @@ CREATE TABLE IF NOT EXISTS `vivienda` (
   `Entorno` text NOT NULL,
   `Distribucion` text NOT NULL,
   `Caracteristicas` text NOT NULL,
-  `Georeferenciacion` varchar(20) NOT NULL,
+  `Georeferenciacion` varchar(30) NOT NULL,
   `Foto` varchar(20) NOT NULL,
   `Observaciones` text NOT NULL,
   PRIMARY KEY (`Csc_Vivienda`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcado de datos para la tabla `vivienda`
@@ -1918,7 +2029,8 @@ CREATE TABLE IF NOT EXISTS `vivienda` (
 
 INSERT INTO `vivienda` (`Csc_Vivienda`, `Creacion_Csc`, `Direccion`, `Usuario_Csc`, `Identificacion`, `Ciudad_Csc`, `Barrio_Dsc`, `Estrato`, `Departamento_Csc`, `Municipio_Dsc`, `T_inmueble`, `Tipo_Inmueble`, `Arrendador`, `Canon`, `Nombre`, `Entorno`, `Distribucion`, `Caracteristicas`, `Georeferenciacion`, `Foto`, `Observaciones`) VALUES
 (1, 1, '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 3, ' AGRUPACION', 1, '1019002704', '8141', 'algo', '3', '8', 'kljlkj', 'Inquilinato', 'Familiar', '', '', 'Pablito ahimar', 'oklljlk', 'lkjlkjlkj', 'lkjlkjlkj', 'Sin Definir', 'Sin Definir', 'lkjkljlkjklj');
+(2, 3, ' AGRUPACION', 1, '1019002704', '8141', 'algo', '3', '8', 'kljlkj', 'Inquilinato', 'Familiar', '', '', 'Pablito ahimar', 'oklljlk', 'lkjlkjlkj', 'lkjlkjlkj', 'Sin Definir', 'Sin Definir', 'lkjkljlkjklj'),
+(3, 2, ' ALTILLO', 1, '', '11001', 'san cayetano', '3', '11', 'no aplica', 'Casa', 'Familiar', '', '', 'Gloria Russi', 'ok generalmete esta ok', 'Esta situada en frente de un parque', 'ok buenas relaciones con su familia', '4.702076,-74.102751', 'fMzi5Gcasa-construid', 'ninguna');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

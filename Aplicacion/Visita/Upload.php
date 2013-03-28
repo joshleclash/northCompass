@@ -1,6 +1,6 @@
 <?php
-session_start();
-include("Conexion.php");
+@session_start();
+include("../../Conexion.php");
 $Csc_Login=$_SESSION["Csc"];
 $Csc=$_REQUEST['csc'];
 $select="Select * from Audiovisuales where Creacion_Csc='".$Csc."'";
@@ -129,10 +129,10 @@ function RandomString($largo){
 	///////////////////////////ARHVIO DE AUDIO
 if(isset($_FILES['file_audio']['tmp_name']))
 	{
-	$AudioTmp = $_FILES['file_audio']['tmp_name'];
-	$AudioName = $_FILES['file_audio']['name'];
-	$AudioSize = $_FILES['file_audio']['size'];
-	$AudioType = $_FILES['file_audio']['type'];
+	@$AudioTmp = $_FILES['file_audio']['tmp_name'];
+	@$AudioName = $_FILES['file_audio']['name'];
+	@$AudioSize = $_FILES['file_audio']['size'];
+	@$AudioType = $_FILES['file_audio']['type'];
 	if ($AudioTmp=='')
 			{
 		echo '<br/><p class="perror">Archivo de audio no fue cargado'.$FileAudio.'</p>';

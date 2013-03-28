@@ -38,7 +38,7 @@ function initialize() {
             position: results[0].geometry.location              
         });
         infowindow.setContent(results[1].formatted_address+"<br/>Referenciacion<br/>Latitud:"+results[0].geometry.location.kb+"<br/>"+
-                      "Longitud:"+results[0].geometry.location.lb);
+                      "Longitud:"+results[0].geometry.location.jb);
         infowindow.open(map, marker);
       } else {
         alert("Geocode was not successful for the following reason: " + status);

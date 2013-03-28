@@ -366,7 +366,7 @@ $Csc=$_REQUEST['Csc'];
 			" T_inmueble, Tipo_Inmueble, Arrendador, Canon, Nombre, Entorno, Distribucion, Caracteristicas, Georeferenciacion, Foto, Observaciones) VALUES ('".$Csc."',".
 			"".$Login.",'".$Cedula."','".$txt_Direccion."','".$hi_lst_ciudad2."','".$txt_BarrioV."','".$hi_lst_estratoV."','".$hi_lst_departamento2."',".
 			"'".$Municipio_V."','".$hi_lst_inmuebleV."','".$hi_lst_tinmuebles."','".$Arrendador_V."','".$Canon_V."','".$Dueno_V."','".$Referencias_V."',".
-			"'".$Distribucion_V."','".$Convivencia_V."','Sin Definir','Sin Definir','".$Ob2."')";
+			"'".$Distribucion_V."','".$Convivencia_V."','".$_REQUEST["txt_localizacion"]."','Sin Definir','".$Ob2."')";
 			db('northcompas', $link);
 			mysql_query($Sqltab2)or die("{success:false}");
 			$UpdateEstado="update creacion set Estado='4', Fecha_Referenciacion='".$Fecha_Creacion."' where Csc_Creacion='".$Csc."'"; 
@@ -562,51 +562,51 @@ $Csc=$_REQUEST['Csc'];
 		}else if ($tab==5){	
 			//Creacion_Csc, Usuario_Csc,	Identificacion
 //			hi_lst_estadocivil
-			$txt_NombresTab5=$_REQUEST['txt_NombresTab5'];
-			$txt_ApellidosTab5=$_REQUEST['txt_ApellidosTab5'];
-			$txt_CargoTab5=$_REQUEST['txt_CargoTab5'];
-			$txt_TelTab5=$_REQUEST['txt_TelTab5'];
-			$txt_NombresATab5=$_REQUEST['txt_NombresATab5'];
-			$txt_ApellidosATab5=$_REQUEST['txt_ApellidosATab5'];
-			$txt_CargoATab5=$_REQUEST['txt_CargoATab5'];
-			$txt_TelATab5=$_REQUEST['txt_TelATab5'];
-			$Grid_Ref=$_REQUEST['Grid_Ref'];
-			$hi_lst_estadocivil=$_REQUEST['lst_estadocivil'];
-			$txt_NameConyuge=$_REQUEST['txt_NameConyuge'];
-			$txt_ApellidosConyuge=$_REQUEST['txt_ApellidosConyuge'];
-			$txt_TipoIdentificacionConyuge=$_REQUEST['txt_TipoIdentificacionConyuge'];
-			$txt_NumeroIdentificacionConyuge=$_REQUEST['txt_NumeroIdentificacionConyuge'];
-			$txt_TelConyuge=$_REQUEST['txt_TelConyuge'];
-			$txt_CelConyuge=$_REQUEST['txt_CelConyuge'];
-			$txt_MailConyuge=$_REQUEST['txt_MailConyuge'];
-			$txt_EmpresaConyuge=$_REQUEST['txt_EmpresaConyuge'];
-			$txt_TelTrabConyuge=$_REQUEST['txt_TelTrabConyuge'];
-			$txt_actividadTraConyuge=$_REQUEST['txt_actividadTraConyuge'];
-			$send_Hijos=$_REQUEST['send_Hijos'];//grid
-			$txt_NombrePadre=$_REQUEST['txt_NombrePadre'];
-			$txt_ApellidosPadre=$_REQUEST['txt_ApellidosPadre'];
-			$hi_lst_PaisPadre=$_REQUEST['hi_lst_PaisPadre'];
-			$hi_lst_deptoPadre=$_REQUEST['hi_lst_deptoPadre'];
-			$hi_lst_ciudadPadre=$_REQUEST['hi_lst_ciudadPadre'];
-			$txt_ResidenciaPadre=$_REQUEST['txt_ResidenciaPadre'];
-			$txt_CelPadre=$_REQUEST['txt_CelPadre'];
-			$hi_lst_actividadPadre=$_REQUEST['hi_lst_actividadPadre'];
-			$empresa_Padre=$_REQUEST['empresa_Padre'];
-			$cargo_Padre=$_REQUEST['cargo_Padre'];
-			$Telempresa_Padre=$_REQUEST['Telempresa_Padre'];
-			$nombre_Madre=$_REQUEST['nombre_Madre'];
-			$name_Apellidos=$_REQUEST['name_Apellidos'];
+			@$txt_NombresTab5=$_REQUEST['txt_NombresTab5'];
+			@$txt_ApellidosTab5=$_REQUEST['txt_ApellidosTab5'];
+			@$txt_CargoTab5=$_REQUEST['txt_CargoTab5'];
+			@$txt_TelTab5=$_REQUEST['txt_TelTab5'];
+			@$txt_NombresATab5=$_REQUEST['txt_NombresATab5'];
+			@$txt_ApellidosATab5=$_REQUEST['txt_ApellidosATab5'];
+			@$txt_CargoATab5=$_REQUEST['txt_CargoATab5'];
+			@$txt_TelATab5=$_REQUEST['txt_TelATab5'];
+			@$Grid_Ref=$_REQUEST['Grid_Ref'];
+			@$hi_lst_estadocivil=$_REQUEST['lst_estadocivil'];
+			@$txt_NameConyuge=$_REQUEST['txt_NameConyuge'];
+			@$txt_ApellidosConyuge=$_REQUEST['txt_ApellidosConyuge'];
+			@$txt_TipoIdentificacionConyuge=$_REQUEST['txt_TipoIdentificacionConyuge'];
+			@$txt_NumeroIdentificacionConyuge=$_REQUEST['txt_NumeroIdentificacionConyuge'];
+			@$txt_TelConyuge=$_REQUEST['txt_TelConyuge'];
+			@$txt_CelConyuge=$_REQUEST['txt_CelConyuge'];
+			@$txt_MailConyuge=$_REQUEST['txt_MailConyuge'];
+			@$txt_EmpresaConyuge=$_REQUEST['txt_EmpresaConyuge'];
+			@$txt_TelTrabConyuge=$_REQUEST['txt_TelTrabConyuge'];
+			@$txt_actividadTraConyuge=$_REQUEST['txt_actividadTraConyuge'];
+			@$send_Hijos=$_REQUEST['send_Hijos'];//grid
+			@$txt_NombrePadre=$_REQUEST['txt_NombrePadre'];
+			@$txt_ApellidosPadre=$_REQUEST['txt_ApellidosPadre'];
+			@$hi_lst_PaisPadre=$_REQUEST['hi_lst_PaisPadre'];
+			@$hi_lst_deptoPadre=$_REQUEST['hi_lst_deptoPadre'];
+			@$hi_lst_ciudadPadre=$_REQUEST['hi_lst_ciudadPadre'];
+			@$txt_ResidenciaPadre=$_REQUEST['txt_ResidenciaPadre'];
+			@$txt_CelPadre=$_REQUEST['txt_CelPadre'];
+			@$hi_lst_actividadPadre=$_REQUEST['hi_lst_actividadPadre'];
+			@$empresa_Padre=$_REQUEST['empresa_Padre'];
+			@$cargo_Padre=$_REQUEST['cargo_Padre'];
+			@$Telempresa_Padre=$_REQUEST['Telempresa_Padre'];
+			@$nombre_Madre=$_REQUEST['nombre_Madre'];
+			@$name_Apellidos=$_REQUEST['name_Apellidos'];
 			
-			$hi_lst_PaiseMadre=$_REQUEST['hi_lst_PaiseMadre'];
-			$hi_lst_deptoMadre=$_REQUEST['hi_lst_deptoMadre'];
-			$hi_lst_ciudadMadre=$_REQUEST['hi_lst_ciudadMadre'];
-			$tel_Madre=$_REQUEST['tel_Madre'];
-			$cel_Madre=$_REQUEST['cel_Madre'];
-			$hi_lst_acMadre=$_REQUEST['hi_lst_acMadre'];
-			$emp_Madre=$_REQUEST['emp_Madre'];
-			$cargo_Madre=$_REQUEST['cargo_Madre'];
-			$telEmp_Madre=$_REQUEST['telEmp_Madre'];
-			$send_Hermanos=$_REQUEST['send_Hermanos'];
+			@$hi_lst_PaiseMadre=$_REQUEST['hi_lst_PaiseMadre'];
+			@$hi_lst_deptoMadre=$_REQUEST['hi_lst_deptoMadre'];
+			@$hi_lst_ciudadMadre=$_REQUEST['hi_lst_ciudadMadre'];
+			@$tel_Madre=$_REQUEST['tel_Madre'];
+			@$cel_Madre=$_REQUEST['cel_Madre'];
+			@$hi_lst_acMadre=$_REQUEST['hi_lst_acMadre'];
+			@$emp_Madre=$_REQUEST['emp_Madre'];
+			@$cargo_Madre=$_REQUEST['cargo_Madre'];
+			@$telEmp_Madre=$_REQUEST['telEmp_Madre'];
+			@$send_Hermanos=$_REQUEST['send_Hermanos'];
 			$Selecttab5="Select * from info_familiar where Creacion_Csc='".$Csc."'";
 				db('northcompas',$link);
 				$ResultTab5=mysql_query($Selecttab5);
@@ -687,8 +687,8 @@ $Csc=$_REQUEST['Csc'];
 			}
 		else if ($tab==6)
 			{
-		$obTab6=$_REQUEST['obTab6'];
-		$Sendgrid_Laboral=$_REQUEST['Sendgrid_Laboral'];
+		@$obTab6=$_REQUEST['obTab6'];
+		@$Sendgrid_Laboral=$_REQUEST['Sendgrid_Laboral'];
 			$selectTab6="Select * from info_laboral where Creacion_Csc='".$Csc."'";
 				db('northcompas',$link);
 					$ResultTab6=mysql_query($selectTab6);
@@ -714,17 +714,17 @@ $Csc=$_REQUEST['Csc'];
 				
 				
 			}else if ($tab==7){
-	$salario=$_REQUEST['salario'];
-	$pension=$_REQUEST['pension'];
-	$arriendos=$_REQUEST['arriendos'];
-	$honorarios=$_REQUEST['honorarios'];
-	$otros=$_REQUEST['otros'];
-	$egresoa=$_REQUEST['egresoa'];
-	$egresob=$_REQUEST['egresob'];
-	$egresoc=$_REQUEST['egresoc'];
-	$egresod=$_REQUEST['egresod'];
-	$egresoe=$_REQUEST['egresoe'];
-	$RetiroTab7=$_REQUEST['RetiroTab7'];
+	@$salario=$_REQUEST['salario'];
+	@$pension=$_REQUEST['pension'];
+	@$arriendos=$_REQUEST['arriendos'];
+	@$honorarios=$_REQUEST['honorarios'];
+	@$otros=$_REQUEST['otros'];
+	@$egresoa=$_REQUEST['egresoa'];
+	@$egresob=$_REQUEST['egresob'];
+	@$egresoc=$_REQUEST['egresoc'];
+	@$egresod=$_REQUEST['egresod'];
+	@$egresoe=$_REQUEST['egresoe'];
+	@$RetiroTab7=$_REQUEST['RetiroTab7'];
 	$ObTab7=$_REQUEST['ObTab7'];
 			$selectTab7="Select * from info_finaciera where Creacion_Csc='".$Csc."'";
 				db('northcompas',$link);
@@ -776,13 +776,13 @@ $Csc=$_REQUEST['Csc'];
 				
 				//echo "{success:true}";
 			}else if ($tab==9){
-				$hi_lst_fuma=$_REQUEST['hi_lst_fuma'];
-				$Medicamentos=$_REQUEST['Medicamentos'];
-				$Alimentos=$_REQUEST['Alimentos'];
-				$Analisis=$_REQUEST['Analisis'];
-				$hi_lst_actitud=$_REQUEST['hi_lst_actitud'];
-				$ObActitud=$_REQUEST['ObActitud'];
-				$hi_lst_concepto=$_REQUEST['hi_lst_concepto'];
+				@$hi_lst_fuma=$_REQUEST['hi_lst_fuma'];
+				@$Medicamentos=$_REQUEST['Medicamentos'];
+				@$Alimentos=$_REQUEST['Alimentos'];
+				@$Analisis=$_REQUEST['Analisis'];
+				@$hi_lst_actitud=$_REQUEST['hi_lst_actitud'];
+				@$ObActitud=$_REQUEST['ObActitud'];
+				@$hi_lst_concepto=$_REQUEST['hi_lst_concepto'];
 				$ObConcepto=$_REQUEST['ObConcepto'];
 						$SelectTab9="SELECT * FROM  concepto where Creacion_Csc = '".$Csc."'";
 							db('northcompas',$link);
@@ -792,7 +792,8 @@ $Csc=$_REQUEST['Csc'];
 										if ($Concepto_Csc=='')
 											{
 												fn_envioCorreos($link, 'CONCEPTO FINAL', $Csc);
-												$InsertTab9="Insert into concepto (Creacion_Csc, Usuario_Csc, Identificacion, Fuma, Medicamentos, Alimentos, Analisis,".												" Actitud, ObActitud, Concepto, ObConcepto, Fecha_Creacion) Values ('".$Csc."','".$Login."','".$Cedula."',".
+												$InsertTab9="Insert into concepto (Creacion_Csc, Usuario_Csc, Identificacion, Fuma, Medicamentos, Alimentos, Analisis,".
+                                                                                                            " Actitud, ObActitud, Concepto, ObConcepto, Fecha_Creacion) Values ('".$Csc."','".$Login."','".$Cedula."',".
 												" '".$hi_lst_fuma."','".$Medicamentos."','".$Alimentos."','".$Analisis."','".$hi_lst_actitud."','".$ObActitud."',".
 												" '".$hi_lst_concepto."','".$ObConcepto."','".$Fecha_Creacion."')";
 													mysql_query($InsertTab9)or die("{success:false}");

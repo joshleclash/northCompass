@@ -1,4 +1,4 @@
-<?php include("Conexion.php");
+<?php include("../../Conexion.php");
 echo $data;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
