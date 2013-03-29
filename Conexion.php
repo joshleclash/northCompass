@@ -1,8 +1,8 @@
 <?php
 include_once 'Aplicacion/components/Components.php';
-$host='localhost';
-$user='root';
-$pass="";
+$host='northcompas.db.10154093.hostedresource.com';//'localhost';
+$user='northcompas';//'root';
+$pass='S1t12009@';
 $link=mysql_connect($host,$user,$pass) or die ("Imposible conectarse con la base de datos");
 function db($database, $link){
 	$db=mysql_select_db($database,$link);

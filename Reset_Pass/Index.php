@@ -1,5 +1,5 @@
 <?php
-include('Conexion.php');
+include('../Conexion.php');
 ?>
 
 
@@ -115,11 +115,11 @@ var Window =  new Ext.Window({
 				var Contra2 =	document.getElementById('ContraNew2').value;
 				 if(PasVer == ''){
 					 
-					 Ext.Msg.alert('Eror','El campo de verificacion de Contraseña no puede estar vacio');
+					 Ext.Msg.alert('Eror','El campo de verificacion de Contraseï¿½a no puede estar vacio');
 					 }
 				else if (Contra1 != Contra2)
 					{
-					Ext.Msg.alert('Eror','Las Contraseña Nueva y La Contraseña Confirmacion No Coinciden Verique sus datos');
+					Ext.Msg.alert('Eror','Las Contraseï¿½a Nueva y La Contraseï¿½a Confirmacion No Coinciden Verique sus datos');
 					}
 				else if (Contra1 == Contra2)
 					{
@@ -139,7 +139,7 @@ var Window =  new Ext.Window({
 function fn_enviar(){
 			LoginForm.form.submit({
 						success: function(){
-							var msg = 'Contraseña  Actualizada Correctamente';
+							var msg = 'Contraseï¿½a  Actualizada Correctamente';
 							Ext.Msg.alert('Respuesta',msg, function(btn, text){
 							//alert(btn)
 							setTimeout("document.location = '../Default.php'", 5);	

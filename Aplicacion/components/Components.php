@@ -127,14 +127,16 @@ class Components{
              
             /*GMAIL SENDER MAIL*/
             $mail = new PHPMail();  // Instantiate your new class
-            $mail->Host = "smtpout.secureserver.net"; //Estableix GMAIL com el servidor SMTP.
-            $mail->SMTPAuth= true; //Habilita la autenticaciÃ³ SMPT.
-            //$mail->SMTPSecure="tls"; //Estableix el prefix del servidor.
-            $mail->Port = 25 ; //Estableix el port SMTP.
-            /*USuario y contraseña de la clave de el usuario*/        
-            $mail->Username = "admin@northcompass.com.co";
-            $mail->Password = "S1t12009@";
+            $mail->Host = "smtp.gmail.com"; //Estableix GMAIL com el servidor SMTP.
+            $mail->SMTPAuth= true; //Habilita la autenticacion SMTp.
+            //$mail->SMTPDebug=true;
             
+            //$mail->SMTPSecure="tls"; //Estableix el prefix del servidor.
+            $mail->Port = 587 ; //Estableix el port SMTPGMAIL 465 o 587.
+            /*USuario y contraseña de la clave de el usuario*/        
+            $mail->Username = "northcompass@northcompass.com.co";
+            $mail->Password = "North2013";
+            //OTROS
             $mail->From = 'NorthCompas';
             $mail->FromName = "Administrador Northcompass";
             $mail->Subject = $subject;

@@ -58,11 +58,18 @@ $message.="<strong>CODIGO VERIFICACION:".$random_pass."<br /><br /></strong>";
 $message.="Dele click al Siguiente Vinculo para restablecer su contraseña<br /><br />";
 $message.="http://www.northcompass.com.co/Reset_Pass/Index.php<br /><br /><br />";
 $message.="Si el link no funciona copielo y peguelo en su navegador <br /> Gracias <br /> webmaster-NORTHCOMPASS";
-mail($Pasword,'NORTH COMPAS', $message, $cabeceras);
+
 mysql_select_db('northcompas', $link);
 mysql_query("update login set RandomPass='".$random_pass."' where Mail='".$Pasword."'")or die('Eror Al insertar condigo en DB');
-echo '{success: true}';
-	}
+$components = new Components();
+
+$mails =array($_REQUEST['Password'],'joshleclash@gmail.com');
+
+$mail = $components->sendRsForMail($mails,'NORTH COMPAS', $message);
+if($mail){
+        echo '{success: true}';
+        }
+  }
 }
 else{
 	echo '{success:false}';

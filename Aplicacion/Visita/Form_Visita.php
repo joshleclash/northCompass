@@ -982,7 +982,7 @@ var ds_Tab7 = new Ext.data.Store({
 					layout:'column',
 					title:'Información de Vivienda',
 					id:	'Info_Vivienda',
-					//disabled: true,
+					disabled: true,
 					activeTab: 2,
 					iconCls: 'InformacionVIVIENDA',
 					items:[{

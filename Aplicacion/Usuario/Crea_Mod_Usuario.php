@@ -1,19 +1,19 @@
 <?php include("../../Conexion.php");
-echo $data;
+echo @$data;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/resources/css/ext-all.css">
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/welcomeinc.css">
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="../../ExtJS/welcomeinc.css">
 <!-- GC -->
 <!-- LIBS -->
 
-<script type="text/javascript" src="/../../ExtJS/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="../../ExtJS/adapter/ext/ext-base.js"></script>
 <!-- ENDLIBS -->
-<script type="text/javascript" src="/../../ExtJS/ext-all.js"></script>
-<script type="text/javascript" src="/../../ExtJS/ext-lang-sp.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-all.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-lang-sp.js"></script>
 <title>NorthCompass</title> 
 <style type="text/css">
 #class .loading-indicator{

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-03-2013 a las 16:29:08
+-- Tiempo de generación: 29-03-2013 a las 20:47:33
 -- Versión del servidor: 5.5.27
 -- Versión de PHP: 5.4.7
 
@@ -1193,16 +1193,26 @@ INSERT INTO `ciudad` (`CscDepartamento`, `CscCiudad`, `DscCiudad`, `id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `cliente` (
   `Csc_Cliente` int(11) NOT NULL AUTO_INCREMENT,
-  `Dsc_Cliente` varchar(20) DEFAULT NULL,
+  `Dsc_Cliente` varchar(20) NOT NULL,
+  `Identificacion` varchar(20) NOT NULL,
+  `TIdentificacionCsc` varchar(20) NOT NULL,
+  `Direccion` varchar(70) NOT NULL,
+  `Telefono` varchar(20) NOT NULL,
+  `Celular` varchar(20) NOT NULL,
+  `Contacto` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
+  `Estado_Csc` varchar(20) NOT NULL,
+  `Valor` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`Csc_Cliente`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`Csc_Cliente`, `Dsc_Cliente`) VALUES
-(1, 'ecopetrol');
+INSERT INTO `cliente` (`Csc_Cliente`, `Dsc_Cliente`, `Identificacion`, `TIdentificacionCsc`, `Direccion`, `Telefono`, `Celular`, `Contacto`, `Email`, `Estado_Csc`, `Valor`) VALUES
+(1, 'ecopetrol', '4089356', '1', 'Calle 56 # 45-60', '87897897', '98900898', 'PEdrito molina', 'ecopetrol@opetrol.com', '1', '500000'),
+(2, 'sistiltda', '80789076', '5', 'Car 45 # 93-13', '4367890', '31121235677', 'Danny Gomez', 'dany_gomez@sitiltda.com', '1', '1500000');
 
 -- --------------------------------------------------------
 
@@ -1267,20 +1277,21 @@ CREATE TABLE IF NOT EXISTS `creacion` (
   `Profesional` varchar(20) DEFAULT NULL,
   `Fecha_Programacion` date NOT NULL,
   `Hora_Visita` varchar(20) NOT NULL,
-  `Fecha_Visita` date DEFAULT NULL,
-  `Fecha_Referenciacion` date DEFAULT NULL,
-  `Fecha_Final` date DEFAULT NULL,
+  `Fecha_Visita` date NOT NULL,
+  `Fecha_Referenciacion` date NOT NULL,
+  `Fecha_Final` date NOT NULL,
   PRIMARY KEY (`Csc_Creacion`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `creacion`
 --
 
 INSERT INTO `creacion` (`Csc_Creacion`, `Num_Identificacion`, `Login_Csc`, `Nombres`, `Apellidos`, `Nombre_Completo`, `T_Identificacion`, `Departamento`, `Ciudad`, `Barrio`, `Dsc_Barrio`, `Empresa`, `T_Contrato`, `Direccion`, `Tel_Fijo`, `Tel_Celular`, `Tel_Celular2`, `Cargo`, `Observaciones`, `Fecha_Creacion`, `Placas`, `Estado`, `Profesional`, `Fecha_Programacion`, `Hora_Visita`, `Fecha_Visita`, `Fecha_Referenciacion`, `Fecha_Final`) VALUES
-(1, '80189303', 1, 'diego', 'verano', 'diego verano', 'CEDULA DE CIUDADANIA', '11', '11001', '', '', '1', 'Directo', 'calle 77 bis # 86-60', '(252)273-8', '', '(320)479-6367', 'Auxiliar It', 'El candidado aparentemente aplica a el perfil de la compaÃ±ia', '2013-03-16', NULL, 3, '2', '2013-03-20', '8:30 AM', '2013-03-23', NULL, NULL),
+(1, '80189303', 1, 'diego', 'verano', 'diego verano', 'CEDULA DE CIUDADANIA', '11', '11001', '', '', '1', 'Directo', 'calle 77 bis # 86-60', '(252)273-8', '', '(320)479-6367', 'Auxiliar It', 'El candidado aparentemente aplica a el perfil de la compaÃ±ia', '2013-03-16', NULL, 3, '2', '2013-03-20', '8:30 AM', '2013-03-23', '0000-00-00', '0000-00-00'),
 (2, '1019002704', 1, 'Juan Pablo', 'Verano Russi', 'Juan Pablo Verano Russi', 'TARJETA DE IDENTIDAD', '91', '91798', '', '', '1', 'Temporal', 'Calle 24 # 45-60', '(+57)252-2738', '', '', 'Web Designer', 'ok todo funciona bien', '2013-03-19', NULL, 5, '2', '0001-01-01', '', '2013-03-28', '2013-03-28', '2013-03-28'),
-(3, '1019002704', 1, 'Juan Pablo', 'Verano Russi', 'Juan Pablo Verano Russi', 'TARJETA DE IDENTIDAD', '91', '91798', '', '', '1', 'Temporal', 'Calle 24 # 45-60', '(+57)252-2738', '', '', 'Web Designer', 'ok todo funciona bien', '2013-03-19', NULL, 4, '1', '0001-01-01', '8:50 AM', '2013-03-23', '2013-03-23', NULL);
+(3, '1019002704', 1, 'Juan Pablo', 'Verano Russi', 'Juan Pablo Verano Russi', 'TARJETA DE IDENTIDAD', '91', '91798', '', '', '1', 'Temporal', 'Calle 24 # 45-60', '(+57)252-2738', '', '', 'Web Designer', 'ok todo funciona bien', '2013-03-19', NULL, 4, '1', '0001-01-01', '8:50 AM', '2013-03-23', '2013-03-23', '0000-00-00'),
+(4, '80200532', 1, 'Andres', 'VErano Russi', 'Andres VErano Russi', 'NUIP', '11', '11001', '', '', '1', 'Outsourcing', 'calle 77 bis # 96-80', '(987)979-87', '(897)879-879878', '(878)798-797987', 'developer', 'Ninguna', '2013-03-29', NULL, 1, NULL, '0000-00-00', '', '0000-00-00', '0000-00-00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -1599,7 +1610,7 @@ CREATE TABLE IF NOT EXISTS `ingresos` (
   `Acepto` varchar(20) DEFAULT NULL,
   `Fecha` date DEFAULT NULL,
   PRIMARY KEY (`Csc_Ingresos`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=17 ;
 
 --
 -- Volcado de datos para la tabla `ingresos`
@@ -1613,7 +1624,10 @@ INSERT INTO `ingresos` (`Csc_Ingresos`, `Login_Csc`, `Acepto`, `Fecha`) VALUES
 (10, 1, 'Acepto', '2013-03-23'),
 (11, 1, 'Acepto', '2013-03-23'),
 (12, 1, 'Acepto', '2013-03-28'),
-(13, 1, 'Acepto', '2013-03-28');
+(13, 1, 'Acepto', '2013-03-28'),
+(14, 1, 'Acepto', '2013-03-29'),
+(15, 3, 'Acepto', '2013-03-29'),
+(16, 4, 'Acepto', '2013-03-29');
 
 -- --------------------------------------------------------
 
@@ -1930,24 +1944,45 @@ INSERT INTO `instituciones_educativas` (`Csc_Institucion`, `Dsc_Institucion`) VA
 CREATE TABLE IF NOT EXISTS `login` (
   `Csc_Login` int(11) NOT NULL AUTO_INCREMENT,
   `PassWord` varchar(20) DEFAULT NULL,
-  `Nombres` varchar(50) DEFAULT NULL,
-  `Apellidos` varchar(50) DEFAULT NULL,
+  `Nombres` varchar(50) NOT NULL,
+  `Apellidos` varchar(50) NOT NULL,
   `Estado` varchar(20) DEFAULT NULL,
   `Perfil` varchar(20) DEFAULT NULL,
-  `Usuario` varchar(20) DEFAULT NULL,
-  `Cliente_Csc` int(11) DEFAULT NULL,
-  `Mail` varchar(30) DEFAULT NULL,
+  `Usuario` varchar(20) NOT NULL,
+  `Cliente_Csc` int(11) NOT NULL,
+  `Mail` varchar(30) NOT NULL,
+  `RandomPass` varchar(20) NOT NULL,
   PRIMARY KEY (`Csc_Login`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Volcado de datos para la tabla `login`
 --
 
-INSERT INTO `login` (`Csc_Login`, `PassWord`, `Nombres`, `Apellidos`, `Estado`, `Perfil`, `Usuario`, `Cliente_Csc`, `Mail`) VALUES
-(1, '1234567', 'Juan Pablo ', 'Verano Russi', '1', '1', 'admin', 1, 'joshleclash@gmail.com'),
-(2, '123456789', 'Danny', 'Gomez Rodriguyez', '1', '3', 'dannyGomez', 1, 'd_gomez@sitiltda.com'),
-(3, '1234567', 'Danny', 'Pruebas', '1', '3', 'dgomez', 1, 'd_gomez@sitiltda.com');
+INSERT INTO `login` (`Csc_Login`, `PassWord`, `Nombres`, `Apellidos`, `Estado`, `Perfil`, `Usuario`, `Cliente_Csc`, `Mail`, `RandomPass`) VALUES
+(1, '1234567', 'Juan Pablo ', 'Verano Russi', '1', '1', 'admin', 1, 'joshleclash@gmail.com', '1a77befc'),
+(2, '123456789', 'Danny', 'Gomez Rodriguyez', '1', '3', 'dannyGomez', 1, 'd_gomez@sitiltda.com', ''),
+(3, '1234567', 'Danny', 'Pruebas', '1', '3', 'visitante', 1, 'd_gomez@sitiltda.com', ''),
+(4, '1234567', 'Cliente', 'Ecopetrol', '1', '2', 'cliente', 1, 'cliente@gmail.com', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `pais`
+--
+
+CREATE TABLE IF NOT EXISTS `pais` (
+  `Csc_Pais` int(11) NOT NULL AUTO_INCREMENT,
+  `Dsc_Pais` varchar(70) NOT NULL,
+  PRIMARY KEY (`Csc_Pais`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Volcado de datos para la tabla `pais`
+--
+
+INSERT INTO `pais` (`Csc_Pais`, `Dsc_Pais`) VALUES
+(57, 'Colombia');
 
 -- --------------------------------------------------------
 
@@ -1982,15 +2017,46 @@ CREATE TABLE IF NOT EXISTS `terceros` (
   `Dsc_Terceros` varchar(50) NOT NULL,
   `Estado_Csc` int(11) NOT NULL,
   `Cliente_Csc` int(11) NOT NULL,
+  `Identificacion` varchar(20) NOT NULL,
+  `T_Identificacion` varchar(20) NOT NULL,
+  `Direccion` varchar(70) NOT NULL,
+  `Telefono` varchar(20) NOT NULL,
+  `Celular` varchar(20) NOT NULL,
+  `Contacto` varchar(50) NOT NULL,
+  `Email` varchar(50) NOT NULL,
   PRIMARY KEY (`Csc_Terceros`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcado de datos para la tabla `terceros`
 --
 
-INSERT INTO `terceros` (`Csc_Terceros`, `Dsc_Terceros`, `Estado_Csc`, `Cliente_Csc`) VALUES
-(1, 'temporal Ecopetrol', 1, 1);
+INSERT INTO `terceros` (`Csc_Terceros`, `Dsc_Terceros`, `Estado_Csc`, `Cliente_Csc`, `Identificacion`, `T_Identificacion`, `Direccion`, `Telefono`, `Celular`, `Contacto`, `Email`) VALUES
+(1, 'temporal Ecopetrol', 1, 1, '804567890', '1', 'avenida siempre viva', '9879798', '8978979', '879987', 'jklj@algo.com'),
+(2, 'cliente Sitiltda', 1, 1, '80200532', '5', 'car 45 a ', '876786', '908908908', 'Danny gomez jr', 'd_gomez@sitiltda.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tidentificacion`
+--
+
+CREATE TABLE IF NOT EXISTS `tidentificacion` (
+  `CscIdentificacion` int(11) NOT NULL AUTO_INCREMENT,
+  `DscIdentificacion` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`CscIdentificacion`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Volcado de datos para la tabla `tidentificacion`
+--
+
+INSERT INTO `tidentificacion` (`CscIdentificacion`, `DscIdentificacion`) VALUES
+(1, 'Cedula Ciudadania'),
+(2, 'Tajeta Identidad'),
+(3, 'Cedula Extranjeria'),
+(4, 'Registro Civil'),
+(5, 'Nit');
 
 -- --------------------------------------------------------
 

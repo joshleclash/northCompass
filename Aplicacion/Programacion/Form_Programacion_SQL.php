@@ -241,14 +241,14 @@ else if($consulta==1)
 											$js.="{'cont':'".$i."','Csc':'".$Csc_Creacion."','Fecha_Creacion':'".$Fecha_Creacion."','Profesional':'".$Profesional."',".
 											"'Estado':'CREADO'}";
 										//	}
-										if(is_null($Fecha_Programacion))
+										if($Fecha_Programacion!='0000-00-00')
 											{
 											$i++;
 											$js.=",";
 										$js.="{'cont':'".$i."','Csc':'".$Csc_Creacion."','Fecha_Creacion':'".$Fecha_Programacion." ".$Rs0['Hora_Visita']."','Profesional':'".$Profesional."',".
 											"'Estado':'PROGRAMADO'}";
 											}	
-										if (is_null($Fecha_Programacion))
+										if ($Fecha_Visita!='0000-00-00')
 											{
 												$userTabla=UsuarioTabla($link, $csc, 'documentos');
 												$Usuario=Usuario($link, $userTabla);
@@ -257,7 +257,7 @@ else if($consulta==1)
 											$js.="{'cont':'".$i."','Csc':'".$Csc_Creacion."','Fecha_Creacion':'".$Fecha_Visita."','Profesional':'".$Profesional."',".
 											"'Estado':'VISITA'}";
 											}
-										if (is_null($Fecha_Programacion))
+										if ($Fecha_Referenciacion!='0000-00-00')
 											{
 												$userTabla=UsuarioTabla($link, $csc, 'datos_basicos');
 												$Usuario=Usuario($link, $userTabla);
@@ -266,7 +266,7 @@ else if($consulta==1)
 											$js.="{'cont':'".$i."','Csc':'".$Csc_Creacion."','Fecha_Creacion':'".$Fecha_Referenciacion."','Profesional':'".$Profesional."',".
 											"'Estado':'REFERENCIACION'}";
 											}
-										if (is_null($Fecha_Programacion))
+										if ($Fecha_Final!='0000-00-00')
 											{
 												$userTabla=UsuarioTabla($link, $csc, 'concepto');
 												$Usuario=Usuario($link, $userTabla);

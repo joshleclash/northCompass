@@ -188,7 +188,8 @@ $i=0;
 	echo $json;
 
 }else if ($consulta==6){
-	$Cciudad=$_REQUEST['Cciudad'];
+    //var_dump($_REQUEST);
+	@$Cciudad=$_REQUEST['Csc_ciudad'];
 $SQL006="select * from     instituciones_educativas order by Csc_Institucion asc";
 	mysql_select_db('northcompas',$link);
 	$Con006=mysql_query($SQL006);

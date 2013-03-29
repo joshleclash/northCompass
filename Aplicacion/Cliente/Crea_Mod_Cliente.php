@@ -1,19 +1,19 @@
-<?php include("Conexion.php");
-echo $data;
+<?php include("../../Conexion.php");
+echo @$data;
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/resources/css/ext-all.css">
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/welcomeinc.css">
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/ext-all.css">
+<link rel="stylesheet" type="text/css" href="../../ExtJS/welcomeinc.css">
 <!-- GC -->
 <!-- LIBS -->
 
-<script type="text/javascript" src="/../../ExtJS/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="../../ExtJS/adapter/ext/ext-base.js"></script>
 <!-- ENDLIBS -->
-<script type="text/javascript" src="/../../ExtJS/ext-all.js"></script>
-<script type="text/javascript" src="/../../ExtJS/ext-lang-sp.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-all.js"></script>
+<script type="text/javascript" src="../../ExtJS/ext-lang-sp.js"></script>
 <title>NorthCompass</title> 
 <style type="text/css">
 #class .loading-indicator{
@@ -360,7 +360,11 @@ var tab2 = new Ext.FormPanel({
 												]
 										})
 										
-								}]
+								},{
+                                                                    xtype: 'displayfield',
+                                                                    fieldLabel: '',
+                                                                    value: '<span style="color:green;font-size:12px">Si desea agregar algun tercero es nesesario hacer click sobre la direccion de correo de la empresa</span>'
+                                                                }]
 					},{
 						columnWidth:.5,
 						layout: 'form',
@@ -587,7 +591,7 @@ grid.on('cellclick', function(grid, rowIndex, columnIndex, e){
 			Estado_Csc = Estado_Csc.replace('<SPAN style="color:red">', "");
 			Estado_Csc = Estado_Csc.replace("</SPAN>", "");
 		
-		if(columnIndex==12)
+		if(columnIndex==8 || columnIndex==9)
 			{
 			Terceros.show();
 			document.getElementById('CscCliente').value=CscCliente;

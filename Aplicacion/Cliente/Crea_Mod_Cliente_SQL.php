@@ -1,6 +1,8 @@
-<?php include("Conexion.php");
+<?php include("../../Conexion.php");
 
 $consulta=$_REQUEST['consulta'];
+$js='';
+$json='';
 if ($consulta==0)//CONSULTA PARA CARGAR LA INFO DE DEPARTAMENTO
 {
 	$Sql0="Select * from tidentificacion";
@@ -35,8 +37,8 @@ if ($consulta==1)//CONSULTA PARA CARGAR LA INFO DE DEPARTAMENTO
 			$i=0;
 			while($Rs1=mysql_fetch_array($Result1))
 				{
-						$CscCliente=$Rs1['CscCliente'];
-						$DscCliente=$Rs1['DscCliente'];
+						$CscCliente=$Rs1['Csc_Cliente'];
+						$DscCliente=$Rs1['Dsc_Cliente'];
 						$Identificacion=$Rs1['Identificacion'];
 						$TIdentificacion=$Rs1['TIdentificacionCsc'];
 							if($TIdentificacion!='')
@@ -88,23 +90,23 @@ if ($consulta==1)//CONSULTA PARA CARGAR LA INFO DE DEPARTAMENTO
 	
 }if ($consulta==2)//CONSULTA PARA CARGAR LA INFO DE DEPARTAMENTO
 {//DscCliente	Identificacion	TIdentificacionCsc	Direccion	Telefono	Celular	Contacto	Email	Estado_Csc
-$txt_nombre=$_REQUEST['txt_nombre'];
-$txt_identificacion=$_REQUEST['txt_identificacion'];
-$txt_telefono=$_REQUEST['txt_telefono'];
-$txt_contacto=$_REQUEST['txt_contacto'];
-$hi_lst_estado=$_REQUEST['hi_lst_estado'];
-$hi_lst_tipo=$_REQUEST['hi_lst_tipo'];
-$txt_direccion=$_REQUEST['txt_direccion'];
-$txt_movil=$_REQUEST['txt_movil'];
-$txt_mail=$_REQUEST['txt_mail'];
-$txt_csc=$_REQUEST['txt_csc'];
-$txt_Val=$_REQUEST['txt_Val'];
+@$txt_nombre=$_REQUEST['txt_nombre'];
+@$txt_identificacion=$_REQUEST['txt_identificacion'];
+@$txt_telefono=$_REQUEST['txt_telefono'];
+@$txt_contacto=$_REQUEST['txt_contacto'];
+@$hi_lst_estado=$_REQUEST['hi_lst_estado'];
+@$hi_lst_tipo=$_REQUEST['hi_lst_tipo'];
+@$txt_direccion=$_REQUEST['txt_direccion'];
+@$txt_movil=$_REQUEST['txt_movil'];
+@$txt_mail=$_REQUEST['txt_mail'];
+@$txt_csc=$_REQUEST['txt_csc'];
+@$txt_Val=$_REQUEST['txt_Val'];
 	if($txt_csc=='')
 		{
-			$Sql2="Insert into cliente (DscCliente, Identificacion, TIdentificacionCsc, Direccion, Telefono, Celular, Contacto, Email, Estado_Csc, Valor) Values ".
+			$Sql2="Insert into cliente (Dsc_Cliente, Identificacion, TIdentificacionCsc, Direccion, Telefono, Celular, Contacto, Email, Estado_Csc, Valor) Values ".
 					"('".$txt_nombre."','".$txt_identificacion."','".$hi_lst_tipo."','".$txt_direccion."','".$txt_telefono."','".$txt_movil."',".
-					"'".$txt_contacto."','".$txt_mail."','".$hi_lst_estado."', ".$txt_Val.")";
-					db('northcompas',$link);
+					"'".$txt_contacto."','".$txt_mail."','".$hi_lst_estado."', '".$txt_Val."')";
+                        		db('northcompas',$link);
 				  	$Respuesta = mysql_query($Sql2);
 					if(!$Respuesta)
 						{
@@ -126,9 +128,9 @@ $txt_Val=$_REQUEST['txt_Val'];
 		{
 				if($hi_lst_tipo=='---')//TIdentificacionCsc='".$hi_lst_tipo."',
 				{
-				$Sql2="Update cliente set DscCliente='".$txt_nombre."', Identificacion='".$txt_identificacion."', ".
+				$Sql2="Update cliente set Dsc_Cliente='".$txt_nombre."', Identificacion='".$txt_identificacion."', ".
 				"Direccion='".$txt_direccion."', Telefono='".$txt_telefono."', Celular='".$txt_movil."', Contacto='".$txt_contacto."', ".
-				"Email='".$txt_mail."', Estado_Csc='".$hi_lst_estado."', Valor=".$txt_Val." where CscCliente='".$txt_csc."'";
+				"Email='".$txt_mail."', Estado_Csc='".$hi_lst_estado."', Valor=".$txt_Val." where Csc_Cliente='".$txt_csc."'";
 							if ($hi_lst_estado==0)
 								{
 								$Sql2Up="update login set Estado='2' where Cliente_Csc='".$txt_csc."'";
@@ -147,15 +149,15 @@ $txt_Val=$_REQUEST['txt_Val'];
 				}
 			else if($hi_lst_estado=='---')
 				{
-				$Sql2="Update cliente set DscCliente='".$txt_nombre."', Identificacion='".$txt_identificacion."', TIdentificacionCsc='".$hi_lst_tipo."', ".
+				$Sql2="Update cliente set Dsc_Cliente='".$txt_nombre."', Identificacion='".$txt_identificacion."', TIdentificacionCsc='".$hi_lst_tipo."', ".
 				"Direccion='".$txt_direccion."', Telefono='".$txt_telefono."', Celular='".$txt_movil."', Contacto='".$txt_contacto."', ".
-				"Email='".$txt_mail."', Valor=".$txt_Val."  where CscCliente='".$txt_csc."'";
+				"Email='".$txt_mail."', Valor=".$txt_Val."  where Csc_Cliente='".$txt_csc."'";
 				}
 			else if ($hi_lst_estado!='---' and $hi_lst_tipo!='---')
 				{
-				$Sql2="Update cliente set DscCliente='".$txt_nombre."', Identificacion='".$txt_identificacion."', TIdentificacionCsc='".$hi_lst_tipo."', ".
+				$Sql2="Update cliente set Dsc_Cliente='".$txt_nombre."', Identificacion='".$txt_identificacion."', TIdentificacionCsc='".$hi_lst_tipo."', ".
 				"Direccion='".$txt_direccion."', Telefono='".$txt_telefono."', Celular='".$txt_movil."', Contacto='".$txt_contacto."', ".
-				"Email='".$txt_mail."', Estado_Csc='".$hi_lst_estado."', Valor=".$txt_Val."  where CscCliente='".$txt_csc."'";
+				"Email='".$txt_mail."', Estado_Csc='".$hi_lst_estado."', Valor=".$txt_Val."  where Csc_Cliente='".$txt_csc."'";
 						if ($hi_lst_estado==0)
 								{
 								$Sql2Up="update login set Estado='2' where Cliente_Csc='".$txt_csc."'";
@@ -174,7 +176,7 @@ $txt_Val=$_REQUEST['txt_Val'];
 				  	$Respuesta = mysql_query($Sql2);
 					if(!$Respuesta)
 						{
-							$info = array('success' => true, 'msg' => 'Error en la creacion de actualizacion Valide su Informacion'); //Ok 	
+							$info = array('success' => true, 'msg' => 'Error en la creacion de actualizacion Valide su Informacion'. mysql_error()); //Ok 	
 							echo json_encode($info);
 							return false;
 						}

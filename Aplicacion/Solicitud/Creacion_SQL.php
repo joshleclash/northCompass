@@ -114,28 +114,28 @@ $Con002=mysql_query($SQL002)or die('Error');
 							{
 								$SqlTerceros2="select t2.* from cliente t1, terceros t2 where t2.Estado_Csc='1' and  t1.Csc_Cliente = t2.Cliente_Csc and t2.Cliente_Csc".
 								"='".$Rs004['Cliente_Csc']."'";
+                                                                //echo $SqlTerceros2;
 								db('northcompas', $link);
-									$i=0;
+									
 										$ResultTer=mysql_query($SqlTerceros2);
-                                                                                
+                                                                                        $x=0;
+                                                                                        $js='';
 											while($RsTer=mysql_fetch_array($ResultTer))
 												{
 													$csc=$RsTer['Csc_Terceros'];
 													$dsc=$RsTer['Dsc_Terceros'];
-                                                                                                        $js='';
-												if ($i!=0)
+                                                                                                if ($x==0)
 													{
-													$i++;
-													$js.=",";	
-													$js.="{'cont':'".$i."','csc':'".$csc."','dsc':'".$dsc."'}";
+													$js.="{'cont':'".$x."','csc':'".$csc."','dsc':'".$dsc."'}";
 													}
 												else
 													{
-													$i++;
-													$js.="{'cont':'".$i."','csc':'".$csc."','dsc':'".$dsc."'}";
+													$js.=",";	
+													$js.="{'cont':'".$x."','csc':'".$csc."','dsc':'".$dsc."'}";
 													}													
+                                                                                                 $x++;       
 												}
-										echo "{totalCoun:".$i.", root:[".$js."]}";	
+										echo "{totalCoun:".$x.", root:[".$js."]}";	
 							
 							}
 						else if($Rs004['Cliente_Csc']==0)

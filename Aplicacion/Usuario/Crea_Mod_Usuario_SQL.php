@@ -1,6 +1,8 @@
 <?php include("../../Conexion.php");
 
-$consulta=$_REQUEST['consulta'];
+@$consulta=$_REQUEST['consulta'];
+$js='';
+$json='';
 if ($consulta==0)//CONSULTA PARA CARGAR LA INFO DE Empresa
 {
 	$Sql0="Select * from cliente";
@@ -9,8 +11,8 @@ if ($consulta==0)//CONSULTA PARA CARGAR LA INFO DE Empresa
 			$i=0;
 			while($Rs0=mysql_fetch_array($Result0))
 				{
-					$csc=$Rs0['CscCliente'];
-					$dsc=$Rs0['DscCliente'];
+					$csc=$Rs0['Csc_Cliente'];
+					$dsc=$Rs0['Dsc_Cliente'];
 					if($i==0)
 						{
 						$i++;

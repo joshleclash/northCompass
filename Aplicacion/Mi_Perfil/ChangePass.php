@@ -1,5 +1,5 @@
 <?php
-include("Conexion.php");
+include("../../Conexion.php");
 session_start();
 $Csc=$_SESSION['Csc'];
 	$sql="Select * from login where csc_login='".$Csc."'";
@@ -14,15 +14,15 @@ $Csc=$_SESSION['Csc'];
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!-- css styles-->
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/resources/css/ext-all.css"/>
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/resources/css/reset-min.css" />
-<link rel="stylesheet" type="text/css" href="/../../ExtJS/welcome.css"/>    
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/ext-all.css"/>
+<link rel="stylesheet" type="text/css" href="../../ExtJS/resources/css/reset-min.css" />
+<link rel="stylesheet" type="text/css" href="../../ExtJS/welcome.css"/>    
 
-    <script type="text/javascript" src="/../../ExtJS/adapter/ext/ext-base.js"></script> 
+    <script type="text/javascript" src="../../ExtJS/adapter/ext/ext-base.js"></script> 
 <!--    <script type="text/javascript" src="./Ext.ux.PasswordMeter.js"></script> -->
     <!-- ENDLIBS --> 
  	
-    <script type="text/javascript" src="/../../ExtJS/ext-all.js"></script>
+    <script type="text/javascript" src="../../ExtJS/ext-all.js"></script>
 <!-- Libs forms  -->    
 <title>North Compass</title>
 </head>
